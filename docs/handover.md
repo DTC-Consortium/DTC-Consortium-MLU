@@ -15,6 +15,7 @@ dtcconsortium.org are later stages and are not started here.
 | Repository created | `DTC-Consortium/DTC-Consortium-MLU`, **public**, default branch `main`, description and website field set per the specification |
 | Content pushed | 185 files; five contributions; four workflows registered and active |
 | Validation | 5 contributions, 0 errors, 0 warnings; catalog and generated files current; no broken local links |
+| `main` protected | Full section 6 settings applied, including code owner review — see below |
 
 ### On the repository name
 
@@ -34,17 +35,55 @@ python3 scripts/generate_boilerplate.py && python3 scripts/build_catalog.py
 
 ---
 
-## Still outstanding
+## ⚠️ Create the CODEOWNERS teams before inviting contributors
 
-The repository is public **before** its review governance exists. Until tasks 1 and 2 are done,
-anyone with write access can push straight to `main` without review.
+`main` is protected with **require code owner review** enabled, but the four teams
+`.github/CODEOWNERS` points at **do not exist yet**:
+
+- `mlu-maintainers`
+- `mlu-course-elements`
+- `mlu-ml-ai-applications`
+- `mlu-professional-student-development`
+
+**Until they exist, no pull request can be merged by a non-admin.** GitHub has no code owner to
+request a review from, so the requirement can never be satisfied.
+
+Creating them needs `admin:org`, which the setup token did not have. Create each team in the
+`DTC-Consortium` organization and give it **write** access to this repository:
+
+```bash
+gh auth refresh -h github.com -s admin:org
+for t in mlu-maintainers mlu-course-elements mlu-ml-ai-applications \
+         mlu-professional-student-development; do
+  gh api -X POST orgs/DTC-Consortium/teams -f name="$t" -f privacy=closed
+  gh api -X PUT "orgs/DTC-Consortium/teams/$t/repos/DTC-Consortium/DTC-Consortium-MLU" \
+    -f permission=push
+done
+```
+
+### The escape hatch, and why it exists
+
+Branch protection was applied with **`enforce_admins: false`**, so repository administrators can
+still push to `main` directly. That is deliberate: with the teams missing and no second reviewer,
+enforcing on admins too would leave nobody able to merge anything, including the fix.
+
+**Once the teams exist and there is more than one maintainer, turn it on:**
+
+```bash
+gh api -X POST repos/DTC-Consortium/DTC-Consortium-MLU/branches/main/protection/enforce_admins
+```
+
+Leaving it off indefinitely means an administrator can bypass review entirely, which is the
+one hole left in section 6.
+
+## Still outstanding
 
 | # | Task | Why it matters |
 |---|---|---|
-| 1 | **Create the four GitHub teams** named in `.github/CODEOWNERS` (`mlu-maintainers`, `mlu-course-elements`, `mlu-ml-ai-applications`, `mlu-professional-student-development`) and give each write access | Until they exist, GitHub cannot assign reviewers and "require code owner review" blocks every pull request. Needs `admin:org`. |
-| 2 | **Protect `main`** — see the settings below | Nothing currently prevents an unreviewed push to `main` |
-| 3 | Grant the four organization-approved administrators admin access | They are named in the specification, deliberately not in this repository — see below |
-| 4 | Create the labels the issue forms apply: `contribution: new`, `contribution: update`, `problem`, `links`, `needs triage` | Forms still work without them, but triage gets harder |
+| 1 | **Create the four CODEOWNERS teams**, above | No pull request is mergeable by a non-admin until they exist |
+| 2 | Grant the four organization-approved administrators admin access | They are named in the specification, deliberately not in this repository — see below |
+| 3 | Create the labels the issue forms apply: `contribution: new`, `contribution: update`, `problem`, `links`, `needs triage` | Forms still work without them, but triage gets harder |
+| 4 | Enable `enforce_admins` once there is a second maintainer | Otherwise an admin can bypass review |
 
 ### On the administrator addresses
 
@@ -57,16 +96,23 @@ Grant those four people admin access through the GitHub organization settings, a
 `mlu-maintainers` team. Keep the list of who they are wherever the organization already keeps such
 records — not here.
 
-### Branch protection settings for `main`
+### Branch protection as applied
 
-Per section 6 of the specification:
+| Setting | State |
+|---|---|
+| Require a pull request before merging | on |
+| Required approving reviews | 1 |
+| Require code owner review | on — **needs the teams above** |
+| Dismiss stale approvals on new commits | on |
+| Required status check | `Metadata, catalog, and local links`, branch must be up to date |
+| Force pushes | blocked |
+| Branch deletion | blocked |
+| Conversation resolution required | on |
+| Enforced on administrators | **off** — see the escape hatch above |
 
-- Require a pull request before merging.
-- Require at least **one approving review**.
-- Require approval from the relevant **code owner** (needs task 1 first).
-- Require the **Validate MLU contributions** status check to pass.
-- **Block force pushes** and branch deletion.
-- **Dismiss stale approvals** when substantive changes are pushed.
+The validation workflow deliberately has **no `paths` filter**. As a required check it must report
+on every pull request; a filtered check simply never reports on a pull request outside its paths,
+which blocks that pull request forever.
 
 ### Then
 
