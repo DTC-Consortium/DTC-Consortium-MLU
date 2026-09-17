@@ -52,6 +52,18 @@ Using it well means being able to:
 
 **Part 5 is a mandatory human review step.**
 
+## Is this a workshop?
+
+**No — it is a tool one faculty member uses on their own classes.** There is no run-of-show, no
+participant handout, and no 90-minute slot to fill.
+
+You can absolutely *demo* it to faculty or administrators, and
+[`materials/facilitator-guide/LAB_WALKTHROUGH.md`](materials/facilitator-guide/LAB_WALKTHROUGH.md)
+opens with a 20-minute demo shape for exactly that. But if you came looking for a facilitated
+session on assessment, deliver
+[`mlu-000005`](../../professional-student-development/mlu-000005-quick-assessment-demos) instead and
+point at this as the automated counterpart.
+
 ## Contents
 
 | Path | What it is |

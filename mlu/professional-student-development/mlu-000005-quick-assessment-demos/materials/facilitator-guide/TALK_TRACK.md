@@ -28,6 +28,17 @@ If you're short on time, protect that thread. Everything else compresses.
 
 ## Before the session
 
+> ### ⚠️ The four apps do not ship with this contribution
+>
+> The checklist below assumes the Rubric Builder, AI-Proofing Assistant, Grading app, and Triage
+> extension already exist and are published. **They are not included here — you must build them
+> first.**
+>
+> **→ [`APPS_YOU_MUST_BUILD.md`](APPS_YOU_MUST_BUILD.md)** collects every requirement this talk
+> track depends on, plus the exact outputs each app must produce on the sample pack.
+>
+> Everything else — deck, talk track, handout, sample pack — is complete and rehearsable.
+
 **48 hours before**
 - [ ] Quick invites sent, and accepted by most attendees. Volunteers have the list of anyone who
   hasn't accepted.

@@ -9,9 +9,19 @@ The whole session hangs on **one student paper** — fluent, confident, and wron
 **B+** under a vague rubric and an **F** under a rubric that names what "correct" means. The room
 grades it themselves before anyone reveals that.
 
-> **Maturity: pilot.** The materials are complete and rehearsable, but the expected outcomes in the
-> sample pack are **hand-scored predictions, not recorded results**. Run the rehearsal and replace
-> them with real numbers before treating this as classroom-tested.
+> ## ⚠️ Two things to know before you plan a delivery date
+>
+> **1. The four apps the session demonstrates are not included.** Rubric Builder, AI-Proofing
+> Assistant, Grading Assistant (Kiro), and Pre-Assessment Triage must be built before this session
+> can run. **[`APPS_YOU_MUST_BUILD.md`](materials/facilitator-guide/APPS_YOU_MUST_BUILD.md)** is the
+> spec — every requirement the talk track depends on, and the exact output each app must produce on
+> the bundled sample. Budget real time for this.
+>
+> **2. Maturity: pilot.** The expected outcomes in the sample pack are **hand-scored predictions,
+> not recorded results**, and the session has not been delivered to a room. Rehearse, replace the
+> predictions with what your apps actually produce, then treat it as classroom-tested.
+>
+> Everything else — deck, talk track, participant handout, sample pack — is complete.
 
 ## At a glance
 
@@ -39,6 +49,7 @@ By the end, a participant can:
 | Path | What it is |
 |---|---|
 | [`materials/slides/`](materials/slides) | The 90-minute deck as `.pdf` and editable `.pptx`, plus `build_deck.py` which regenerates it |
+| [`materials/facilitator-guide/APPS_YOU_MUST_BUILD.md`](materials/facilitator-guide/APPS_YOU_MUST_BUILD.md) | **Start here.** Build spec for the four apps, which are not included |
 | [`materials/facilitator-guide/TALK_TRACK.md`](materials/facilitator-guide/TALK_TRACK.md) | Per-slide talk track — what must be true before each slide, what to say, what to do, and **the one thread to protect if time runs short** |
 | [`materials/participant-resources/hook-handout.md`](materials/participant-resources/hook-handout.md) | The opening handout the room grades from |
 | [`materials/activities/sample-pack/`](materials/activities/sample-pack) | One assignment, one course reading, two rubrics, five students |
@@ -57,12 +68,14 @@ By the end, a participant can:
 ## How to use it
 
 1. **Download** this contribution — see [Downloading a contribution](../../../README.md#downloading-a-contribution).
-2. **Read [`TALK_TRACK.md`](materials/facilitator-guide/TALK_TRACK.md) end to end**, including the
+2. **Build the four apps** — [`APPS_YOU_MUST_BUILD.md`](materials/facilitator-guide/APPS_YOU_MUST_BUILD.md).
+   Nothing else can proceed until they exist.
+3. **Read [`TALK_TRACK.md`](materials/facilitator-guide/TALK_TRACK.md) end to end**, including the
    48-hours-before checklist. The session depends on the room grading Marcus's paper cold, so the
    handout must go out before anyone sees the golden rubric.
-3. **Rehearse against the sample pack** and record what the tools actually produce. Replace the
+4. **Rehearse against the sample pack** and record what the tools actually produce. Replace the
    predicted outcomes in `sample-pack/README.md` with those results.
-4. **Ask participants in the registration email** to bring one assignment prompt and its learning
+5. **Ask participants in the registration email** to bring one assignment prompt and its learning
    objectives as text. No student work.
 
 ## Related

@@ -1,5 +1,18 @@
 # Bridge + Lab-Guide Deck Spec (1:15–3:00 PM)
 
+> ## This is a specification. The deck does not exist.
+>
+> Every slide below is described — layout, visual, on-slide text, speaker notes — but **no `.pptx`
+> or `.pdf` ships with this contribution.** Someone has to build it.
+>
+> Several slides are specified as *lifted from* or *synthesised from* AWS MLU decks (referenced as
+> "LIFT M1 L1 slide 9", "M3 L3", and similar). **Those decks are not in this repository**, and the
+> upstream links return HTTP 404. You will need to obtain them, or build equivalent slides from the
+> speaker notes here — which are detailed enough to do that.
+>
+> **The 90-minute lab itself needs none of this.** The bridge is the 15-minute segment that precedes
+> it. If you are delivering only the lab, skip this document.
+
 **Purpose:** Slide-by-slide build spec for the 14 slides covering the bridge segment (1:15–1:30) and the curriculum-embedding lab (1:30–3:00). A designer should be able to produce the `.pptx`/Keynote/Slides file in ~3–4 hours from this document.
 
 **Total slides:** 14 (5 bridge + 9 lab-guide)

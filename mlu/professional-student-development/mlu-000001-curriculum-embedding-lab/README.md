@@ -13,6 +13,21 @@ The design idea in one line: **the tool is not the deliverable — the decision 
 > fits* before [`mlu-000002`](../mlu-000002-discipline-assistant-seminar) shows *how it works* and
 > the two assessment tools put it to work.
 
+> ## Scope: this is the 90-minute lab, not the whole day
+>
+> `materials/agenda/SEMINAR_PLAN.md` describes a full 9:00–4:00 faculty seminar. **Only the
+> 1:30–3:00 PM lab is included here** — and it is fully self-contained, with notebooks, six
+> licence-clean discipline documents, and a complete facilitator track.
+>
+> The rest of that day (the morning PartyRock lab and three lecture blocks) comes from AWS MLU
+> material that is **not in this repository**, and whose upstream links currently return HTTP 404.
+>
+> **To deliver the 90-minute lab — what most people want — you need nothing else.** Go to
+> [`INSTRUCTOR_CHEATSHEET.md`](materials/facilitator-guide/INSTRUCTOR_CHEATSHEET.md), which scripts
+> it minute by minute, then
+> [`PREFLIGHT_CHECKLIST.md`](materials/facilitator-guide/PREFLIGHT_CHECKLIST.md) for setup. The
+> seminar plan's opening table shows block by block what is and is not included.
+
 ## At a glance
 
 | | |
@@ -49,7 +64,8 @@ Blank reflection cells are treated as a missing plan, not a skipped exercise.
 | ├─ `data/` | Six discipline personas, with per-file provenance in `data/README.md` |
 | └─ `mlu_utils/` | `NovaMultimodalEmbeddings` and study-mode helpers |
 | [`materials/agenda/SEMINAR_PLAN.md`](materials/agenda/SEMINAR_PLAN.md) | Full agenda and the locked design decisions |
-| [`materials/facilitator-guide/`](materials/facilitator-guide) | Podium walkthrough, cheatsheet, preflight checklist, content audit, deck spec, and a six-persona smoketest with recorded known-good outputs |
+| [`materials/facilitator-guide/`](materials/facilitator-guide) | Podium walkthrough, cheatsheet, preflight checklist, content audit, and a six-persona smoketest with recorded known-good outputs |
+| └─ `BRIDGE_AND_LAB_DECK_SPEC.md` | **A spec, not a deck.** Slide-by-slide content and speaker notes for the 1:15–1:30 bridge — someone still has to build the slides, partly from AWS decks not included here. |
 
 The notebooks, `data/`, and `mlu_utils/` are deliberately kept in one folder — the notebooks
 reference them by relative path, so the lab runs unchanged straight out of the download.

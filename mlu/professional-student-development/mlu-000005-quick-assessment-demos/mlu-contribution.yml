@@ -46,10 +46,15 @@ intended_use:
 prerequisites:
   knowledge:
     - Participants bring one assignment prompt and its learning objectives, as text. No student work.
-  accounts: []
+    - >-
+      FACILITATOR: the four apps this session demonstrates are not included and must be built
+      first. See materials/facilitator-guide/APPS_YOU_MUST_BUILD.md.
+  accounts:
+    - Amazon Quick account for the facilitator and every attendee, for the three hands-on tools
+    - Kiro access for the facilitator, for the grading segment the room watches
   expected_cost: >-
-    None for the materials themselves. The session demonstrates chat-based AI tools;
-    any per-seat cost depends on which tool the facilitator uses.
+    None for the materials themselves. Per-seat cost depends on the Quick and Kiro plans the
+    hosting institution uses. Budget facilitator time to build the four apps before delivery.
 
 version: 0.1.0
 published: "2026-09-17"
@@ -77,6 +82,10 @@ materials:
     description: Editable source of the deck.
   - path: materials/slides/build_deck.py
     description: Script that regenerates the deck from source.
+  - path: materials/facilitator-guide/APPS_YOU_MUST_BUILD.md
+    description: >-
+      Build spec for the four apps the session demonstrates, which are NOT included in this
+      contribution. Read before scheduling a delivery.
   - path: materials/facilitator-guide/TALK_TRACK.md
     description: >-
       Per-slide talk track — what must be true before each slide, what to say, what to do,

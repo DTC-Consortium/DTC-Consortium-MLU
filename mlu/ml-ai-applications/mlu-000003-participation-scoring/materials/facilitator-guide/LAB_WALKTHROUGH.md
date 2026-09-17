@@ -4,6 +4,31 @@ This is the faculty-tool sibling of the curriculum lab. Unlike the seminar's tim
 this one is meant to be **used repeatedly by a single faculty member** on their own classes. There
 is no run-of-show clock; the notes below are for whoever demos, supports, or maintains it.
 
+> ## What this document is, and is not
+>
+> **This is a maintainer and demo reference, not a session plan.** It assumes you already know the
+> tool. There is no run-of-show clock here because this contribution is a **tool a faculty member
+> uses on their own classes**, not a workshop delivered to a room.
+>
+> **If you are presenting it to faculty or administrators**, the shape that works is a ~20-minute
+> demo, not a lab:
+>
+> | | |
+> |---|---|
+> | **2 min** | The pitch below, and the warning about student records |
+> | **5 min** | Run the bundled sample live. It is built so the interesting result is visible. |
+> | **8 min** | Walk the two outcomes flagged under *the sample is engineered…* — those are the whole argument |
+> | **3 min** | The scope limits under *what to stress* — what the tool does **not** decide |
+> | **2 min** | Questions |
+>
+> Nothing in this contribution needs a 90-minute slot. If you want a facilitated lab on assessment,
+> deliver [`mlu-000005`](../../../../professional-student-development/mlu-000005-quick-assessment-demos)
+> and use this as the automated counterpart it points to.
+>
+> **On wording:** the notes below use the vocabulary of whoever maintains the code — FAISS, JSON
+> parsing, context windows. **Do not use that vocabulary with a faculty audience.** Say "it looks
+> up the relevant part of your material," not "it retrieves from the vector index."
+
 ## The one-sentence pitch
 
 "Drop in a Zoom transcript and the day's lesson, and it drafts a participation score per student —
