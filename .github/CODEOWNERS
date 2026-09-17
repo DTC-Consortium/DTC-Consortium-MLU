@@ -1,0 +1,30 @@
+# Review ownership. A pull request touching a path here needs approval from the listed
+# owner in addition to the general review requirement.
+#
+# These are GitHub teams, not individuals. A team survives someone leaving; a username
+# does not, and a CODEOWNERS file full of departed maintainers silently stops working.
+# Personal email addresses are deliberately absent — this repository is public.
+#
+# SETUP REQUIRED: create these teams in the DTC-Consortium organization and give each
+# write access to this repository. Until they exist, GitHub cannot assign reviewers and
+# "require code owner review" will block every pull request.
+
+# Default owner for anything not matched below.
+*                                           @DTC-Consortium/mlu-maintainers
+
+# The three contribution categories.
+/mlu/course-elements/                       @DTC-Consortium/mlu-course-elements
+/mlu/ml-ai-applications/                    @DTC-Consortium/mlu-ml-ai-applications
+/mlu/professional-student-development/      @DTC-Consortium/mlu-professional-student-development
+
+# Repository configuration. Changes here affect every contribution, so they stay with
+# the maintainers regardless of which category a pull request also touches.
+/.github/                                   @DTC-Consortium/mlu-maintainers
+/schemas/                                   @DTC-Consortium/mlu-maintainers
+/scripts/                                   @DTC-Consortium/mlu-maintainers
+/catalog/taxonomy.yml                       @DTC-Consortium/mlu-maintainers
+/ID-REGISTER.md                             @DTC-Consortium/mlu-maintainers
+/LICENSE.md                                 @DTC-Consortium/mlu-maintainers
+/MLU-CONTRIBUTING.md                        @DTC-Consortium/mlu-maintainers
+/docs/                                      @DTC-Consortium/mlu-maintainers
+/templates/                                 @DTC-Consortium/mlu-maintainers

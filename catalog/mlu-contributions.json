@@ -1,0 +1,703 @@
+{
+  "generated": "2026-09-17",
+  "repository": "https://github.com/DTC-Consortium/DTC-Consortium-MLU",
+  "schema": "schemas/mlu-contribution.schema.json",
+  "count": 5,
+  "contributions": [
+    {
+      "id": "mlu-000001",
+      "title": "Curriculum Embedding Lab — Embed AI in Your Course",
+      "summary": "A 90-minute faculty lab whose deliverable is a decision, not a demo. Each participant builds a working, discipline-grounded AI tool from a persona matched to their field, then writes a curriculum plan for where it belongs in a course they actually teach — and, explicitly, where it does not. Ships with a student-facing companion notebook (Quiz Me, Socratic Hint, Explain-Back) and six licence-clean discipline personas.",
+      "category": "professional-student-development",
+      "subtype": "lab",
+      "authors": [
+        {
+          "name": "Tariq Hook",
+          "institution": "Delaware State University"
+        }
+      ],
+      "institutions": [
+        "Delaware State University"
+      ],
+      "maintainer": {
+        "name": "DTCC MLU Maintainers",
+        "contact": "@DTC-Consortium/mlu-professional-student-development"
+      },
+      "disciplines": [
+        "Faculty Development",
+        "Cross-disciplinary"
+      ],
+      "topics": [
+        "curriculum design",
+        "retrieval-augmented generation",
+        "AI boundaries in teaching",
+        "academic integrity"
+      ],
+      "tools": [
+        "Amazon Bedrock",
+        "Amazon Nova Lite",
+        "Amazon SageMaker Studio",
+        "LangChain",
+        "FAISS",
+        "Jupyter",
+        "Python"
+      ],
+      "audience": [
+        "Faculty",
+        "Academic staff",
+        "Instructional designers"
+      ],
+      "intended_use": {
+        "learning_outcomes": [
+          "Identify where in a specific course an AI tool adds instructional value, and articulate what the instructor still does.",
+          "Build a discipline-grounded AI tool from a persona brief, using retrieval over a real document from the field.",
+          "State an explicit boundary for where AI does not belong in one's own teaching, and defend it.",
+          "Commit to one dated, specific instructional action."
+        ]
+      },
+      "prerequisites": {
+        "knowledge": [
+          "No coding experience required; participants run about five cells of Python."
+        ],
+        "accounts": [
+          "AWS account with Amazon SageMaker Studio access",
+          "Amazon Bedrock model access for Amazon Nova Lite in the session region"
+        ],
+        "expected_cost": "Under USD 1 per participant in Bedrock inference. SageMaker Studio compute is billed for the duration of the session and should be shut down afterward."
+      },
+      "version": "1.0.0",
+      "published": "2026-09-17",
+      "last_reviewed": "2026-09-17",
+      "maturity": "classroom-tested",
+      "licenses": {
+        "content": "CC-BY-4.0",
+        "software": "MIT",
+        "data": [
+          {
+            "path": "materials/activities/curriculum-embedding-lab/data/persona1_dentistry_perio_case.pdf",
+            "license": "CC-BY-4.0",
+            "source": "Abulfateh et al., Cureus 2026 case report on localized aggressive periodontitis."
+          },
+          {
+            "path": "materials/activities/curriculum-embedding-lab/data/persona2_cs_data_structures.pdf",
+            "license": "CC-BY-4.0",
+            "source": "Open Data Structures, Pat Morin, Ch. 1 extract."
+          },
+          {
+            "path": "materials/activities/curriculum-embedding-lab/data/persona3_english_victorian_essay.pdf",
+            "license": "Public-Domain",
+            "source": "Mary Seacole, Wonderful Adventures of Mrs. Seacole in Many Lands (1857), via Project Gutenberg",
+            "notes": "Preserves nineteenth-century spelling and racial language. Flag this for participants in advance rather than letting it arrive unannounced."
+          },
+          {
+            "path": "materials/activities/curriculum-embedding-lab/data/persona4_nursing_pharmacology.pdf",
+            "license": "CC-BY-4.0",
+            "source": "Original instructional material authored for this seminar."
+          },
+          {
+            "path": "materials/activities/curriculum-embedding-lab/data/persona5_business_leadership_case.pdf",
+            "license": "CC-BY-4.0",
+            "source": "Original fictional teaching case authored for this seminar; all figures and people invented."
+          },
+          {
+            "path": "materials/activities/curriculum-embedding-lab/data/persona6_biology_lab_protocol.pdf",
+            "license": "CC-BY-4.0",
+            "source": "Original wet-lab protocol authored for this seminar."
+          }
+        ]
+      },
+      "materials": [
+        {
+          "path": "materials/activities/curriculum-embedding-lab/curriculum-embedding-lab.ipynb",
+          "description": "The faculty lab, Parts 0–7. The main deliverable."
+        },
+        {
+          "path": "materials/activities/curriculum-embedding-lab/study-mastery-lab.ipynb",
+          "description": "Student-facing companion — Quiz Me, Socratic Hint, and Explain-Back modes."
+        },
+        {
+          "path": "materials/activities/curriculum-embedding-lab/mlu_utils/",
+          "description": "Shared helpers — NovaMultimodalEmbeddings and study tools."
+        },
+        {
+          "path": "materials/activities/curriculum-embedding-lab/data/",
+          "description": "Six discipline persona documents with per-file provenance in data/README.md."
+        },
+        {
+          "path": "materials/agenda/SEMINAR_PLAN.md",
+          "description": "Session plan and locked design decisions."
+        },
+        {
+          "path": "materials/facilitator-guide/",
+          "description": "Podium walkthrough, instructor cheatsheet, preflight checklist, content audit, deck spec, and a six-persona smoketest with recorded known-good outputs."
+        }
+      ],
+      "github": {
+        "path": "mlu/professional-student-development/mlu-000001-curriculum-embedding-lab",
+        "download_url": null
+      },
+      "hub": null,
+      "cohort": "AWS-MLU Faculty Fellows 2026",
+      "difficulty": "intro",
+      "duration": "~90 minutes",
+      "delivery_format": [
+        "in-person",
+        "online-synchronous"
+      ],
+      "language": "en",
+      "parent_id": null,
+      "related_ids": [
+        "mlu-000002",
+        "mlu-000003",
+        "mlu-000004"
+      ],
+      "collection_ids": [
+        "aws-mlu-faculty-sequence"
+      ],
+      "inventory_reference": "Faculty Fellows Impact Inventory — Table 1, Row 1",
+      "website_url": null,
+      "browse_url": "https://github.com/DTC-Consortium/DTC-Consortium-MLU/tree/main/mlu/professional-student-development/mlu-000001-curriculum-embedding-lab",
+      "released": false
+    },
+    {
+      "id": "mlu-000002",
+      "title": "Discipline-Specific AI Teaching Assistant — Seminar Lab",
+      "summary": "The technical lab of the set. In about 15 minutes participants build a grounded, source-citing AI tutor for their own field and see directly what grounding buys them, because the notebook asks the same question with and without the source document. Ships in two paths — free Google Colab plus Hugging Face, or SageMaker Studio plus Bedrock — so faculty keep a working copy after cloud access ends.",
+      "category": "professional-student-development",
+      "subtype": "seminar",
+      "authors": [
+        {
+          "name": "Tariq Hook",
+          "institution": "Delaware State University"
+        }
+      ],
+      "institutions": [
+        "Delaware State University"
+      ],
+      "maintainer": {
+        "name": "DTCC MLU Maintainers",
+        "contact": "@DTC-Consortium/mlu-professional-student-development"
+      },
+      "disciplines": [
+        "Faculty Development",
+        "Cross-disciplinary",
+        "Computer Science"
+      ],
+      "topics": [
+        "retrieval-augmented generation",
+        "embeddings and vector search",
+        "source citation and grounding",
+        "teaching artifact generation"
+      ],
+      "tools": [
+        "Google Colab",
+        "Hugging Face",
+        "Amazon Bedrock",
+        "Amazon SageMaker Studio",
+        "LangChain",
+        "FAISS",
+        "Jupyter",
+        "Python"
+      ],
+      "audience": [
+        "Faculty",
+        "Academic staff"
+      ],
+      "intended_use": {
+        "learning_outcomes": [
+          "Explain how chunking, embedding, and vector retrieval combine to ground a model's answer.",
+          "Build a tutor that answers only from a supplied document and cites the passage it used.",
+          "Contrast grounded and ungrounded answers to the same question, and say why the difference matters for teaching.",
+          "Generate quiz questions, study guides, and grading rubrics from a discipline document."
+        ]
+      },
+      "prerequisites": {
+        "knowledge": [
+          "Comfort running cells in a notebook. No prior ML background required."
+        ],
+        "accounts": [
+          "Colab path: a Google account and a free Hugging Face account with a read token",
+          "AWS path (optional): SageMaker Studio access and Bedrock model access"
+        ],
+        "expected_cost": "None on the Colab path — Google Colab's free tier and the Hugging Face free inference tier are sufficient. The AWS path costs under USD 1 per participant."
+      },
+      "version": "1.0.0",
+      "published": "2026-09-17",
+      "last_reviewed": "2026-09-17",
+      "maturity": "classroom-tested",
+      "licenses": {
+        "content": "CC-BY-4.0",
+        "software": "MIT",
+        "data": [
+          {
+            "path": "materials/activities/discipline-assistant/data/",
+            "license": "Mixed — see data/README.md",
+            "source": "The same six discipline personas as mlu-000001, byte-identical. Per-file source, licence, and page count are recorded in data/README.md.",
+            "notes": "persona3 is public-domain Seacole text preserving nineteenth-century racial language; flag it for participants in advance."
+          }
+        ]
+      },
+      "materials": [
+        {
+          "path": "materials/activities/discipline-assistant/discipline-assistant-colab.ipynb",
+          "description": "The recommended path — Google Colab plus a free Hugging Face token. No AWS account needed."
+        },
+        {
+          "path": "materials/activities/discipline-assistant/discipline-assistant.ipynb",
+          "description": "The AWS path — SageMaker Studio plus Bedrock."
+        },
+        {
+          "path": "materials/activities/discipline-assistant/data/",
+          "description": "Six discipline persona documents with per-file provenance in data/README.md."
+        },
+        {
+          "path": "materials/agenda/SEMINAR_PLAN.md",
+          "description": "Session plan for the seminar this lab anchors."
+        },
+        {
+          "path": "materials/facilitator-guide/",
+          "description": "Instructor cheatsheet, preflight checklist, content audit, and post-seminar lab guidance."
+        }
+      ],
+      "github": {
+        "path": "mlu/professional-student-development/mlu-000002-discipline-assistant-seminar",
+        "download_url": null
+      },
+      "hub": null,
+      "cohort": "AWS-MLU Faculty Fellows 2026",
+      "difficulty": "intro",
+      "duration": "~15 minutes",
+      "delivery_format": [
+        "in-person",
+        "online-synchronous",
+        "self-paced"
+      ],
+      "language": "en",
+      "parent_id": null,
+      "related_ids": [
+        "mlu-000001",
+        "mlu-000003",
+        "mlu-000004"
+      ],
+      "collection_ids": [
+        "aws-mlu-faculty-sequence"
+      ],
+      "inventory_reference": "Faculty Fellows Impact Inventory — Table 1, Row 2",
+      "website_url": null,
+      "browse_url": "https://github.com/DTC-Consortium/DTC-Consortium-MLU/tree/main/mlu/professional-student-development/mlu-000002-discipline-assistant-seminar",
+      "released": false
+    },
+    {
+      "id": "mlu-000003",
+      "title": "Class Participation Scoring — Transcript to Draft Score",
+      "summary": "Point this notebook at a Zoom transcript of one class meeting and the material you covered that day. It identifies who spoke, judges what they talked about against your embedded lesson rather than the model's own knowledge, and drafts a 0–4 participation score per student with the evidence behind it. The output is a draft a human reviews, never a grade the tool assigns on its own.",
+      "category": "ml-ai-applications",
+      "subtype": "notebook-tool",
+      "authors": [
+        {
+          "name": "Tariq Hook",
+          "institution": "Delaware State University"
+        }
+      ],
+      "institutions": [
+        "Delaware State University"
+      ],
+      "maintainer": {
+        "name": "DTCC MLU Maintainers",
+        "contact": "@DTC-Consortium/mlu-ml-ai-applications"
+      },
+      "disciplines": [
+        "Cross-disciplinary",
+        "Faculty Development"
+      ],
+      "topics": [
+        "participation assessment",
+        "transcript analysis",
+        "retrieval-augmented relevance judgment",
+        "human review of AI output",
+        "FERPA and student records"
+      ],
+      "tools": [
+        "Amazon Bedrock",
+        "Amazon Nova Lite",
+        "Amazon SageMaker Studio",
+        "LangChain",
+        "FAISS",
+        "Jupyter",
+        "Python"
+      ],
+      "audience": [
+        "Faculty",
+        "Adjunct faculty"
+      ],
+      "intended_use": {
+        "description": "Drafts class-participation scores for a discussion-based course from a recorded class transcript, so an instructor reviews evidence-backed drafts instead of scoring from memory. Each score combines quantity, topical relevance judged against the day's embedded lesson material, and substance. Requires instructor review before any score is recorded.",
+        "learning_outcomes": [
+          "Ground a relevance judgment in supplied course material rather than model priors.",
+          "Review and override AI-drafted scores using the evidence attached to each one.",
+          "Apply institutional policy on class recording and student records before using real transcripts."
+        ]
+      },
+      "prerequisites": {
+        "knowledge": [
+          "Comfort running cells in a notebook.",
+          "Institutional clearance to use class recordings and transcripts, with students notified. FERPA in the US, or the local equivalent."
+        ],
+        "accounts": [
+          "AWS account with Amazon SageMaker Studio access",
+          "Amazon Bedrock model access for Amazon Nova Lite in the session region"
+        ],
+        "expected_cost": "Under USD 1 per class meeting scored, in Bedrock inference."
+      },
+      "version": "1.0.0",
+      "published": "2026-09-17",
+      "last_reviewed": "2026-09-17",
+      "maturity": "classroom-tested",
+      "licenses": {
+        "content": "CC-BY-4.0",
+        "software": "MIT",
+        "data": [
+          {
+            "path": "materials/src/data/persona2_cs_data_structures.pdf",
+            "license": "CC-BY-4.0",
+            "source": "Open Data Structures, Pat Morin, Ch. 1 extract. Byte-identical to the copy in mlu-000001."
+          },
+          {
+            "path": "materials/src/data/sample_class_transcript.vtt",
+            "license": "CC-BY-4.0",
+            "source": "Original fabricated Zoom transcript authored for this lab. All students are invented."
+          },
+          {
+            "path": "materials/src/data/sample_roster.csv",
+            "license": "CC-BY-4.0",
+            "source": "Original fabricated roster. No real student appears in this contribution."
+          }
+        ]
+      },
+      "materials": [
+        {
+          "path": "materials/src/participation-scoring-lab.ipynb",
+          "description": "The scoring tool, Parts 0–7. Part 5 is the mandatory human review step."
+        },
+        {
+          "path": "materials/src/mlu_utils/",
+          "description": "NovaMultimodalEmbeddings and transcript parsing helpers."
+        },
+        {
+          "path": "materials/src/data/",
+          "description": "Fabricated transcript, roster, and lesson PDF — runs out of the box."
+        },
+        {
+          "path": "materials/src/requirements.txt",
+          "description": "Pinned dependencies."
+        },
+        {
+          "path": "materials/facilitator-guide/LAB_WALKTHROUGH.md",
+          "description": "Podium walkthrough for delivering this as a lab."
+        }
+      ],
+      "github": {
+        "path": "mlu/ml-ai-applications/mlu-000003-participation-scoring",
+        "download_url": null
+      },
+      "hub": null,
+      "cohort": "AWS-MLU Faculty Fellows 2026",
+      "difficulty": "intermediate",
+      "duration": "~10 minutes of compute, plus review that scales with class size",
+      "delivery_format": [
+        "self-paced",
+        "in-person"
+      ],
+      "language": "en",
+      "parent_id": null,
+      "related_ids": [
+        "mlu-000001",
+        "mlu-000002",
+        "mlu-000004"
+      ],
+      "collection_ids": [
+        "aws-mlu-faculty-sequence",
+        "assessment-tools"
+      ],
+      "inventory_reference": "Faculty Fellows Impact Inventory — Table 2",
+      "website_url": null,
+      "browse_url": "https://github.com/DTC-Consortium/DTC-Consortium-MLU/tree/main/mlu/ml-ai-applications/mlu-000003-participation-scoring",
+      "released": false
+    },
+    {
+      "id": "mlu-000004",
+      "title": "Paper Autograder — Rubric-Based Draft Grading",
+      "summary": "Point this notebook at your course material, a grading rubric, and a folder of student papers. For each paper it scores every rubric criterion, backs each score with verbatim quotes, computes the weighted grade in code rather than in the model, and drafts separate notes for the instructor and for the student. Runs on Bedrock or fully local via Ollama, where nothing leaves the machine.",
+      "category": "ml-ai-applications",
+      "subtype": "notebook-tool",
+      "authors": [
+        {
+          "name": "Tariq Hook",
+          "institution": "Delaware State University"
+        }
+      ],
+      "institutions": [
+        "Delaware State University"
+      ],
+      "maintainer": {
+        "name": "DTCC MLU Maintainers",
+        "contact": "@DTC-Consortium/mlu-ml-ai-applications"
+      },
+      "disciplines": [
+        "Cross-disciplinary",
+        "Faculty Development"
+      ],
+      "topics": [
+        "rubric-based assessment",
+        "grounded correctness judgment",
+        "human review of AI output",
+        "FERPA and student records"
+      ],
+      "tools": [
+        "Amazon Bedrock",
+        "Amazon Nova Lite",
+        "Amazon SageMaker Studio",
+        "Ollama",
+        "LangChain",
+        "FAISS",
+        "Jupyter",
+        "Python"
+      ],
+      "audience": [
+        "Faculty",
+        "Adjunct faculty"
+      ],
+      "intended_use": {
+        "description": "Drafts rubric-based grades for written work. Criteria about using course concepts correctly are judged only against the instructor's embedded material, so a confident, well-written paper that misuses the concepts scores lower rather than higher. The overall grade is computed in code from tiers and criterion weights. This is not a plagiarism or AI-writing detector and must never inform an academic-integrity decision.",
+        "learning_outcomes": [
+          "Express a grading rubric in a machine-readable form with explicit criterion weights.",
+          "Distinguish fluent writing from correct reasoning when reviewing drafted grades.",
+          "Review evidence-backed drafts and override them before recording any grade."
+        ]
+      },
+      "prerequisites": {
+        "knowledge": [
+          "Comfort running cells in a notebook.",
+          "Institutional clearance to process student papers. FERPA in the US, or the local equivalent. The Ollama path keeps papers on the local machine."
+        ],
+        "accounts": [
+          "Bedrock path: AWS account with SageMaker Studio and Nova Lite model access",
+          "Local path: none — Ollama runs on the instructor's own machine"
+        ],
+        "expected_cost": "Under USD 1 per stack of papers on the Bedrock path. None on the Ollama path."
+      },
+      "version": "1.0.0",
+      "published": "2026-09-17",
+      "last_reviewed": "2026-09-17",
+      "maturity": "classroom-tested",
+      "licenses": {
+        "content": "CC-BY-4.0",
+        "software": "MIT",
+        "data": [
+          {
+            "path": "materials/src/data/persona2_cs_data_structures.pdf",
+            "license": "CC-BY-4.0",
+            "source": "Open Data Structures, Pat Morin, Ch. 1 extract. Byte-identical to the copy in mlu-000001."
+          },
+          {
+            "path": "materials/src/data/sample_papers/",
+            "license": "CC-BY-4.0",
+            "source": "Three original fabricated student papers authored for this lab. All students are invented."
+          },
+          {
+            "path": "materials/src/data/sample_roster.csv",
+            "license": "CC-BY-4.0",
+            "source": "Original fabricated roster. No real student appears in this contribution."
+          }
+        ]
+      },
+      "materials": [
+        {
+          "path": "materials/src/paper-grading-lab.ipynb",
+          "description": "The grading tool, Parts 0–7. Part 5 is the mandatory human review step."
+        },
+        {
+          "path": "materials/src/mlu_utils/",
+          "description": "NovaMultimodalEmbeddings and rubric and paper handling helpers."
+        },
+        {
+          "path": "materials/src/data/",
+          "description": "Three fabricated papers, a rubric, a roster, and course material — runs out of the box."
+        },
+        {
+          "path": "materials/src/requirements.txt",
+          "description": "Pinned dependencies."
+        },
+        {
+          "path": "materials/facilitator-guide/LAB_WALKTHROUGH.md",
+          "description": "Podium walkthrough for delivering this as a lab."
+        },
+        {
+          "path": "materials/evaluation/sample-output-2026-07-31/",
+          "description": "A recorded run against the bundled sample — grades.csv, grades.md, and per-student feedback. Use it to confirm a fresh install behaves as expected."
+        }
+      ],
+      "github": {
+        "path": "mlu/ml-ai-applications/mlu-000004-paper-autograder",
+        "download_url": null
+      },
+      "hub": null,
+      "cohort": "AWS-MLU Faculty Fellows 2026",
+      "difficulty": "intermediate",
+      "duration": "~5 minutes of compute, plus review that scales with stack size",
+      "delivery_format": [
+        "self-paced",
+        "in-person"
+      ],
+      "language": "en",
+      "parent_id": null,
+      "related_ids": [
+        "mlu-000001",
+        "mlu-000002",
+        "mlu-000003",
+        "mlu-000005"
+      ],
+      "collection_ids": [
+        "aws-mlu-faculty-sequence",
+        "assessment-tools"
+      ],
+      "inventory_reference": "Faculty Fellows Impact Inventory — Table 2",
+      "website_url": null,
+      "browse_url": "https://github.com/DTC-Consortium/DTC-Consortium-MLU/tree/main/mlu/ml-ai-applications/mlu-000004-paper-autograder",
+      "released": false
+    },
+    {
+      "id": "mlu-000005",
+      "title": "The Assignment Lifecycle — Quick Assessment Demo Session",
+      "summary": "A 90-minute facilitated session that walks a room through one assignment's full lifecycle — write the rubric, stress-test it, grade against it, and triage submissions before the deadline. Built around a single fluent, confident, and wrong student paper that earns a B+ under a vague rubric and an F under a rubric that names what correct means. Ships a deck, a talk track, a participant handout, and a five-student sample pack.",
+      "category": "professional-student-development",
+      "subtype": "workshop",
+      "authors": [
+        {
+          "name": "Tariq Hook",
+          "institution": "Delaware State University"
+        }
+      ],
+      "institutions": [
+        "Delaware State University"
+      ],
+      "maintainer": {
+        "name": "DTCC MLU Maintainers",
+        "contact": "@DTC-Consortium/mlu-professional-student-development"
+      },
+      "disciplines": [
+        "Faculty Development",
+        "Cross-disciplinary",
+        "Computer Science"
+      ],
+      "topics": [
+        "rubric design",
+        "assessment lifecycle",
+        "pre-deadline triage",
+        "fluency versus correctness"
+      ],
+      "tools": [
+        "PowerPoint",
+        "Python"
+      ],
+      "audience": [
+        "Faculty",
+        "Workshop facilitators",
+        "Instructional designers"
+      ],
+      "intended_use": {
+        "learning_outcomes": [
+          "Diagnose why a rubric that rewards visible surface features misgrades a confidently wrong paper.",
+          "Write a rubric whose criteria name what correct looks like and map to stated learning objectives.",
+          "Stress-test a rubric against a paper designed to exploit its weaknesses.",
+          "Use pre-deadline triage to surface missing criteria while students can still act on it."
+        ]
+      },
+      "prerequisites": {
+        "knowledge": [
+          "Participants bring one assignment prompt and its learning objectives, as text. No student work."
+        ],
+        "accounts": [],
+        "expected_cost": "None for the materials themselves. The session demonstrates chat-based AI tools; any per-seat cost depends on which tool the facilitator uses."
+      },
+      "version": "0.1.0",
+      "published": "2026-09-17",
+      "last_reviewed": "2026-09-17",
+      "maturity": "pilot",
+      "licenses": {
+        "content": "CC-BY-4.0",
+        "software": "MIT",
+        "data": [
+          {
+            "path": "materials/activities/sample-pack/persona2_cs_data_structures.pdf",
+            "license": "CC-BY-4.0",
+            "source": "Open Data Structures, Pat Morin, Ch. 1–2 extract. Byte-identical to the copy in mlu-000004."
+          },
+          {
+            "path": "materials/activities/sample-pack/papers/",
+            "license": "CC-BY-4.0",
+            "source": "Four original fabricated student papers. All students are invented."
+          },
+          {
+            "path": "materials/activities/sample-pack/roster.csv",
+            "license": "CC-BY-4.0",
+            "source": "Original fabricated roster of five students."
+          }
+        ]
+      },
+      "materials": [
+        {
+          "path": "materials/slides/assessment-lifecycle-deck.pdf",
+          "description": "The session deck, 90 minutes."
+        },
+        {
+          "path": "materials/slides/assessment-lifecycle-deck.pptx",
+          "description": "Editable source of the deck."
+        },
+        {
+          "path": "materials/slides/build_deck.py",
+          "description": "Script that regenerates the deck from source."
+        },
+        {
+          "path": "materials/facilitator-guide/TALK_TRACK.md",
+          "description": "Per-slide talk track — what must be true before each slide, what to say, what to do, and the one thread to protect if time runs short."
+        },
+        {
+          "path": "materials/participant-resources/hook-handout.md",
+          "description": "The opening handout the room grades from."
+        },
+        {
+          "path": "materials/activities/sample-pack/",
+          "description": "One assignment, one course reading, two rubrics, and five students."
+        },
+        {
+          "path": "materials/activities/rubric-format.md",
+          "description": "The mlu-rubric/1 format shared by the session tools. A rubric in this format loads unchanged into mlu-000004."
+        }
+      ],
+      "github": {
+        "path": "mlu/professional-student-development/mlu-000005-quick-assessment-demos",
+        "download_url": null
+      },
+      "hub": null,
+      "cohort": "AWS-MLU Faculty Fellows 2026",
+      "difficulty": "intro",
+      "duration": "~90 minutes",
+      "delivery_format": [
+        "in-person"
+      ],
+      "language": "en",
+      "parent_id": null,
+      "related_ids": [
+        "mlu-000004"
+      ],
+      "collection_ids": [
+        "assessment-tools"
+      ],
+      "inventory_reference": null,
+      "website_url": null,
+      "browse_url": "https://github.com/DTC-Consortium/DTC-Consortium-MLU/tree/main/mlu/professional-student-development/mlu-000005-quick-assessment-demos",
+      "released": false
+    }
+  ]
+}

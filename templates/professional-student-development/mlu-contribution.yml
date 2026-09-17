@@ -1,0 +1,104 @@
+# TEMPLATE — replace every value below. This is not a published contribution.
+#
+# Validated against ../../schemas/mlu-contribution.schema.json, which is the authoritative
+# list of fields. Approved vocabulary: ../../catalog/taxonomy.yml
+#
+# Run `python3 scripts/validate_contributions.py` from the repository root when you are done.
+
+# A maintainer assigns this. Do not pick your own.
+id: mlu-000000
+
+title: EXAMPLE — Professional/Student Development Template
+
+# Two or three sentences. This is what people read in the category index, so make the first
+# sentence carry the point on its own.
+summary: >-
+  Replace this. Say what the contribution is, what problem it addresses, and what someone
+  ends up with after using it.
+
+category: professional-student-development
+subtype: workshop          # see catalog/taxonomy.yml for this category's subtypes
+
+authors:
+  - name: Your Name
+    institution: Your Institution
+    # orcid: 0000-0000-0000-0000     # optional
+institutions:
+  - Your Institution
+
+# A GitHub team or a role address — never a personal email. This repository is public.
+maintainer:
+  name: Your Team
+  contact: "@DTC-Consortium/your-team"
+
+disciplines:
+  - Faculty Development
+topics:
+  - replace me
+tools:
+  - PowerPoint
+audience:
+  - Faculty
+
+# What someone can do afterwards. Concrete enough to plan a session around.
+intended_use:
+  learning_outcomes:
+    - Replace me with a specific, checkable outcome.
+    - And another.
+
+
+prerequisites:
+  knowledge:
+    - What someone needs to already know or have prepared.
+  accounts:
+    # Every account a participant must hold. Be specific: "an AWS account" is not enough
+    # if model access must also be enabled in a particular region. Use [] only if truly none.
+    - Replace me, or use an empty list
+  expected_cost: >-
+    Plain language. "None", or something like "under USD 1 per participant in inference".
+    Someone deciding whether they can afford to run this needs a real answer.
+
+version: 0.1.0
+published: "2026-01-01"
+last_reviewed: "2026-01-01"
+
+# pilot            — used once, or reviewed and ready for a first run
+# classroom-tested — delivered to learners, with the resulting revisions folded back in
+maturity: pilot
+
+licenses:
+  content: CC-BY-4.0
+  software: MIT
+  # One row per bundled data file. If you cannot fill a row, do not bundle that file.
+  data:
+    - path: materials/sample-data/example.csv
+      license: CC-BY-4.0
+      source: Where it came from, and who made it.
+      # notes: Anything a facilitator should know before it reaches a room.
+
+# Every deliverable, with a real path. Validation fails if a listed path does not exist.
+materials:
+  - path: materials/
+    description: Replace with one entry per deliverable.
+  # External hosting for video and large datasets:
+  # - path: https://example.edu/video/intro
+  #   description: 20-minute introduction video
+  #   external: true
+  #   access: Open link; no account required.
+
+github:
+  path: mlu/professional-student-development/mlu-000000-your-slug
+  download_url: null      # stays null until the release exists
+
+# ---- Optional. Leave null or omit what does not apply. ----
+hub: null
+cohort: null
+difficulty: intro          # intro | intermediate | advanced
+duration: null             # e.g. "~90 minutes"
+delivery_format: null      # e.g. [in-person, online-synchronous]
+language: en
+parent_id: null            # set if this came out of a larger package
+related_ids: []
+collection_ids: []
+inventory_reference: null
+website_url: null          # leave null until dtcconsortium.org pages exist

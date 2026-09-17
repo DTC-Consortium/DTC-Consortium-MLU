@@ -1,0 +1,78 @@
+# Approved vocabulary for mlu-contribution.yml.
+# Validation warns on values outside these lists; it does not fail. Propose additions
+# by pull request so the catalog stays browsable.
+
+categories:
+  course-elements:
+    label: Course Elements
+    description: >-
+      Courses, credentials, modules, lectures, assignments, assessments, and
+      instructional materials.
+    subtypes: [course, credential, module, lecture, assignment, assessment, rubric, instructional-material]
+  ml-ai-applications:
+    label: ML/AI Applications
+    description: >-
+      Prompts, applications, codebases, datasets, tool flows, and platforms.
+    subtypes: [prompt-set, application, codebase, dataset, tool-flow, platform, notebook-tool]
+  professional-student-development:
+    label: Professional and Student Development
+    description: >-
+      Bootcamps, workshops, training, presentations, and related initiatives.
+    subtypes: [bootcamp, workshop, training, presentation, seminar, lab, initiative]
+
+disciplines:
+  - Computer Science
+  - Data Science
+  - Engineering
+  - Mathematics
+  - Biology
+  - Chemistry
+  - Nursing
+  - Dentistry
+  - Public Health
+  - Business
+  - Education
+  - English
+  - History
+  - Cross-disciplinary
+  - Faculty Development
+
+tools:
+  - Amazon Bedrock
+  - Amazon Nova Lite
+  - Amazon SageMaker Studio
+  - AWS
+  - Google Colab
+  - Hugging Face
+  - Ollama
+  - LangChain
+  - FAISS
+  - Jupyter
+  - Python
+  - PowerPoint
+
+audiences:
+  - Faculty
+  - Adjunct faculty
+  - Academic staff
+  - Instructional designers
+  - Undergraduate students
+  - Graduate students
+  - Workshop facilitators
+  - Administrators
+
+difficulty: [intro, intermediate, advanced]
+
+delivery_formats: [in-person, online-synchronous, online-asynchronous, hybrid, self-paced]
+
+maturity:
+  pilot: Used at least once, or reviewed and ready for a first run; outcomes not yet recorded.
+  classroom-tested: Delivered to learners, with the resulting revisions folded back in.
+
+licenses:
+  content: [CC-BY-4.0, CC-BY-SA-4.0, CC-BY-NC-4.0, CC0-1.0, All-Rights-Reserved]
+  software: [MIT, Apache-2.0, BSD-3-Clause, GPL-3.0]
+
+hubs: []
+cohorts:
+  - AWS-MLU Faculty Fellows 2026

@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/DTC-Consortium/DTC-Consortium-MLU/schemas/mlu-contribution.schema.json",
+  "title": "MLU Contribution Metadata",
+  "description": "Validation rules for mlu-contribution.yml. Required fields follow section 4 of the DTCC-MLU repository specification.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id", "title", "summary", "category", "subtype",
+    "authors", "institutions", "maintainer",
+    "disciplines", "topics", "tools", "audience",
+    "intended_use", "prerequisites",
+    "version", "published", "last_reviewed",
+    "maturity", "licenses", "materials", "github"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^mlu-[0-9]{6}$",
+      "description": "Permanent identifier assigned from ID-REGISTER.md by a maintainer."
+    },
+    "title": { "type": "string", "minLength": 4, "maxLength": 120 },
+    "summary": {
+      "type": "string", "minLength": 20, "maxLength": 600,
+      "description": "Plain-language description shown in category indexes and the catalog."
+    },
+    "category": {
+      "enum": ["course-elements", "ml-ai-applications", "professional-student-development"]
+    },
+    "subtype": { "type": "string", "minLength": 2 },
+
+    "authors": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "minLength": 2 },
+          "institution": { "type": "string" },
+          "orcid": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$" }
+        }
+      }
+    },
+    "institutions": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "maintainer": {
+      "type": "object",
+      "required": ["name", "contact"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "contact": {
+          "type": "string",
+          "description": "A GitHub team or handle, or a role address. Do not publish personal email addresses."
+        }
+      }
+    },
+
+    "disciplines": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "topics": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "tools": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "audience": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+
+    "intended_use": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "learning_outcomes": { "type": "array", "items": { "type": "string" } },
+        "description": { "type": "string" }
+      },
+      "anyOf": [
+        { "required": ["learning_outcomes"] },
+        { "required": ["description"] }
+      ],
+      "description": "Learning outcomes for instructional material, or a use description for applications."
+    },
+
+    "prerequisites": {
+      "type": "object",
+      "required": ["knowledge", "accounts", "expected_cost"],
+      "additionalProperties": false,
+      "properties": {
+        "knowledge": { "type": "array", "items": { "type": "string" } },
+        "accounts": {
+          "type": "array", "items": { "type": "string" },
+          "description": "Every account a participant must hold. Use an empty list only when genuinely none are required."
+        },
+        "expected_cost": {
+          "type": "string",
+          "description": "Plain-language cost statement, e.g. 'None' or 'under USD 1 per participant in Bedrock usage'."
+        }
+      }
+    },
+
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "published": { "type": "string", "format": "date", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "last_reviewed": { "type": "string", "format": "date", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "maturity": { "enum": ["pilot", "classroom-tested"] },
+
+    "licenses": {
+      "type": "object",
+      "required": ["content"],
+      "additionalProperties": false,
+      "properties": {
+        "content": { "type": "string" },
+        "software": { "type": "string" },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["path", "license", "source"],
+            "additionalProperties": false,
+            "properties": {
+              "path": { "type": "string" },
+              "license": { "type": "string" },
+              "source": { "type": "string" },
+              "notes": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+
+    "materials": {
+      "type": "array", "minItems": 1,
+      "description": "Manifest of every deliverable. Local paths are relative to the contribution directory and are checked by validation.",
+      "items": {
+        "type": "object",
+        "required": ["path", "description"],
+        "additionalProperties": false,
+        "properties": {
+          "path": { "type": "string", "description": "Local path, or an https:// URL for an external resource." },
+          "description": { "type": "string" },
+          "external": {
+            "type": "boolean", "default": false,
+            "description": "True when path is a URL to externally hosted video or data."
+          },
+          "access": { "type": "string", "description": "Access instructions for external resources." }
+        }
+      }
+    },
+
+    "github": {
+      "type": "object",
+      "required": ["path"],
+      "additionalProperties": false,
+      "properties": {
+        "path": { "type": "string", "description": "Repository-relative path to this contribution." },
+        "download_url": {
+          "type": ["string", "null"],
+          "description": "Version-specific release asset URL. Null until a release exists; the catalog hides the download button while null."
+        }
+      }
+    },
+
+    "hub": { "type": ["string", "null"] },
+    "cohort": { "type": ["string", "null"] },
+    "difficulty": { "enum": ["intro", "intermediate", "advanced", null] },
+    "duration": { "type": ["string", "null"] },
+    "delivery_format": { "type": ["array", "null"], "items": { "type": "string" } },
+    "language": { "type": ["string", "null"] },
+    "parent_id": { "type": ["string", "null"], "pattern": "^mlu-[0-9]{6}$" },
+    "related_ids": { "type": "array", "items": { "type": "string", "pattern": "^mlu-[0-9]{6}$" } },
+    "collection_ids": { "type": "array", "items": { "type": "string" } },
+    "inventory_reference": { "type": ["string", "null"] },
+    "website_url": { "type": ["string", "null"], "description": "Leave null until dtcconsortium.org pages exist." }
+  }
+}

@@ -1,0 +1,63 @@
+name: Check links
+
+# Flags broken public links for review on a schedule. It opens an issue; it never edits
+# a contribution. External sites go down for reasons that are not this repository's
+# fault, so a failure here is a prompt for a human, not a build break.
+
+on:
+  schedule:
+    - cron: '17 6 * * 1'   # Mondays, 06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: check-links
+  cancel-in-progress: false
+
+jobs:
+  links:
+    name: Public link sweep
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Sweep links
+        id: sweep
+        run: |
+          set -uo pipefail
+          python3 scripts/check_links.py --external --format=markdown > report.md 2>&1
+          echo "status=$?" >> "$GITHUB_OUTPUT"
+          cat report.md
+
+      - name: Open an issue if anything failed
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if grep -qF 'did not resolve.' report.md || [ "${{ steps.sweep.outputs.status }}" != "0" ]; then
+            title="Link check: broken links found $(date -u +%Y-%m-%d)"
+            {
+              echo "The scheduled link sweep found links that did not resolve."
+              echo
+              echo "These are **flagged for review, not corrected automatically**. Transient"
+              echo "failures are common; a link that fails twice in a row is worth chasing."
+              echo "See [docs/maintenance.md](../blob/main/docs/maintenance.md)."
+              echo
+              cat report.md
+            } > body.md
+            gh issue create --title "$title" --body-file body.md \
+              --label "problem" --label "links" --repo "$GITHUB_REPOSITORY"
+          else
+            echo "All links resolved. No issue opened."
+          fi

@@ -1,0 +1,22 @@
+My Experience in Data Structures Class
+
+This semester has been really busy for me. I am taking four classes and also
+working part time at the campus library, so finding time to study has been hard.
+Data structures is my favorite class though because the professor is really nice
+and explains things clearly.
+
+I think data structures are very important for computer science. Everyone says
+you need to know them to get a job at a big tech company, and the interviews ask
+about them a lot. My friend who graduated last year told me that the interview
+was mostly about arrays and trees and stuff like that, so I know I need to study
+these topics carefully before I graduate.
+
+The hardest part for me has been keeping up with the homework. Some weeks there
+is a lot of coding and I stay up late to finish it. I have gotten better at
+managing my time though. I also joined a study group which helps a lot because we
+can explain things to each other.
+
+Overall I am enjoying the class and I think I am learning a lot. I am looking
+forward to the rest of the semester and to using these skills in my career. Data
+structures will definitely help me become a better programmer and I am grateful
+for the opportunity to learn them.

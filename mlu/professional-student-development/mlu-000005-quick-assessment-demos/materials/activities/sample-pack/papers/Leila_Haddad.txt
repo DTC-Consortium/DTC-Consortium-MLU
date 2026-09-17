@@ -1,0 +1,30 @@
+Why an ArrayStack Is the Right Choice for an Undo Button
+
+Thesis: A text editor's undo history should be stored in an ArrayStack, because
+undo only ever touches the most recent action, and an ArrayStack makes adding
+and removing at the end cheap.
+
+Every time a user types, deletes, or pastes, the editor records the action. When
+they press Ctrl+Z, the editor takes back the most recent action, and pressing it
+again takes back the one before that. This is last-in, first-out behavior, which
+is exactly the Stack interface: push(x) when an action happens and pop() when the
+user presses undo. The editor never needs to reach into the middle of the history.
+
+An ArrayStack stores the history in a backing array. Pushing an action puts it in
+the next open slot at the end, and popping removes the last one, so no other
+elements have to be shifted. That is why these operations are fast.
+
+Sometimes the backing array fills up and has to grow, which means copying
+everything into a bigger array. This takes longer, but it doesn't happen often,
+so it doesn't really matter.
+
+[TODO: add the running time for push and pop here, and explain the resize part properly]
+
+For example, if a student writes a 2,000-word essay, the editor might record
+several thousand actions. Undoing the last ten of them only touches the last ten
+entries in the array.
+
+[TODO: compare to another structure? maybe a linked list]
+
+Conclusion: because undo is a stack problem, an ArrayStack is a simple and fast
+way to build an undo button.

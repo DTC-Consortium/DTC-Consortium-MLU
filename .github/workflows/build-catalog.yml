@@ -1,0 +1,62 @@
+name: Build catalog
+
+# Regenerates the catalog, category indexes, and collections index from contribution
+# metadata, so staff never maintain the same information in two places.
+#
+# Runs on main only, after content has been reviewed and merged. Pull request validation
+# checks the generated files are current (`--check`) but never writes them, because that
+# job runs against unreviewed content with read-only permissions.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'mlu/**/mlu-contribution.yml'
+      - 'collections/*.yml'
+      - 'catalog/taxonomy.yml'
+      - 'scripts/build_catalog.py'
+      - 'scripts/generate_boilerplate.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-catalog
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Regenerate catalog and indexes
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install -r scripts/requirements.txt
+
+      - name: Validate before regenerating
+        # Never rebuild a catalog from metadata that does not validate.
+        run: python3 scripts/validate_contributions.py
+
+      - name: Regenerate
+        run: |
+          python3 scripts/generate_boilerplate.py
+          python3 scripts/build_catalog.py
+
+      - name: Commit if anything changed
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "Catalog already current. Nothing to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add catalog collections/README.md mlu README.md
+          git commit -m "Rebuild catalog and indexes from contribution metadata"
+          git push

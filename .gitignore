@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+*.swp
+
+# Build and packaging output
+dist/
+build/
+*.zip
+
+# Local runs of contribution tools — never commit generated grades or scores
+grades_*/
+scores_*/

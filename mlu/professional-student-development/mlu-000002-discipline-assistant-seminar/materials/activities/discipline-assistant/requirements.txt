@@ -1,0 +1,15 @@
+# Discipline-Specific AI Teaching Assistant — dependencies (SageMaker path only)
+#
+# These pins cover discipline-assistant.ipynb on SageMaker Studio + Bedrock.
+# The Colab notebook (discipline-assistant-colab.ipynb) does NOT use this file —
+# it pip-installs its own dependencies in Part 1 and needs no AWS packages.
+#
+# Verify with: discipline-assistant.ipynb, run top to bottom on a bundled persona PDF.
+
+boto3>=1.35.0,<2.0
+langchain>=0.3.0,<0.4
+langchain-aws>=0.2.0,<0.3
+langchain-community>=0.3.0,<0.4
+langchain-core>=0.3.0,<0.4
+faiss-cpu>=1.9.0,<2.0
+pypdf>=5.0.0,<6.0

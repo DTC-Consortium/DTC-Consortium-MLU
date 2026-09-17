@@ -1,0 +1,18 @@
+# Curriculum Embedding Lab — dependencies
+#
+# Shared stack across all four AWS-MLU faculty labs: Amazon Bedrock (Nova Lite +
+# Nova Multimodal Embeddings) + FAISS + LangChain. Versions are constrained for the
+# SageMaker Studio Python 3 (Data Science) kernel. Version drift in the langchain
+# ecosystem is the most common cause of "it worked yesterday" breakage — widen these
+# ranges only if you re-test the notebooks end to end.
+#
+# Verify with: curriculum-embedding-lab.ipynb and study-mastery-lab.ipynb, run top
+# to bottom on the bundled sample data.
+
+boto3>=1.35.0,<2.0
+langchain>=0.3.0,<0.4
+langchain-aws>=0.2.0,<0.3
+langchain-community>=0.3.0,<0.4
+langchain-core>=0.3.0,<0.4
+faiss-cpu>=1.9.0,<2.0
+pypdf>=5.0.0,<6.0

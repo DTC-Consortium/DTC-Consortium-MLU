@@ -1,0 +1,140 @@
+name: New MLU contribution
+description: Propose new materials for the repository. A maintainer will assign you a permanent ID.
+title: "[New] "
+labels: ["contribution: new", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing. **This issue is public**, so link to materials rather than
+        attaching anything sensitive, and do not paste student work of any kind.
+
+        Read [`MLU-CONTRIBUTING.md`](https://github.com/DTC-Consortium/DTC-Consortium-MLU/blob/main/MLU-CONTRIBUTING.md)
+        first if you have not. **Do not pick an ID** — a maintainer assigns one.
+
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      description: What would you call this in a list of materials?
+      placeholder: Responsible AI in Clinical Decision-Making — course module
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Course Elements — courses, modules, lectures, assignments, assessments
+        - ML/AI Applications — prompts, applications, codebases, datasets, tool flows
+        - Professional and Student Development — bootcamps, workshops, training, presentations
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What is it?
+      description: A few sentences. What problem does it solve, and what does someone end up with?
+    validations:
+      required: true
+
+  - type: textarea
+    id: audience
+    attributes:
+      label: Who is it for, and how long does it take?
+      placeholder: |
+        Audience: second-year nursing students
+        Duration: two 75-minute sessions plus homework
+        Delivery: in person
+    validations:
+      required: true
+
+  - type: textarea
+    id: materials
+    attributes:
+      label: What materials are included?
+      description: List the pieces. Note anything hosted externally, such as video or large datasets.
+      placeholder: |
+        - Facilitator guide (docx)
+        - Slide deck (pptx + pdf)
+        - Two assignments with rubrics
+        - A 20-minute intro video, hosted on the institution's Panopto
+    validations:
+      required: true
+
+  - type: input
+    id: links
+    attributes:
+      label: Link to the materials
+      description: >-
+        A shareable link a maintainer can open — a repository, a Drive folder, or similar.
+        **Nothing confidential**, and no student work.
+    validations:
+      required: true
+
+  - type: textarea
+    id: prerequisites
+    attributes:
+      label: Prerequisites, accounts, and costs
+      description: >-
+        Every account a participant needs, and what it will cost them. Be specific — "an AWS
+        account" is not enough if model access must be enabled in a particular region.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: maturity
+    attributes:
+      label: Maturity
+      description: >-
+        Classroom-tested means it was delivered to learners and the resulting revisions folded
+        back in. Anything else is a pilot. There is no shame in pilot.
+      options:
+        - Pilot — used once, or reviewed and ready for a first run
+        - Classroom-tested — delivered to learners, revisions folded back in
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: Rights and privacy
+      description: These are checked before anything is published. Please confirm now.
+      options:
+        - label: I have the right to share these materials.
+          required: true
+        - label: >-
+            Nothing here is owned by AWS, a publisher, or another third party without written
+            authorization.
+          required: true
+        - label: >-
+            **No real student records** — no papers, transcripts, rosters, grades, or
+            screenshots. Sample data is fabricated or openly licensed.
+          required: true
+        - label: No credentials, API keys, or private information are included.
+          required: true
+        - label: I can state the licence for every file, including sample data.
+          required: true
+
+  - type: textarea
+    id: licensing
+    attributes:
+      label: Licensing notes
+      description: >-
+        What licence do you want for the documentation and for any code? Where did sample data
+        come from? Flag anything you are unsure about — asking now is much cheaper than later.
+      placeholder: |
+        Documentation: CC-BY-4.0. Code: MIT.
+        The case study is adapted from an openly licensed article (CC-BY 4.0) — link included.
+        I am not sure about the diagram on slide 12; a colleague made it. Can you advise?
+
+  - type: input
+    id: authors
+    attributes:
+      label: Authors and institutions
+      description: Everyone who should be credited, with their institution.
+    validations:
+      required: true

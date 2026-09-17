@@ -1,0 +1,30 @@
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.Python
+venv/
+.venv/
+env/
+
+# SageMaker / AWS
+.aws/
+.sagemaker-internal/
+
+# Local outputs from running the notebook (regenerated each run)
+my_ai_teaching_artifact_*.md
+my_ai_teaching_artifact_*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp

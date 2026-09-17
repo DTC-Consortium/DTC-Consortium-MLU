@@ -1,0 +1,17 @@
+# Class Participation Scoring Lab — dependencies
+#
+# Identical pinned stack to the curriculum lab: Amazon Bedrock (Nova Lite + Nova
+# Multimodal Embeddings) + FAISS + LangChain, for the SageMaker Studio Python 3
+# (Data Science) kernel. No extra packages — the transcript parser and scorer in
+# mlu_utils/transcript_tools.py use only the Python standard library.
+#
+# Verify with: participation-scoring-lab.ipynb, run top to bottom on the bundled
+# sample transcript.
+
+boto3>=1.35.0,<2.0
+langchain>=0.3.0,<0.4
+langchain-aws>=0.2.0,<0.3
+langchain-community>=0.3.0,<0.4
+langchain-core>=0.3.0,<0.4
+faiss-cpu>=1.9.0,<2.0
+pypdf>=5.0.0,<6.0

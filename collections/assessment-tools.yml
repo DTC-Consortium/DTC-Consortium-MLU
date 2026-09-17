@@ -1,0 +1,20 @@
+id: assessment-tools
+title: Assessment Tools and Rubric Practice
+kind: topic
+summary: >-
+  Everything in the repository about drafting, grounding, and reviewing assessment — the two
+  automated grading tools and the facilitated session on what makes a rubric worth grading
+  against. Rubrics written in the mlu-rubric/1 format move between them unchanged.
+curator: DTCC MLU Maintainers
+created: "2026-09-17"
+cohort: AWS-MLU Faculty Fellows 2026
+members:
+  - id: mlu-000005
+    order: 1
+    note: Why a rubric that rewards surface features misgrades a confidently wrong paper.
+  - id: mlu-000004
+    order: 2
+    note: Automates the grading demo from the session.
+  - id: mlu-000003
+    order: 3
+    note: The same grounded-judgment idea applied to spoken participation.

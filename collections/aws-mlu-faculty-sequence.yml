@@ -1,0 +1,24 @@
+id: aws-mlu-faculty-sequence
+title: AWS-MLU Faculty AI Sequence
+kind: course-kit
+summary: >-
+  Four contributions meant to be taught in order. The first establishes where AI fits in a
+  course, the second opens the hood and shows how it works, and the last two apply the same
+  retrieval stack to real instructional work. They share one stack, so an instructor who runs
+  the first finds the environment familiar in all of them.
+curator: DTCC MLU Maintainers
+created: "2026-09-17"
+cohort: AWS-MLU Faculty Fellows 2026
+members:
+  - id: mlu-000001
+    order: 1
+    note: Start here. Establishes where AI belongs before anything is built.
+  - id: mlu-000002
+    order: 2
+    note: Explains how grounding works. The only member that needs no AWS account.
+  - id: mlu-000003
+    order: 3
+    note: First contribution that touches real student records.
+  - id: mlu-000004
+    order: 4
+    note: Sibling of the participation tool, applied to written work.

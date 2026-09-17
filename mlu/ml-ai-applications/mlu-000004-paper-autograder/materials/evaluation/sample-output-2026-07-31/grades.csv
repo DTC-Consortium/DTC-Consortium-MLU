@@ -1,0 +1,5 @@
+student_name,status,overall_percent,letter,words,confidence,professor_summary,tier::Thesis & Argument,tier::Use of Course Concepts,tier::Evidence & Support,tier::Clarity & Structure
+Aisha Rahman,graded,87.5,B+,399,high,"The paper effectively argues its thesis and uses course concepts correctly, with strong evidence. The structure is good but could be improved for clarity.",4,3,4,3
+Marcus Lee,graded,28.7,F,228,low,The grade reflects the lack of focus on course concepts and the general nature of the comparison. Ensure the next draft includes specific examples from the material.,1,1,1,2
+Priya Chandra,graded,13.8,F,228,low,"This paper scores low on the use of course concepts and evidence, but shows basic clarity in personal reflections. It needs more engagement with the material.",1,0,0,2
+Diego Alvarez,missing,,,0,high,On the roster but no paper was found. Confirm before entering a 0.,,,,

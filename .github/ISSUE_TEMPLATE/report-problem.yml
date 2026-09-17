@@ -1,0 +1,81 @@
+name: Report a problem
+description: Something here is broken, wrong, out of date, or improperly licensed.
+title: "[Problem] "
+labels: ["problem", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > ## ⚠️ Stop if this involves private information
+        >
+        > **Do not describe exposed student data, credentials, or personal information in a public
+        > issue** — that publishes it a second time. Contact the maintainers privately through the
+        > [organization profile](https://github.com/DTC-Consortium) instead. They will act
+        > immediately.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem?
+      options:
+        - Broken — something does not run, open, or work as described
+        - Wrong — the content or instructions are incorrect
+        - Out of date — a tool, service, or interface changed
+        - Broken link
+        - Licensing or attribution concern
+        - Accessibility barrier
+        - Something else
+    validations:
+      required: true
+
+  - type: input
+    id: contribution_id
+    attributes:
+      label: Which contribution?
+      description: The ID, if you know it. Leave blank for a repository-wide problem.
+      placeholder: mlu-000003
+
+  - type: input
+    id: location
+    attributes:
+      label: Where exactly?
+      description: File path, notebook part, or slide number.
+      placeholder: materials/src/participation-scoring-lab.ipynb, Part 3
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what you got instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Where you were running it, if relevant.
+      placeholder: |
+        SageMaker Studio, us-east-1, Python 3 (Data Science) kernel
+        Or: Google Colab, free tier
+        Or: macOS 15, local Ollama
+
+  - type: textarea
+    id: error
+    attributes:
+      label: Error output
+      description: >-
+        Paste any error message. **Check it for credentials, account IDs, and student names
+        before you post it.**
+      render: text
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Before submitting
+      options:
+        - label: >-
+            This issue contains **no** student data, credentials, or personal information.
+          required: true

@@ -1,0 +1,111 @@
+# Validated against ../../../schemas/mlu-contribution.schema.json
+id: mlu-000003
+title: Class Participation Scoring — Transcript to Draft Score
+summary: >-
+  Point this notebook at a Zoom transcript of one class meeting and the material you
+  covered that day. It identifies who spoke, judges what they talked about against your
+  embedded lesson rather than the model's own knowledge, and drafts a 0–4 participation
+  score per student with the evidence behind it. The output is a draft a human reviews,
+  never a grade the tool assigns on its own.
+category: ml-ai-applications
+subtype: notebook-tool
+
+authors:
+  - name: Tariq Hook
+    institution: Delaware State University
+institutions:
+  - Delaware State University
+maintainer:
+  name: DTCC MLU Maintainers
+  contact: "@DTC-Consortium/mlu-ml-ai-applications"
+
+disciplines:
+  - Cross-disciplinary
+  - Faculty Development
+topics:
+  - participation assessment
+  - transcript analysis
+  - retrieval-augmented relevance judgment
+  - human review of AI output
+  - FERPA and student records
+tools:
+  - Amazon Bedrock
+  - Amazon Nova Lite
+  - Amazon SageMaker Studio
+  - LangChain
+  - FAISS
+  - Jupyter
+  - Python
+audience:
+  - Faculty
+  - Adjunct faculty
+
+intended_use:
+  description: >-
+    Drafts class-participation scores for a discussion-based course from a recorded class
+    transcript, so an instructor reviews evidence-backed drafts instead of scoring from
+    memory. Each score combines quantity, topical relevance judged against the day's
+    embedded lesson material, and substance. Requires instructor review before any score
+    is recorded.
+  learning_outcomes:
+    - Ground a relevance judgment in supplied course material rather than model priors.
+    - Review and override AI-drafted scores using the evidence attached to each one.
+    - Apply institutional policy on class recording and student records before using real transcripts.
+
+prerequisites:
+  knowledge:
+    - Comfort running cells in a notebook.
+    - >-
+      Institutional clearance to use class recordings and transcripts, with students
+      notified. FERPA in the US, or the local equivalent.
+  accounts:
+    - AWS account with Amazon SageMaker Studio access
+    - Amazon Bedrock model access for Amazon Nova Lite in the session region
+  expected_cost: Under USD 1 per class meeting scored, in Bedrock inference.
+
+version: 1.0.0
+published: "2026-09-17"
+last_reviewed: "2026-09-17"
+maturity: classroom-tested
+
+licenses:
+  content: CC-BY-4.0
+  software: MIT
+  data:
+    - path: materials/src/data/persona2_cs_data_structures.pdf
+      license: CC-BY-4.0
+      source: Open Data Structures, Pat Morin, Ch. 1 extract. Byte-identical to the copy in mlu-000001.
+    - path: materials/src/data/sample_class_transcript.vtt
+      license: CC-BY-4.0
+      source: Original fabricated Zoom transcript authored for this lab. All students are invented.
+    - path: materials/src/data/sample_roster.csv
+      license: CC-BY-4.0
+      source: Original fabricated roster. No real student appears in this contribution.
+
+materials:
+  - path: materials/src/participation-scoring-lab.ipynb
+    description: The scoring tool, Parts 0–7. Part 5 is the mandatory human review step.
+  - path: materials/src/mlu_utils/
+    description: NovaMultimodalEmbeddings and transcript parsing helpers.
+  - path: materials/src/data/
+    description: Fabricated transcript, roster, and lesson PDF — runs out of the box.
+  - path: materials/src/requirements.txt
+    description: Pinned dependencies.
+  - path: materials/facilitator-guide/LAB_WALKTHROUGH.md
+    description: Podium walkthrough for delivering this as a lab.
+
+github:
+  path: mlu/ml-ai-applications/mlu-000003-participation-scoring
+  download_url: null
+
+hub: null
+cohort: AWS-MLU Faculty Fellows 2026
+difficulty: intermediate
+duration: ~10 minutes of compute, plus review that scales with class size
+delivery_format: [self-paced, in-person]
+language: en
+parent_id: null
+related_ids: [mlu-000001, mlu-000002, mlu-000004]
+collection_ids: [aws-mlu-faculty-sequence, assessment-tools]
+inventory_reference: Faculty Fellows Impact Inventory — Table 2
+website_url: null

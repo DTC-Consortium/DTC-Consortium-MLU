@@ -1,0 +1,53 @@
+# --- Generated grading output --------------------------------------------
+# Dated export folders written by Part 6 (grades.csv, grades.md, feedback/).
+# These contain student grades and feedback — keep them OUT of version control.
+grades_*/
+*_feedback/
+feedback/
+
+# --- Real student data (never commit) ------------------------------------
+# The bundled data/ sample is fabricated and safe. If you drop real papers,
+# rosters, or course material in, uncomment / adjust these so they don't ship.
+# data/sample_papers/*
+# data/*.csv
+# data/*.pdf
+
+# --- Python ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# --- Jupyter --------------------------------------------------------------
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+profile_default/
+ipython_config.py
+
+# --- FAISS / model artifacts ----------------------------------------------
+# In case you persist an index with vectorstore.save_local(...)
+*.faiss
+*.pkl
+faiss_index/
+
+# --- Secrets / credentials ------------------------------------------------
+.env
+.env.*
+*.pem
+.aws/
+
+# --- Editors / OS ---------------------------------------------------------
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~

@@ -1,0 +1,73 @@
+name: Validate MLU contributions
+
+# Runs against submitted content, including from forks. It therefore holds read-only
+# permissions, no secrets, and no publishing credentials — and it never executes
+# contributed code. Metadata validation parses YAML and checks paths; nothing more.
+#
+# `pull_request` (not `pull_request_target`) is deliberate: it checks out the submitted
+# code in an unprivileged context. Do not switch it.
+
+on:
+  pull_request:
+    paths:
+      - 'mlu/**'
+      - 'collections/**'
+      - 'catalog/**'
+      - 'schemas/**'
+      - 'scripts/**'
+      - 'templates/**'
+      - 'ID-REGISTER.md'
+      - 'README.md'
+      - '.github/workflows/validate-mlu-contributions.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Metadata, catalog, and local links
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install validation dependencies
+        # Only PyYAML and jsonschema. A contribution's own requirements.txt is never
+        # installed here, and its code is never imported or run.
+        run: pip install -r scripts/requirements.txt
+
+      - name: Validate contribution metadata
+        run: python3 scripts/validate_contributions.py
+
+      - name: Check generated licences and citations are current
+        run: python3 scripts/generate_boilerplate.py --check
+
+      - name: Check catalog and indexes are current
+        run: python3 scripts/build_catalog.py --check
+
+      - name: Check local links
+        # Local links only. External links are the scheduled job's business and never
+        # fail a pull request.
+        run: python3 scripts/check_links.py
+
+      - name: Check for committed caches and OS cruft
+        run: |
+          set -euo pipefail
+          found=$(git ls-files | grep -E '(^|/)(__pycache__/|\.DS_Store$|\.ipynb_checkpoints/)|\.pyc$' || true)
+          if [ -n "$found" ]; then
+            echo "::error::Committed caches or OS files found:"
+            echo "$found"
+            exit 1
+          fi
+          echo "None found."

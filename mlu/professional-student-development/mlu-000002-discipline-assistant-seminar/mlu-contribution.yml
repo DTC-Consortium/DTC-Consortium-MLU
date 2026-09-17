@@ -1,0 +1,105 @@
+# Validated against ../../../schemas/mlu-contribution.schema.json
+id: mlu-000002
+title: Discipline-Specific AI Teaching Assistant — Seminar Lab
+summary: >-
+  The technical lab of the set. In about 15 minutes participants build a grounded,
+  source-citing AI tutor for their own field and see directly what grounding buys them,
+  because the notebook asks the same question with and without the source document.
+  Ships in two paths — free Google Colab plus Hugging Face, or SageMaker Studio plus
+  Bedrock — so faculty keep a working copy after cloud access ends.
+category: professional-student-development
+subtype: seminar
+
+authors:
+  - name: Tariq Hook
+    institution: Delaware State University
+institutions:
+  - Delaware State University
+maintainer:
+  name: DTCC MLU Maintainers
+  contact: "@DTC-Consortium/mlu-professional-student-development"
+
+disciplines:
+  - Faculty Development
+  - Cross-disciplinary
+  - Computer Science
+topics:
+  - retrieval-augmented generation
+  - embeddings and vector search
+  - source citation and grounding
+  - teaching artifact generation
+tools:
+  - Google Colab
+  - Hugging Face
+  - Amazon Bedrock
+  - Amazon SageMaker Studio
+  - LangChain
+  - FAISS
+  - Jupyter
+  - Python
+audience:
+  - Faculty
+  - Academic staff
+
+intended_use:
+  learning_outcomes:
+    - Explain how chunking, embedding, and vector retrieval combine to ground a model's answer.
+    - Build a tutor that answers only from a supplied document and cites the passage it used.
+    - Contrast grounded and ungrounded answers to the same question, and say why the difference matters for teaching.
+    - Generate quiz questions, study guides, and grading rubrics from a discipline document.
+
+prerequisites:
+  knowledge:
+    - Comfort running cells in a notebook. No prior ML background required.
+  accounts:
+    - "Colab path: a Google account and a free Hugging Face account with a read token"
+    - "AWS path (optional): SageMaker Studio access and Bedrock model access"
+  expected_cost: >-
+    None on the Colab path — Google Colab's free tier and the Hugging Face free
+    inference tier are sufficient. The AWS path costs under USD 1 per participant.
+
+version: 1.0.0
+published: "2026-09-17"
+last_reviewed: "2026-09-17"
+maturity: classroom-tested
+
+licenses:
+  content: CC-BY-4.0
+  software: MIT
+  data:
+    - path: materials/activities/discipline-assistant/data/
+      license: Mixed — see data/README.md
+      source: >-
+        The same six discipline personas as mlu-000001, byte-identical. Per-file source,
+        licence, and page count are recorded in data/README.md.
+      notes: >-
+        persona3 is public-domain Seacole text preserving nineteenth-century racial language;
+        flag it for participants in advance.
+
+materials:
+  - path: materials/activities/discipline-assistant/discipline-assistant-colab.ipynb
+    description: The recommended path — Google Colab plus a free Hugging Face token. No AWS account needed.
+  - path: materials/activities/discipline-assistant/discipline-assistant.ipynb
+    description: The AWS path — SageMaker Studio plus Bedrock.
+  - path: materials/activities/discipline-assistant/data/
+    description: Six discipline persona documents with per-file provenance in data/README.md.
+  - path: materials/agenda/SEMINAR_PLAN.md
+    description: Session plan for the seminar this lab anchors.
+  - path: materials/facilitator-guide/
+    description: Instructor cheatsheet, preflight checklist, content audit, and post-seminar lab guidance.
+
+github:
+  path: mlu/professional-student-development/mlu-000002-discipline-assistant-seminar
+  download_url: null
+
+hub: null
+cohort: AWS-MLU Faculty Fellows 2026
+difficulty: intro
+duration: ~15 minutes
+delivery_format: [in-person, online-synchronous, self-paced]
+language: en
+parent_id: null
+related_ids: [mlu-000001, mlu-000003, mlu-000004]
+collection_ids: [aws-mlu-faculty-sequence]
+inventory_reference: Faculty Fellows Impact Inventory — Table 1, Row 2
+website_url: null

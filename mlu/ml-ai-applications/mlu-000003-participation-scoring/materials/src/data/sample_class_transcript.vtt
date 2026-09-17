@@ -1,0 +1,141 @@
+WEBVTT
+
+1
+00:00:04.120 --> 00:00:11.480
+James Chen: Alright everyone, welcome back. Today we're staying with Chapter 1 — interfaces versus implementations, and how we talk about running time. Let's jump in.
+
+2
+00:00:12.900 --> 00:00:21.300
+James Chen: Someone start me off. When the book says the List "interface," what does that actually mean? How is an interface different from the data structure underneath it?
+
+3
+00:00:23.450 --> 00:00:34.900
+Tyler Okonkwo: I think the interface is the what, not the how. It says a List has get, set, add, and remove — but it doesn't say whether you use an array or a linked list to do it.
+
+4
+00:00:35.600 --> 00:00:39.100
+James Chen: That's exactly the distinction. The interface is the contract; the implementation is one way to honor it.
+
+5
+00:00:40.220 --> 00:00:41.000
+Daniel Kim: Makes sense.
+
+6
+00:00:42.700 --> 00:00:55.300
+Aisha Rahman: Can I push on that? The book lists Stack, Queue, and Deque as separate interfaces, but they all kind of feel like restricted Lists. Is the point that the interface deliberately *limits* what operations you expose, so you can guarantee performance?
+
+7
+00:00:56.100 --> 00:01:07.400
+James Chen: Great question. Yes — by narrowing the interface to push and pop, a Stack implementation only has to be fast at the two ends. Aisha, what does that buy you over a general List?
+
+8
+00:01:08.000 --> 00:01:19.900
+Aisha Rahman: You get to drop the cost of arbitrary-position access. If I only ever push and pop at one end, I can back a Stack with an array and both operations are constant time, amortized. A general List can't promise that for the middle.
+
+9
+00:01:20.800 --> 00:01:22.300
+Daniel Kim: Yeah, true.
+
+10
+00:01:23.900 --> 00:01:35.200
+Sofia Reyes: Wait before we go on — is the problem set still due Friday? Because I have two midterms this week and I was kind of hoping it might slide to Monday. Also did everyone see the basketball game last night, that ending was insane.
+
+11
+00:01:36.000 --> 00:01:40.500
+James Chen: Friday still stands, Sofia. Let's hold the side conversations and keep on the chapter. Marcus, FIFO versus LIFO — which interface is which?
+
+12
+00:01:41.700 --> 00:01:52.600
+Marcus Bell: A Queue is FIFO — first in, first out, like a line at a store. A Stack is LIFO — last in, first out, like a stack of plates where you take the top one off first.
+
+13
+00:01:53.300 --> 00:01:56.100
+James Chen: Clean. And the Deque generalizes both, since you can add and remove at either end.
+
+14
+00:01:57.400 --> 00:02:09.800
+Aisha Rahman: That's the part I found elegant — a Deque can simulate a Stack or a Queue depending on which ends you use. So really the three interfaces are points on a spectrum of how much access you allow.
+
+15
+00:02:10.500 --> 00:02:11.400
+Daniel Kim: Agreed.
+
+16
+00:02:12.900 --> 00:02:24.300
+James Chen: Let's get concrete about cost. In an array-backed list, what's the running time of get(i) — fetching the element at index i? And why?
+
+17
+00:02:25.800 --> 00:02:35.200
+Marcus Bell: get(i) is O(1) for an array, constant time, because you can compute the memory address directly from the index. You don't have to walk through the earlier elements.
+
+18
+00:02:36.000 --> 00:02:39.600
+James Chen: Right. Contrast that with a linked list, where get(i) is...?
+
+19
+00:02:40.300 --> 00:02:43.900
+Marcus Bell: O(n), because you have to follow the pointers from the front until you reach position i.
+
+20
+00:02:45.100 --> 00:02:58.700
+Sofia Reyes: Honestly this is why I drink so much coffee, my brain does NOT do pointers before noon. Did anyone else start that new show on Netflix though? I stayed up way too late. Anyway sorry, carry on.
+
+21
+00:03:00.200 --> 00:03:13.600
+Aisha Rahman: I actually want to dig into the array resizing thing, because it confused me at first. When an ArrayStack fills up and you call add, the book says it's still O(1) amortized even though a single add can cost O(n) to copy everything into a bigger array. How does that average out?
+
+22
+00:03:14.400 --> 00:03:18.000
+James Chen: This is the heart of the chapter. Anyone want to take a first swing at why the expensive copies don't dominate?
+
+23
+00:03:19.700 --> 00:03:33.500
+Aisha Rahman: I think it's the doubling. If you double the array size every time it fills, the expensive resize happens half as often as it just did. So the total copying work across n adds is n plus n-over-2 plus n-over-4, which sums to about 2n — linear total, so constant per operation.
+
+24
+00:03:34.200 --> 00:03:41.800
+James Chen: That is exactly the amortized argument, and you even got the geometric series. The doubling is what makes the rare O(n) cost spread out to O(1) per add on average.
+
+25
+00:03:43.000 --> 00:03:52.400
+Tyler Okonkwo: So if you grew the array by a fixed amount instead of doubling — like add ten slots each time — that's where it breaks, right? You'd resize way more often and it'd be O(n) per add.
+
+26
+00:03:53.100 --> 00:03:57.900
+James Chen: Exactly right, Tyler. Fixed-increment growth gives you quadratic total work. The doubling is doing real work here.
+
+27
+00:03:59.200 --> 00:04:00.300
+Daniel Kim: Oh, interesting.
+
+28
+00:04:01.800 --> 00:04:14.600
+Aisha Rahman: One more — does the same amortized argument cover remove? Because if you shrink the array too eagerly you could get a pathological case where you alternate add and remove right at the boundary and pay O(n) every time.
+
+29
+00:04:15.300 --> 00:04:26.700
+James Chen: Beautiful — that's precisely why the book only shrinks when the array is a quarter full, not half. That hysteresis is what prevents the alternating worst case you just described. Hold onto that intuition for the assignment.
+
+30
+00:04:28.000 --> 00:04:34.500
+Sofia Reyes: Quick thing, is this going to be on the exam? Like the math part with the sums? Asking for a friend who is me.
+
+31
+00:04:35.200 --> 00:04:39.800
+James Chen: The amortized reasoning, yes. Let's talk specifics after class, Sofia. We're almost out of time.
+
+32
+00:04:41.000 --> 00:04:52.300
+Marcus Bell: Before we wrap — just to make sure I have it: the USet interface is the unordered set with add, remove, and find, and that's the one we implement with hashing later? I want to keep the interfaces straight.
+
+33
+00:04:53.100 --> 00:04:58.700
+James Chen: Correct, USet is the hash-table one, and SSet is the sorted set where find returns the smallest element greater than or equal to your query. Good — that's the bridge to next week.
+
+34
+00:05:00.100 --> 00:05:05.600
+James Chen: Great discussion today. Read the running-time appendix before Thursday. See everyone then.
+
+35
+00:05:06.200 --> 00:05:07.000
+Daniel Kim: Thanks!

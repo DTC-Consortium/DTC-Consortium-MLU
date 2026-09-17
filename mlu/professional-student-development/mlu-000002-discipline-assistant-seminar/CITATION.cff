@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: If you use these materials, please cite them as below.
+type: dataset
+title: 'Discipline-Specific AI Teaching Assistant — Seminar Lab'
+version: 1.0.0
+date-released: 2026-09-17
+license: CC-BY-4.0
+repository-code: https://github.com/DTC-Consortium/DTC-Consortium-MLU
+url: https://github.com/DTC-Consortium/DTC-Consortium-MLU/tree/main/mlu/professional-student-development/mlu-000002-discipline-assistant-seminar
+abstract: >-
+  The technical lab of the set. In about 15 minutes participants build a grounded,
+  source-citing AI tutor for their own field and see directly what grounding buys them,
+  because the notebook asks the same question with and without the source document. Ships
+  in two paths — free Google Colab plus Hugging Face, or SageMaker Studio plus Bedrock —
+  so faculty keep a working copy after cloud access ends.
+authors:
+  - name: 'Tariq Hook'
+    affiliation: 'Delaware State University'
+keywords:
+  - 'retrieval-augmented generation'
+  - 'embeddings and vector search'
+  - 'source citation and grounding'
+  - 'teaching artifact generation'
+identifiers:
+  - type: other
+    value: mlu-000002
+    description: MLU contribution ID

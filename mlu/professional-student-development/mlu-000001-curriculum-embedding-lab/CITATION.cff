@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: If you use these materials, please cite them as below.
+type: dataset
+title: 'Curriculum Embedding Lab — Embed AI in Your Course'
+version: 1.0.0
+date-released: 2026-09-17
+license: CC-BY-4.0
+repository-code: https://github.com/DTC-Consortium/DTC-Consortium-MLU
+url: https://github.com/DTC-Consortium/DTC-Consortium-MLU/tree/main/mlu/professional-student-development/mlu-000001-curriculum-embedding-lab
+abstract: >-
+  A 90-minute faculty lab whose deliverable is a decision, not a demo. Each participant
+  builds a working, discipline-grounded AI tool from a persona matched to their field,
+  then writes a curriculum plan for where it belongs in a course they actually teach —
+  and, explicitly, where it does not. Ships with a student-facing companion notebook (Quiz
+  Me, Socratic Hint, Explain-Back) and six licence-clean discipline personas.
+authors:
+  - name: 'Tariq Hook'
+    affiliation: 'Delaware State University'
+keywords:
+  - 'curriculum design'
+  - 'retrieval-augmented generation'
+  - 'AI boundaries in teaching'
+  - 'academic integrity'
+identifiers:
+  - type: other
+    value: mlu-000001
+    description: MLU contribution ID

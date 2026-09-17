@@ -1,0 +1,95 @@
+name: Update an existing contribution
+description: Revise materials already published here. Keeps the same ID.
+title: "[Update] "
+labels: ["contribution: update", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For changes to something already published. **The ID never changes** — updates keep the
+        ID they were assigned.
+
+        **This issue is public.** Link to materials rather than attaching anything sensitive.
+
+  - type: input
+    id: contribution_id
+    attributes:
+      label: Contribution ID
+      description: The ID of the contribution you are updating.
+      placeholder: mlu-000001
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What needs to change?
+      description: Be specific about which files and what about them.
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why?
+      description: >-
+        What prompted this — a tool changed, something was wrong, you taught it and learned
+        something, new material to add?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: version_bump
+    attributes:
+      label: How big is the change?
+      description: >-
+        This decides the version bump. If you are unsure, say so in the box above and a
+        maintainer will work it out with you.
+      options:
+        - Patch — fixes, clarifications, corrected links. Nobody has to change what they do.
+        - Minor — new materials, but existing use still works unchanged.
+        - Major — anyone using the current version must change something.
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: maturity_change
+    attributes:
+      label: Does this change its maturity?
+      options:
+        - "No change"
+        - "Pilot → classroom-tested: it has now been delivered to learners and revised after"
+        - "Classroom-tested → pilot: it has changed enough that the previous testing no longer applies"
+    validations:
+      required: true
+
+  - type: input
+    id: links
+    attributes:
+      label: Link to the updated materials
+      description: If you have them ready. Leave blank if you are only reporting what needs doing.
+
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: Rights and privacy
+      description: Re-confirmed for anything new in this update.
+      options:
+        - label: I have the right to share any new material in this update.
+          required: true
+        - label: >-
+            **No real student records**, credentials, or private information in the new material.
+          required: true
+        - label: Any new sample data is fabricated or openly licensed, and I can state its licence.
+          required: true
+
+  - type: checkboxes
+    id: authorship
+    attributes:
+      label: Authorship
+      options:
+        - label: I am an author or maintainer of this contribution.
+        - label: >-
+            I am not — I am proposing a change to someone else's work, and understand the
+            original authors decide what happens within their contribution.

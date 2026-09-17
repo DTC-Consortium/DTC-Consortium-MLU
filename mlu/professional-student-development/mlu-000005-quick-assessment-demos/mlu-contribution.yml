@@ -1,0 +1,107 @@
+# Validated against ../../../schemas/mlu-contribution.schema.json
+id: mlu-000005
+title: The Assignment Lifecycle — Quick Assessment Demo Session
+summary: >-
+  A 90-minute facilitated session that walks a room through one assignment's full
+  lifecycle — write the rubric, stress-test it, grade against it, and triage submissions
+  before the deadline. Built around a single fluent, confident, and wrong student paper
+  that earns a B+ under a vague rubric and an F under a rubric that names what correct
+  means. Ships a deck, a talk track, a participant handout, and a five-student sample pack.
+category: professional-student-development
+subtype: workshop
+
+authors:
+  - name: Tariq Hook
+    institution: Delaware State University
+institutions:
+  - Delaware State University
+maintainer:
+  name: DTCC MLU Maintainers
+  contact: "@DTC-Consortium/mlu-professional-student-development"
+
+disciplines:
+  - Faculty Development
+  - Cross-disciplinary
+  - Computer Science
+topics:
+  - rubric design
+  - assessment lifecycle
+  - pre-deadline triage
+  - fluency versus correctness
+tools:
+  - PowerPoint
+  - Python
+audience:
+  - Faculty
+  - Workshop facilitators
+  - Instructional designers
+
+intended_use:
+  learning_outcomes:
+    - Diagnose why a rubric that rewards visible surface features misgrades a confidently wrong paper.
+    - Write a rubric whose criteria name what correct looks like and map to stated learning objectives.
+    - Stress-test a rubric against a paper designed to exploit its weaknesses.
+    - Use pre-deadline triage to surface missing criteria while students can still act on it.
+
+prerequisites:
+  knowledge:
+    - Participants bring one assignment prompt and its learning objectives, as text. No student work.
+  accounts: []
+  expected_cost: >-
+    None for the materials themselves. The session demonstrates chat-based AI tools;
+    any per-seat cost depends on which tool the facilitator uses.
+
+version: 0.1.0
+published: "2026-09-17"
+last_reviewed: "2026-09-17"
+maturity: pilot
+
+licenses:
+  content: CC-BY-4.0
+  software: MIT
+  data:
+    - path: materials/activities/sample-pack/persona2_cs_data_structures.pdf
+      license: CC-BY-4.0
+      source: Open Data Structures, Pat Morin, Ch. 1–2 extract. Byte-identical to the copy in mlu-000004.
+    - path: materials/activities/sample-pack/papers/
+      license: CC-BY-4.0
+      source: Four original fabricated student papers. All students are invented.
+    - path: materials/activities/sample-pack/roster.csv
+      license: CC-BY-4.0
+      source: Original fabricated roster of five students.
+
+materials:
+  - path: materials/slides/assessment-lifecycle-deck.pdf
+    description: The session deck, 90 minutes.
+  - path: materials/slides/assessment-lifecycle-deck.pptx
+    description: Editable source of the deck.
+  - path: materials/slides/build_deck.py
+    description: Script that regenerates the deck from source.
+  - path: materials/facilitator-guide/TALK_TRACK.md
+    description: >-
+      Per-slide talk track — what must be true before each slide, what to say, what to do,
+      and the one thread to protect if time runs short.
+  - path: materials/participant-resources/hook-handout.md
+    description: The opening handout the room grades from.
+  - path: materials/activities/sample-pack/
+    description: One assignment, one course reading, two rubrics, and five students.
+  - path: materials/activities/rubric-format.md
+    description: >-
+      The mlu-rubric/1 format shared by the session tools. A rubric in this format loads
+      unchanged into mlu-000004.
+
+github:
+  path: mlu/professional-student-development/mlu-000005-quick-assessment-demos
+  download_url: null
+
+hub: null
+cohort: AWS-MLU Faculty Fellows 2026
+difficulty: intro
+duration: ~90 minutes
+delivery_format: [in-person]
+language: en
+parent_id: null
+related_ids: [mlu-000004]
+collection_ids: [assessment-tools]
+inventory_reference: null
+website_url: null

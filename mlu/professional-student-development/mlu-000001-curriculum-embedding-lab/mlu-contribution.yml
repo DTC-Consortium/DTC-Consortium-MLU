@@ -1,0 +1,121 @@
+# Validated against ../../../schemas/mlu-contribution.schema.json
+id: mlu-000001
+title: Curriculum Embedding Lab — Embed AI in Your Course
+summary: >-
+  A 90-minute faculty lab whose deliverable is a decision, not a demo. Each participant
+  builds a working, discipline-grounded AI tool from a persona matched to their field,
+  then writes a curriculum plan for where it belongs in a course they actually teach —
+  and, explicitly, where it does not. Ships with a student-facing companion notebook
+  (Quiz Me, Socratic Hint, Explain-Back) and six licence-clean discipline personas.
+category: professional-student-development
+subtype: lab
+
+authors:
+  - name: Tariq Hook
+    institution: Delaware State University
+institutions:
+  - Delaware State University
+maintainer:
+  name: DTCC MLU Maintainers
+  contact: "@DTC-Consortium/mlu-professional-student-development"
+
+disciplines:
+  - Faculty Development
+  - Cross-disciplinary
+topics:
+  - curriculum design
+  - retrieval-augmented generation
+  - AI boundaries in teaching
+  - academic integrity
+tools:
+  - Amazon Bedrock
+  - Amazon Nova Lite
+  - Amazon SageMaker Studio
+  - LangChain
+  - FAISS
+  - Jupyter
+  - Python
+audience:
+  - Faculty
+  - Academic staff
+  - Instructional designers
+
+intended_use:
+  learning_outcomes:
+    - Identify where in a specific course an AI tool adds instructional value, and articulate what the instructor still does.
+    - Build a discipline-grounded AI tool from a persona brief, using retrieval over a real document from the field.
+    - State an explicit boundary for where AI does not belong in one's own teaching, and defend it.
+    - Commit to one dated, specific instructional action.
+
+prerequisites:
+  knowledge:
+    - No coding experience required; participants run about five cells of Python.
+  accounts:
+    - AWS account with Amazon SageMaker Studio access
+    - Amazon Bedrock model access for Amazon Nova Lite in the session region
+  expected_cost: >-
+    Under USD 1 per participant in Bedrock inference. SageMaker Studio compute is billed
+    for the duration of the session and should be shut down afterward.
+
+version: 1.0.0
+published: "2026-09-17"
+last_reviewed: "2026-09-17"
+maturity: classroom-tested
+
+licenses:
+  content: CC-BY-4.0
+  software: MIT
+  data:
+    - path: materials/activities/curriculum-embedding-lab/data/persona1_dentistry_perio_case.pdf
+      license: CC-BY-4.0
+      source: Abulfateh et al., Cureus 2026 case report on localized aggressive periodontitis.
+    - path: materials/activities/curriculum-embedding-lab/data/persona2_cs_data_structures.pdf
+      license: CC-BY-4.0
+      source: Open Data Structures, Pat Morin, Ch. 1 extract.
+    - path: materials/activities/curriculum-embedding-lab/data/persona3_english_victorian_essay.pdf
+      license: Public-Domain
+      source: Mary Seacole, Wonderful Adventures of Mrs. Seacole in Many Lands (1857), via Project Gutenberg #23031.
+      notes: >-
+        Preserves nineteenth-century spelling and racial language. Flag this for participants
+        in advance rather than letting it arrive unannounced.
+    - path: materials/activities/curriculum-embedding-lab/data/persona4_nursing_pharmacology.pdf
+      license: CC-BY-4.0
+      source: Original instructional material authored for this seminar.
+    - path: materials/activities/curriculum-embedding-lab/data/persona5_business_leadership_case.pdf
+      license: CC-BY-4.0
+      source: Original fictional teaching case authored for this seminar; all figures and people invented.
+    - path: materials/activities/curriculum-embedding-lab/data/persona6_biology_lab_protocol.pdf
+      license: CC-BY-4.0
+      source: Original wet-lab protocol authored for this seminar.
+
+materials:
+  - path: materials/activities/curriculum-embedding-lab/curriculum-embedding-lab.ipynb
+    description: The faculty lab, Parts 0–7. The main deliverable.
+  - path: materials/activities/curriculum-embedding-lab/study-mastery-lab.ipynb
+    description: Student-facing companion — Quiz Me, Socratic Hint, and Explain-Back modes.
+  - path: materials/activities/curriculum-embedding-lab/mlu_utils/
+    description: Shared helpers — NovaMultimodalEmbeddings and study tools.
+  - path: materials/activities/curriculum-embedding-lab/data/
+    description: Six discipline persona documents with per-file provenance in data/README.md.
+  - path: materials/agenda/SEMINAR_PLAN.md
+    description: Session plan and locked design decisions.
+  - path: materials/facilitator-guide/
+    description: >-
+      Podium walkthrough, instructor cheatsheet, preflight checklist, content audit,
+      deck spec, and a six-persona smoketest with recorded known-good outputs.
+
+github:
+  path: mlu/professional-student-development/mlu-000001-curriculum-embedding-lab
+  download_url: null
+
+hub: null
+cohort: AWS-MLU Faculty Fellows 2026
+difficulty: intro
+duration: ~90 minutes
+delivery_format: [in-person, online-synchronous]
+language: en
+parent_id: null
+related_ids: [mlu-000002, mlu-000003, mlu-000004]
+collection_ids: [aws-mlu-faculty-sequence]
+inventory_reference: Faculty Fellows Impact Inventory — Table 1, Row 1
+website_url: null

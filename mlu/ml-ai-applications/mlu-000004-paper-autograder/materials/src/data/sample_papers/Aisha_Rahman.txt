@@ -1,0 +1,37 @@
+Choosing the Right Structure: Why Hash Tables Beat Arrays for Membership Tests
+
+Thesis: When a program's core operation is "have I seen this before?", a hash
+table is the right data structure, because it trades a small, bounded amount of
+extra memory for average-case constant-time lookup that an array cannot match.
+
+Consider a program that reads a stream of user IDs and must report duplicates.
+With an unsorted array, checking whether an ID has appeared before is a linear
+scan: O(n) per check, and O(n^2) across the whole stream. The array is simple
+and cache-friendly, but the cost of membership grows with the data, which is
+exactly the wrong direction for a deduplication task.
+
+A hash table changes the shape of that cost. By mapping each ID through a hash
+function to a bucket, a lookup touches only the handful of keys that collide in
+that bucket rather than the whole collection. Under the uniform hashing
+assumption the course covered, the expected number of keys per bucket is the
+load factor, so lookup and insertion are O(1) on average. The whole stream then
+becomes O(n) instead of O(n^2).
+
+This is not free. The hash table spends memory to keep the load factor low, and
+its worst case degrades to O(n) if every key collides into one bucket — the
+pathological case where a bad hash function turns the table back into a linked
+list. The course material's point that "average case is not worst case" matters
+here: for adversarial input you need either a randomized hash or a different
+structure. For ordinary input, the average case is what you get, and it is the
+reason a hash table is the standard tool for a set.
+
+One subtlety worth naming: the array is not strictly worse. If the data is tiny,
+or if you also need to iterate in sorted order, the constant factors and the
+extra ordering work can make the array or a balanced tree the better call. The
+claim is narrow and I want to keep it narrow: for the single operation of
+membership on unordered data at scale, the hash table's average O(1) is decisive.
+
+Conclusion: the right structure follows from the operation you run most. For
+membership testing, that operation is lookup, and the hash table is built to make
+lookup cheap. The array's simplicity is real, but it does not survive contact
+with n^2.
