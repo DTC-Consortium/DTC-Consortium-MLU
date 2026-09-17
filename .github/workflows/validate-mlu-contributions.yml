@@ -7,18 +7,13 @@ name: Validate MLU contributions
 # `pull_request` (not `pull_request_target`) is deliberate: it checks out the submitted
 # code in an unprivileged context. Do not switch it.
 
+# Runs on EVERY pull request, deliberately without a `paths` filter. This job is a
+# required status check on main: a path filter would mean a pull request touching
+# only, say, docs/ never triggers it, and a required check that never reports blocks
+# that pull request forever. It is cheap enough to always run.
+
 on:
   pull_request:
-    paths:
-      - 'mlu/**'
-      - 'collections/**'
-      - 'catalog/**'
-      - 'schemas/**'
-      - 'scripts/**'
-      - 'templates/**'
-      - 'ID-REGISTER.md'
-      - 'README.md'
-      - '.github/workflows/validate-mlu-contributions.yml'
   workflow_dispatch:
 
 permissions:
