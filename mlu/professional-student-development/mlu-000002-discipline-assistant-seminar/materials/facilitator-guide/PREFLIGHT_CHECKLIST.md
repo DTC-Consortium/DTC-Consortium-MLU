@@ -1,7 +1,15 @@
-# Lab 2 — Pre-Flight Checklist
+# Discipline Assistant Seminar (`mlu-000002`) — Pre-Flight Checklist
 
 **For:** The instructor team setting up this lab before delivery.
 **Companion docs:** `INSTRUCTOR_CHEATSHEET.md` (run-of-show), `SEMINAR_PLAN.md` (background — note it is the superseded v1 day-plan).
+
+> **A note on numbering.** "Lab 2" throughout this document means *the seminar's second lab* — the
+> afternoon slot, after a morning no-code session. That it also happens to be **lab 2 of 4** in the
+> published teaching sequence is a coincidence.
+>
+> Watch out for this: [`mlu-000001`](../../../mlu-000001-curriculum-embedding-lab) **also** calls
+> itself "Lab 2" in its own facilitator docs, because it took over that same afternoon slot. Two
+> documents, same label, different labs. Go by the contribution ID, not the lab number.
 
 ---
 

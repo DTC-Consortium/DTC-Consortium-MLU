@@ -1,7 +1,16 @@
-# Lab 2 — Instructor Cheat Sheet
+# Discipline Assistant Seminar (`mlu-000002`) — Instructor Cheat Sheet
 
-**For:** The instructor running Lab 2 (1:30 PM – 3:00 PM) during the 1-day Faculty AI Seminar.
+**For:** The instructor running this lab as a facilitated 90-minute session. The 1:30–3:00 PM clock
+below comes from the original seminar; shift it to whatever slot you are given.
 **Companion docs:** `SEMINAR_PLAN.md` (full agenda), `PREFLIGHT_CHECKLIST.md` (morning-of setup), `discipline-assistant.ipynb` / `discipline-assistant-colab.ipynb` (the notebooks themselves).
+
+> **A note on numbering.** "Lab 2" throughout this document means *the seminar's second lab* — the
+> afternoon slot, after a morning no-code session. That it also happens to be **lab 2 of 4** in the
+> published teaching sequence is a coincidence.
+>
+> Watch out for this: [`mlu-000001`](../../../mlu-000001-curriculum-embedding-lab) **also** calls
+> itself "Lab 2" in its own facilitator docs, because it took over that same afternoon slot. Two
+> documents, same label, different labs. Go by the contribution ID, not the lab number.
 
 ---
 

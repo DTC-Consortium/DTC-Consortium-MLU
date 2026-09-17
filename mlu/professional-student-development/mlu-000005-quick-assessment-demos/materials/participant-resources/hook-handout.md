@@ -2,8 +2,8 @@
 
 > *Synthetic sample data — no real individuals or institutions. For training use only.*
 
-**You have 3 minutes.** Grade the paper below using **only** the rubric below — the way a TA, an
-adjunct, or you at 11 p.m. with forty more to go would. You don't need to know computer science.
+**You have 3 minutes.** Grade the paper below using **only** the rubric below — the way any of us
+grades at 11 p.m. with forty more to go. You don't need to know computer science.
 Grade it the way the rubric tells you to.
 
 **Your score: ______ / 100    Letter: ______**

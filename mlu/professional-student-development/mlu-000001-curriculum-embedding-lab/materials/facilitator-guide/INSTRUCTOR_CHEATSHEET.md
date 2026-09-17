@@ -1,7 +1,13 @@
-# Lab 2 (Curriculum Embedding) — Instructor Cheat Sheet
+# Curriculum Embedding Lab (`mlu-000001`) — Instructor Cheat Sheet
 
-**For:** The instructor running the curriculum-embedding lab (1:30 PM – 3:00 PM).
+**For:** The instructor running the curriculum-embedding lab as a facilitated 90-minute session.
+The 1:30–3:00 PM clock below comes from the original seminar; shift it to whatever slot you are given.
 **Companion docs:** `SEMINAR_PLAN.md` (full agenda), `PREFLIGHT_CHECKLIST.md` (morning-of setup), `CONTENT_AUDIT.md` (why this lab exists), `../curriculum-embedding-lab.ipynb` (the notebook).
+
+> **A note on numbering.** "Lab 2" here means *the seminar's second lab* — the afternoon slot, after
+> the morning PartyRock session. It is **not** the same as "lab 2 of 4" in the published teaching
+> sequence, where this contribution is **lab 1 of 4 — the entry point**. Two different schemes, unfortunately colliding on
+> the same number. When in doubt, go by the contribution ID.
 
 ---
 

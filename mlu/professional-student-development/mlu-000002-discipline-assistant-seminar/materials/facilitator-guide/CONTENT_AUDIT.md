@@ -1,4 +1,6 @@
-# Content Audit — Is This Digestible for Non-CS Faculty?
+# Content Audit — Discipline Assistant Seminar (`mlu-000002`)
+
+*Is this digestible for non-CS faculty?*
 
 **Purpose:** Honest evaluation of seminar materials through the eyes of non-CS faculty. Documents what works, what loses people, and three paths forward.
 

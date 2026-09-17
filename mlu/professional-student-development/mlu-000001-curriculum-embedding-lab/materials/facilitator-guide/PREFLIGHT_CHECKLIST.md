@@ -1,4 +1,4 @@
-# Curriculum Embedding Lab — Pre-Flight Checklist
+# Curriculum Embedding Lab (`mlu-000001`) — Pre-Flight Checklist
 
 **For:** The instructor team setting up Lab 2 (curriculum-embedding) infrastructure before the seminar.
 **Companion docs:** `INSTRUCTOR_CHEATSHEET.md` (run-of-show), `SEMINAR_PLAN.md` (full agenda), `CONTENT_AUDIT.md` (why this lab exists).

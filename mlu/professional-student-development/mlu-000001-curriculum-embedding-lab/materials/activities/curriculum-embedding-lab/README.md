@@ -48,7 +48,8 @@ lab unless noted.
 
 ## Quick start
 
-1. **Open SageMaker Studio** in JupyterLab mode (your instructor provides the URL).
+1. **Open SageMaker Studio** in JupyterLab mode. In a facilitated session your instructor gives
+   you the URL; on your own, open it from the SageMaker console in your AWS account.
 2. **Clone this repo** — Git icon in the sidebar → **Clone a Repository**.
 3. **Open `curriculum-embedding-lab.ipynb`.**
 4. **Set your persona** in Part 0 — one line, `persona = "1"`. Change `"1"` to `"2"`–`"6"` to

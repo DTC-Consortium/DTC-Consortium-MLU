@@ -1,10 +1,15 @@
-# Lab 2 (Curriculum Embedding) — Cell-by-Cell Podium Script
+# Curriculum Embedding Lab (`mlu-000001`) — Cell-by-Cell Podium Script
 
 **For:** The instructor narrating the notebook live, cell by cell, at the front of the room.
 
 **How this differs from the cheat sheet:** `INSTRUCTOR_CHEATSHEET.md` is the **run-of-show** — clock times, energy checks, demo-persona strategy, the error table. *This* doc is the **podium narration** — what to say as you click through each numbered cell, and the click-level gotchas. Keep the cheat sheet open for timing; use this to drive the notebook. They do not contradict each other.
 
 > **Cell numbers** below match the notebook's execution order (Part 1.1 = the `pip install` cell, etc.). "🟢" marks an EDIT ME cell faculty fill in themselves.
+
+> **A note on numbering.** "Lab 2" here means *the seminar's second lab* — the afternoon slot, after
+> the morning PartyRock session. It is **not** the same as "lab 2 of 4" in the published teaching
+> sequence, where this contribution is **lab 1 of 4 — the entry point**. Two different schemes, unfortunately colliding on
+> the same number. When in doubt, go by the contribution ID.
 
 ---
 
