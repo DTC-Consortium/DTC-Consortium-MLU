@@ -95,7 +95,7 @@ github:
 hub: null
 cohort: AWS-MLU Faculty Fellows 2026
 difficulty: intro
-duration: ~15 minutes
+duration: "~15 minutes self-paced, or ~90 minutes as a facilitated lab"
 delivery_format: [in-person, online-synchronous, self-paced]
 language: en
 parent_id: null

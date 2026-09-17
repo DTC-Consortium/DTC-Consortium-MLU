@@ -1,8 +1,40 @@
-# 1-Day Faculty AI Seminar — Plan Summary
+# 1-Day Faculty AI Seminar — Plan Summary (v1, superseded)
+
+> ## ⚠️ Read this before using this document
+>
+> **This is the original v1 day-plan, from when this lab was the seminar's 1:30–3:00 PM afternoon
+> session. It has been superseded.** In the current plan, the afternoon slot belongs to the
+> [Curriculum Embedding Lab](../../../mlu-000001-curriculum-embedding-lab), and *this* lab moved to
+> a standalone, post-seminar resource.
+>
+> **For the current day-plan, use
+> [`mlu-000001`'s SEMINAR_PLAN.md](../../../mlu-000001-curriculum-embedding-lab/materials/agenda/SEMINAR_PLAN.md).**
+> The two documents describe the same 1:30–3:00 slot differently; that one is authoritative.
+>
+> This document is kept because its persona table, risk list, and framing are still useful
+> background for anyone delivering this lab. **Do not run a day from it.**
+
+## How this lab is actually delivered now
+
+| Mode | Time | What it looks like |
+|---|---|---|
+| **Self-paced** | ~10–15 min | A participant opens the notebook and runs it alone. This is the figure quoted in the contribution README. |
+| **Facilitated lab** | ~90 min | An instructor drives Parts 1–2, participants drive Parts 3–4, everyone shares in Part 5. This is what [`INSTRUCTOR_CHEATSHEET.md`](../facilitator-guide/INSTRUCTOR_CHEATSHEET.md) scripts, on a 1:30–3:00 clock. |
+
+Both are valid. The notebook is the same; only the pacing and the amount of instructor talk differ.
+Pick the mode before you read the cheatsheet, because its timings assume the facilitated one.
+
+**Two delivery paths, and they are not interchangeable for setup:**
+
+- **Google Colab + Hugging Face** — no AWS account. The recommended path, because most faculty lose
+  cloud access when a seminar ends. See [`PREFLIGHT_CHECKLIST.md`](../facilitator-guide/PREFLIGHT_CHECKLIST.md).
+- **SageMaker Studio + Bedrock** — what the v1 plan below assumes throughout.
+
+---
 
 **Audience:** Multidisciplinary faculty (Computer Science → Dentistry → Humanities → Business → Health Sciences). All have an institutional mandate to incorporate AI into their teaching.
 **Format:** Single day, 9:00 AM – 4:00 PM
-**Source material:** [aws-mlu-eep-generative-ai](https://github.com/aws-samples/aws-mlu-eep-generative-ai) (MLU EEP curriculum — 14 lessons, 13 labs across 3 modules)
+**Source material:** [aws-mlu-eep-generative-ai](https://github.com/aws-samples/aws-mlu-eep-generative-ai) (MLU EEP curriculum — 14 lessons, 13 labs across 3 modules) — **this repository is not public; see the note under Reference.**
 
 ---
 
@@ -146,7 +178,7 @@ Six personas to print as handouts and project during the 9:15 welcome. Each atte
 
 > **Instructor tip:** Lead the SageMaker demo with **Persona 1 (Dentistry)** or **Persona 4 (Nursing)**. Clinical examples create stronger "if it works for them, it works for me" momentum in a mixed room than CS demos.
 
-Full persona stories with vision statements and pain points are in [the seminar persona deck — TODO link].
+Full persona stories with vision statements and pain points are in the table above. A separate one-page-per-persona handout deck was discussed but never produced; the table is sufficient to project or print.
 
 ---
 
@@ -163,19 +195,37 @@ Full persona stories with vision statements and pain points are in [the seminar 
 
 ---
 
-## Open decisions for instructor team
+## Decisions — settled since v1
 
-1. **Persona selection** — keep all 6, or trim to 4 based on actual registrant disciplines?
-2. **Sample-PDF curation owner** — who sources, license-checks, and stages the 6 sample PDFs? (~2–3 hrs of work — see catalog in Lab 2 section)
-3. **Bridge segment (1:15–1:30)** — who delivers and what's the framing? Suggested angle: "PartyRock for prototyping, SageMaker when you need control + grounding."
-4. **Take-home artifact bundle** — do we ship participants a `.zip` with their notebook + 3 prompt templates + persona handout + repo link?
-5. **Post-seminar follow-up** — office hours? Curriculum review of their actual courses? (Slack channel is already locked for share-outs — could double as the follow-up channel.)
-6. **SageMaker pre-flight doc** — the MLU bootcamp prep PDFs don't cover SageMaker setup at all. Do we write a short instructor-facing checklist for the morning-of, or rely on the M3 Lab 3a README?
+These were open questions when this plan was written. They are answered now; the answers are
+recorded here so nobody re-opens them.
+
+| Question | Answer |
+|---|---|
+| Who sources and licence-checks the 6 sample PDFs? | **Done.** All six ship in `materials/activities/discipline-assistant/data/`, with per-file source, licence, and page count in that folder's `README.md`. No sourcing work remains. |
+| Do we write a SageMaker pre-flight doc? | **Done.** [`PREFLIGHT_CHECKLIST.md`](../facilitator-guide/PREFLIGHT_CHECKLIST.md) covers both the SageMaker and Colab paths. |
+| Take-home artifact bundle? | **Yes, and it is automatic.** The whole contribution is published as a single versioned ZIP. Point participants at the release rather than assembling anything by hand. |
+| Bridge segment framing | Superseded. The afternoon slot belongs to `mlu-000001`; see its plan. |
+
+## Still for the hosting institution to decide
+
+These genuinely depend on who is running the session and cannot be answered here.
+
+1. **Persona selection** — keep all six, or trim to the disciplines actually in the room. Six is the
+   default and needs no preparation; trimming only means projecting fewer rows.
+2. **Post-seminar follow-up** — office hours, a curriculum review, a shared channel, or nothing.
+3. **Where share-outs happen** — the v1 plan assumes a Slack channel. Any shared channel works, and
+   so does a round-the-room verbal share. Nothing in the notebook depends on it.
 
 ---
 
 ## Reference
 
-- Source curriculum index: [aws-mlu-eep-generative-ai/LESSONS.md](https://github.com/aws-samples/aws-mlu-eep-generative-ai/blob/main/LESSONS.md)
-- Bootcamp Prep Part 1 PDF: PartyRock workshop (used directly as Lab 1)
-- Bootcamp Prep Part 2 PDF: Research Assistant building (reference material, not delivered)
+> **The upstream AWS curriculum links below are not publicly reachable** (they return HTTP 404 as of
+> 2026-09-17 — they may be private rather than removed). None of them is needed to deliver *this*
+> lab, which is fully self-contained. They are listed because the v1 day-plan above drew its lecture
+> blocks from them; if you intend to run that full day, you will need to source those separately.
+
+- Source curriculum index: [aws-mlu-eep-generative-ai/LESSONS.md](https://github.com/aws-samples/aws-mlu-eep-generative-ai/blob/main/LESSONS.md) — *not reachable*
+- Bootcamp Prep Part 1 PDF: PartyRock workshop (used directly as Lab 1) — *not included in this repository*
+- Bootcamp Prep Part 2 PDF: Research Assistant building (reference material, not delivered) — *not included in this repository*

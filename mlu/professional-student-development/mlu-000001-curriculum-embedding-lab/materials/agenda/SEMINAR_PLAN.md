@@ -1,5 +1,33 @@
 # 1-Day Faculty AI Seminar — Plan Summary (v2)
 
+> ## What this contribution ships, and what it does not
+>
+> **This plan describes a full 9:00–4:00 day. Only the 1:30–3:00 PM afternoon lab is included here.**
+> Everything else is either yours to supply or comes from AWS material that is not in this
+> repository.
+>
+> | Block | Time | Included? |
+> |---|---|---|
+> | Welcome, persona reveal | 9:00–9:15 | Persona table is in this document. **Slides: no.** |
+> | Lecture M1 L1 — Intro to Generative AI | 9:15–10:00 | **No.** AWS MLU deck, cherry-picked — see `CONTENT_AUDIT.md` |
+> | Lecture M1 L3 — Prompt Engineering | 10:15–11:00 | **No.** AWS MLU deck |
+> | Lab 1 — PartyRock | 11:00–12:30 | **No.** AWS "Bootcamp Prep Part 1" PDF |
+> | Bridge | 1:15–1:30 | Slide-by-slide spec only — see `BRIDGE_AND_LAB_DECK_SPEC.md` |
+> | **Lab 2 — Curriculum Embedding** | **1:30–3:00** | ✅ **Yes — this is the contribution.** Notebooks, data, and a full facilitator track. |
+> | Lecture M2 + M3 survey | 3:15–3:45 | **No.** AWS MLU decks |
+> | Wrap | 3:45–4:00 | Structure described here; no slides |
+>
+> **To deliver only the 90-minute lab** — which is what most people will want — you need nothing
+> from the rest of this table. Go straight to
+> [`INSTRUCTOR_CHEATSHEET.md`](../facilitator-guide/INSTRUCTOR_CHEATSHEET.md), which scripts it
+> minute by minute, and [`PREFLIGHT_CHECKLIST.md`](../facilitator-guide/PREFLIGHT_CHECKLIST.md) for
+> the morning-of setup.
+>
+> **To run the whole day**, you must separately obtain the AWS MLU EEP curriculum and the Bootcamp
+> Prep PDFs. The links under *Reference* are **not publicly reachable** (HTTP 404 as of 2026-09-17;
+> possibly private rather than removed). Budget time to source them, or to substitute your own
+> morning content.
+
 **Audience:** Multidisciplinary faculty (Computer Science → Dentistry → Humanities → Business → Health Sciences). All have an institutional mandate to incorporate AI into their teaching.
 **Format:** Single day, 9:00 AM – 4:00 PM
 **Source material:** [aws-mlu-eep-generative-ai](https://github.com/aws-samples/aws-mlu-eep-generative-ai) (MLU EEP curriculum — 14 lessons, 13 labs across 3 modules)
@@ -123,7 +151,7 @@ Six personas to print as handouts and project during the 9:15 welcome. Each atte
 
 > **Instructor demo lead:** Start with **Persona 1 (Dentistry)** or **Persona 4 (Nursing)**. Clinical use cases create the strongest "if it works for them, it works for me" momentum in a mixed room.
 
-Full persona stories with vision statements and pain points: see seminar persona deck (TODO link — needs to be produced; one page per persona).
+Full persona stories with vision statements and pain points: the table above, plus the persona briefs inside the notebook's Part 1. A separate one-page-per-persona deck was discussed but never produced, and is not required.
 
 ---
 
@@ -141,22 +169,38 @@ Full persona stories with vision statements and pain points: see seminar persona
 
 ---
 
-## Open decisions for instructor team
+## Decisions — settled since this plan was drafted
 
-1. **Persona selection** — keep all 6, or trim to 4 based on actual registrant disciplines?
-2. **Sample-PDF sourcing owner** — Persona 1 (Dentistry) and 2 (CS) are already staged. Persona 3, 4, 5, 6 still need to be sourced (~2 hr each — see `data/README.md`).
-3. **Bridge segment (1:15–1:30)** — who delivers and what's the framing? Suggested: *"PartyRock got you started; now decide where this actually fits in your course."*
-4. **Persona handouts** — 1-page handouts per persona for registration are still TODO. Source content is in this doc + notebook.
-5. **Cherry-picking morning lecture slides** — per CONTENT_AUDIT, current MLU decks have ~9/23 useful slides for non-CS audience. Need an editor to produce the trimmed deck.
-6. **Standalone Lab 2 framing** — the old technical RAG lab is now post-seminar; needs README reframed accordingly (Phase C of the implementation plan).
-7. **Post-seminar follow-up** — office hours? Curriculum review of attendees' actual courses? Slack channel is already locked for during/after-seminar use.
+Recorded so nobody re-opens them.
+
+| Question | Answer |
+|---|---|
+| Sample-PDF sourcing — personas 3–6 still needed? | **No longer open. All six ship**, licence-checked, in `../activities/curriculum-embedding-lab/data/`, with per-file source and page count in that folder's `README.md`. The note below about "~2 hr each" is obsolete. |
+| Standalone Lab 2 framing | **Done.** The technical RAG lab is now [`mlu-000002`](../../../mlu-000002-discipline-assistant-seminar), published separately with its own README and facilitator track. |
+| Persona handouts | **Not produced, and not needed.** The persona table below is sufficient to project at 9:15 or print. Treat a separate handout deck as optional polish, not a prerequisite. |
+
+## Still for the hosting institution to decide
+
+These genuinely depend on who is running the session.
+
+1. **Persona selection** — keep all six, or trim to the disciplines actually in the room. Six is the
+   default and needs no preparation; trimming only means projecting fewer rows.
+2. **Bridge segment (1:15–1:30)** — who delivers it. The framing is specified:
+   *"PartyRock got you started; now decide where this actually fits in your course."*
+   `BRIDGE_AND_LAB_DECK_SPEC.md` has the slide-by-slide content and speaker notes.
+3. **Morning lecture slides** — only if you are running the full day. Per `CONTENT_AUDIT.md`, the
+   AWS MLU decks carry roughly 9 useful slides in 23 for a non-CS audience, so someone has to trim
+   them. Not needed to deliver the lab alone.
+4. **Post-seminar follow-up** — office hours, a curriculum review, a shared channel, or nothing.
+5. **Where share-outs happen** — this plan assumes a Slack channel. Any shared channel works, and so
+   does a round-the-room verbal share. Nothing in the notebook depends on it.
 
 ---
 
 ## Reference
 
-- **This lab** (curriculum embedding): this repo — `mlu-faculty-ai-curriculum-lab`
-- **Post-seminar deep-dive** (technical RAG): `github.com/aws-dsu/mlu-faculty-ai-seminar-lab`
+- **This lab** (curriculum embedding): this contribution — `mlu-000001-curriculum-embedding-lab`
+- **Post-seminar deep-dive** (technical RAG): [`mlu-000002-discipline-assistant-seminar`](../../../mlu-000002-discipline-assistant-seminar) in this repository *(the old standalone `github.com/aws-dsu/...` location is no longer reachable)*
 - **Source curriculum**: [aws-samples/aws-mlu-eep-generative-ai](https://github.com/aws-samples/aws-mlu-eep-generative-ai)
 - **Bootcamp Prep Part 1 PDF**: PartyRock workshop (used directly as Lab 1)
 - **Bootcamp Prep Part 2 PDF**: Research Assistant building (reference material, not delivered)

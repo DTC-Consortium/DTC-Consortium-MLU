@@ -1,9 +1,23 @@
 # Lab 2 — Instructor Cheat Sheet
 
 **For:** The instructor running Lab 2 (1:30 PM – 3:00 PM) during the 1-day Faculty AI Seminar.
-**Companion docs:** `SEMINAR_PLAN.md` (full agenda), `PREFLIGHT_CHECKLIST.md` (morning-of setup), `seminar-lab2-discipline-assistant.ipynb` (the notebook itself).
+**Companion docs:** `SEMINAR_PLAN.md` (full agenda), `PREFLIGHT_CHECKLIST.md` (morning-of setup), `discipline-assistant.ipynb` / `discipline-assistant-colab.ipynb` (the notebooks themselves).
 
 ---
+
+> ## Scope of this cheat sheet
+>
+> **These timings script the 90-minute facilitated lab on the SageMaker + Bedrock path.**
+>
+> - **Running it self-paced instead?** The same notebook takes a participant ~10–15 minutes alone.
+>   Use this document for the framing and the killer moments, not the clock.
+> - **Running the Colab path?** The structure and everything you *say* are identical — only setup
+>   differs. Add a few minutes per run (the free tier is slower), and expect to spend the first
+>   5 minutes on Hugging Face tokens unless attendees created them in advance. See the Colab section
+>   of [`PREFLIGHT_CHECKLIST.md`](PREFLIGHT_CHECKLIST.md).
+> - **`Part 2` model-swap note:** the Nova Lite / Mistral comparison is Bedrock-only. On Colab the
+>   equivalent moment is the grounded-vs-vanilla comparison in Part 3, which is the stronger demo
+>   anyway.
 
 ## TL;DR
 
@@ -22,7 +36,7 @@ While the bridge instructor talks about *PartyRock → SageMaker*:
 - [ ] Run cells 1.1, 1.2, 1.3 to pre-warm everything
 - [ ] Run Part 2.1 (model setup) — verifies both Nova Lite and Mistral are accessible
 - [ ] Have the dentistry sample PDF loaded path ready for your demo
-- [ ] Slack channel open in a second window
+- [ ] Your share-out channel open in a second window (Slack, Teams, or whatever the host uses — a verbal round-the-room share works too)
 
 If anything errors in pre-show, see "Common errors" at the bottom.
 

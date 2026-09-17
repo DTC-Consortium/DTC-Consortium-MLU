@@ -1,21 +1,68 @@
 # Lab 2 — Pre-Flight Checklist
 
-**For:** The instructor team setting up Lab 2 infrastructure before the seminar.
-**Companion docs:** `INSTRUCTOR_CHEATSHEET.md` (run-of-show), `SEMINAR_PLAN.md` (full agenda).
-
-The MLU bootcamp materials don't cover SageMaker setup — they assume you stay in PartyRock all day. We added Lab 2, so this setup is fully on us.
+**For:** The instructor team setting up this lab before delivery.
+**Companion docs:** `INSTRUCTOR_CHEATSHEET.md` (run-of-show), `SEMINAR_PLAN.md` (background — note it is the superseded v1 day-plan).
 
 ---
+
+## ⚠️ First: which path are you running?
+
+The two paths have **completely different preparation**. Read the right one and skip the other.
+
+| | **Colab + Hugging Face** | **SageMaker + Bedrock** |
+|---|---|---|
+| Notebook | `discipline-assistant-colab.ipynb` | `discipline-assistant.ipynb` |
+| AWS account needed | **No** | Yes, one per attendee |
+| Lead time | **Same day** | **~1 week** for account and model-access provisioning |
+| Cost | **None** — free tiers | Under USD 1 per attendee |
+| Prep below | **[Colab path](#colab-path--the-short-version)** only | Everything from *2 weeks before* onward |
+| Best when | Most faculty. They keep a working copy after they lose seminar cloud access. | Attendees already have durable SageMaker access |
+
+**If you are not sure, run the Colab path.** It is the one the participant README recommends, it
+needs no provisioning, and the notebook is self-contained.
+
+---
+
+## Colab path — the short version
+
+Everything below this section is SageMaker-specific and does not apply.
+
+**Up to a week before**
+- [ ] Confirm attendees can reach `colab.research.google.com` and `huggingface.co` on the venue
+      network. Some campus networks block one or both — check from the actual room if you can.
+- [ ] Registration email asks each attendee to bring a **Google account** and to create a **free
+      Hugging Face account** in advance.
+
+**Day before**
+- [ ] Send the Colab link (the badge in the activity README opens the notebook directly).
+- [ ] Send the one-page instruction for generating a Hugging Face **read** token. Doing this live
+      costs 10 minutes of room time; doing it in advance costs none.
+- [ ] Run the notebook yourself end to end, on the token you will demo with.
+
+**Morning of**
+- [ ] Open the notebook in your own browser and run it once — Colab sometimes needs a fresh
+      runtime, and you want that discovered before the room is watching.
+- [ ] Have a spare Hugging Face token ready in case yours rate-limits mid-demo.
+- [ ] Know the fallback: the free inference tier can throttle under a roomful of simultaneous
+      requests. If that happens, switch to demonstrating from your own screen and have participants
+      follow along, then let them run it themselves afterwards.
+
+**Known limits of this path**
+- A few minutes slower per run than Bedrock. Build that into your timings.
+- Colab runtimes disconnect when idle. If you break for more than ~20 minutes, expect a re-run.
+
+---
+
+## SageMaker path — everything below
 
 ## Timeline
 
 | When | What | Owner |
 |---|---|---|
-| **2 weeks before** | Source 6 sample PDFs | — |
 | **1 week before** | AWS accounts + Bedrock model access provisioned | — |
 | **3 days before** | Full dry run on a real attendee account | — |
-| **Day before** | Sample PDFs uploaded to all accounts | — |
-| **Morning of** | Kernels pre-warmed, Slack channel live | — |
+| **Day before** | Notebook and data distributed to all accounts | — |
+| **Morning of** | Kernels pre-warmed, share-out channel live | — |
 
 Assign an owner for each row before scheduling.
 
@@ -23,21 +70,24 @@ Assign an owner for each row before scheduling.
 
 ## 2 weeks before — content prep
 
-### Sample PDFs (the biggest open item)
+### Sample PDFs — already done, verify only
 
-- [ ] All 6 sample PDFs sourced (see `data/README.md` for spec)
-- [ ] License documentation saved alongside each PDF
-- [ ] Each PDF passes the test checklist in `data/README.md`:
-  - [ ] Loads cleanly in `PyPDFLoader`
-  - [ ] Chunks to 15–60 chunks
-  - [ ] Embedding completes in < 90 seconds
-  - [ ] Demo questions produce substantive answers
-  - [ ] Grounded vs. vanilla comparison shows meaningful difference
-- [ ] PDFs staged in a shared location (S3 bucket? Git LFS? Shared drive?) so they can be copied to every attendee's account
+**All six sample PDFs ship with this contribution**, in
+`../activities/discipline-assistant/data/`, licence-checked, with per-file source and page count in
+that folder's `README.md`. There is no sourcing work.
+
+- [ ] Confirm the six PDFs are present after download or clone
+- [ ] Spot-check one end to end: loads in `PyPDFLoader`, embeds, and the grounded-vs-vanilla
+      comparison shows a meaningful difference
+- [ ] Decide how they reach each attendee account (clone the repo in Studio is simplest)
+
+> **Content note:** the English-literature persona uses a public-domain Seacole text that preserves
+> nineteenth-century spelling and racial language. Flag it for participants in advance rather than
+> letting it arrive unannounced.
 
 ### Notebook
 
-- [ ] `seminar-lab2-discipline-assistant.ipynb` reviewed by all instructors
+- [ ] `discipline-assistant.ipynb` reviewed by all instructors
 - [ ] Package versions pinned (`langchain`, `langchain-aws`, `langchain-community`, `faiss-cpu`, `pypdf`) — version drift breaks notebooks
 - [ ] Notebook executes top-to-bottom on a clean SageMaker Studio instance without errors
 
