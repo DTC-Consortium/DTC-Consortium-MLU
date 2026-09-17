@@ -15,8 +15,7 @@ First publication in the DTCC-MLU repository.
 
 ### Changed
 - The Colab badge now points at this repository rather than the asset's original standalone
-  location. **It resolves only once this repository is public on GitHub** — verify it during
-  handover.
+  location. Verified resolving after publication.
 
 ### Notes
 - Carried over from the AWS-MLU Faculty Fellows Impact Inventory. Materials were reorganised into

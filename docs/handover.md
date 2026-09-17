@@ -2,39 +2,49 @@
 
 What was built, what still needs doing before this repository goes live, and how to verify it.
 
-**Repository:** `DTC-Consortium/DTC-Consortium-MLU` — not yet created on GitHub.
+**Repository:** <https://github.com/DTC-Consortium/DTC-Consortium-MLU> — **live and public.**
 **Scope:** the GitHub repository foundation only. Google Doc/Sheet integration and changes to
 dtcconsortium.org are later stages and are not started here.
 
 ---
 
-## ⚠️ Decide the repository name first
+## Done
 
-The specification contradicts itself. Its settings table says the repository name is
-**`DTC-Consortium-MLU`**; two lines later it gives the resulting address as
-**`github.com/DTC-Consortium/AWS-MLU`**. Both cannot be true.
+| | |
+|---|---|
+| Repository created | `DTC-Consortium/DTC-Consortium-MLU`, **public**, default branch `main`, description and website field set per the specification |
+| Content pushed | 185 files; five contributions; four workflows registered and active |
+| Validation | 5 contributions, 0 errors, 0 warnings; catalog and generated files current; no broken local links |
 
-Everything here is built as **`DTC-Consortium-MLU`**, giving
-`github.com/DTC-Consortium/DTC-Consortium-MLU` — note the organization name repeats in the URL.
+### On the repository name
 
-**If the organization prefers `AWS-MLU`, change it before the first push.** Afterwards, published
-citation URLs and release links would have to be rewritten. The name appears in:
+The specification contradicts itself: its settings table says **`DTC-Consortium-MLU`**, while two
+lines later it gives the address as **`github.com/DTC-Consortium/AWS-MLU`**. `DTC-Consortium-MLU`
+was chosen, so the organization name repeats in the URL.
+
+**Renaming is still possible but is no longer free.** GitHub redirects the old URL, but published
+citation URLs in each `CITATION.cff`, and the release links once releases exist, would need
+rewriting. If the organization wants `AWS-MLU`, do it now rather than after the first release:
 
 ```bash
-grep -rl "DTC-Consortium-MLU" . --exclude-dir=.git
+gh repo rename AWS-MLU --repo DTC-Consortium/DTC-Consortium-MLU
+grep -rl "DTC-Consortium-MLU" . --exclude-dir=.git   # then update these
+python3 scripts/generate_boilerplate.py && python3 scripts/build_catalog.py
 ```
 
 ---
 
-## Before the first push
+## Still outstanding
 
-| # | Task | Why it blocks |
+The repository is public **before** its review governance exists. Until tasks 1 and 2 are done,
+anyone with write access can push straight to `main` without review.
+
+| # | Task | Why it matters |
 |---|---|---|
-| 1 | Settle the repository name, above | Every citation URL depends on it |
-| 2 | Create the repository: `DTC-Consortium` org, **public**, default branch `main`, description and website field per the specification | — |
-| 3 | **Create the four GitHub teams** named in `.github/CODEOWNERS`, and give each write access | Until they exist, GitHub cannot assign reviewers and "require code owner review" blocks every pull request |
-| 4 | Grant the four organization-approved administrators admin access | They are named in the specification, deliberately not in this repository — see below |
-| 5 | Create the labels the issue forms apply: `contribution: new`, `contribution: update`, `problem`, `links`, `needs triage` | Forms still work without them, but triage gets harder |
+| 1 | **Create the four GitHub teams** named in `.github/CODEOWNERS` (`mlu-maintainers`, `mlu-course-elements`, `mlu-ml-ai-applications`, `mlu-professional-student-development`) and give each write access | Until they exist, GitHub cannot assign reviewers and "require code owner review" blocks every pull request. Needs `admin:org`. |
+| 2 | **Protect `main`** — see the settings below | Nothing currently prevents an unreviewed push to `main` |
+| 3 | Grant the four organization-approved administrators admin access | They are named in the specification, deliberately not in this repository — see below |
+| 4 | Create the labels the issue forms apply: `contribution: new`, `contribution: update`, `problem`, `links`, `needs triage` | Forms still work without them, but triage gets harder |
 
 ### On the administrator addresses
 
@@ -47,15 +57,24 @@ Grant those four people admin access through the GitHub organization settings, a
 `mlu-maintainers` team. Keep the list of who they are wherever the organization already keeps such
 records — not here.
 
-## After the first push
+### Branch protection settings for `main`
+
+Per section 6 of the specification:
+
+- Require a pull request before merging.
+- Require at least **one approving review**.
+- Require approval from the relevant **code owner** (needs task 1 first).
+- Require the **Validate MLU contributions** status check to pass.
+- **Block force pushes** and branch deletion.
+- **Dismiss stale approvals** when substantive changes are pushed.
+
+### Then
 
 | # | Task |
 |---|---|
-| 6 | Protect `main`: require a pull request, at least one approving review, approval from the relevant code owner, and successful metadata and catalog validation. Block force pushes and branch deletion. Dismiss stale approvals when substantive changes are pushed. |
-| 7 | Run **Validate MLU contributions** manually once to confirm the checks pass in CI |
-| 8 | Run **Publish an MLU contribution** for `mlu-000001` as a **draft**, download the ZIP, confirm it opens and contains what it should |
-| 9 | Set `github.download_url` for each published contribution, then run `python3 scripts/build_catalog.py` and commit |
-| 10 | Verify the Colab badge in `mlu-000002` resolves — it points into this repository and only works once the repository is public |
+| 5 | Run **Validate MLU contributions** manually once to confirm the checks pass in CI as well as locally |
+| 6 | Run **Publish an MLU contribution** for `mlu-000001` as a **draft**, download the ZIP, confirm it opens and contains what it should |
+| 7 | Set `github.download_url` for each published contribution, then run `python3 scripts/build_catalog.py` and commit |
 
 ---
 
@@ -72,6 +91,7 @@ The specification's handover checklist, and how to check each item.
 | A sample submission triggers validation and reviewer assignment | Open a pull request touching `mlu/` from a branch. Requires task 3 to be done. |
 | Branch protection prevents unreviewed changes to `main` | Try to push directly to `main` after task 6. It should be refused. |
 | No placeholder identities, credentials, or private information published | Verified at build: no secrets, and the only email addresses anywhere are `@example.edu` in fabricated rosters |
+| The Colab badge in `mlu-000002` resolves | **Verified** — the notebook returns HTTP 200 from `raw.githubusercontent.com` now that the repository is public |
 
 ---
 
