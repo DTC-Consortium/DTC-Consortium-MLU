@@ -115,6 +115,7 @@ licensed — **no real student record appears anywhere in this repository.**
 | | |
 |---|---|
 | [`ID-REGISTER.md`](ID-REGISTER.md) | The single register of assigned contribution IDs |
+| [`docs/handover.md`](docs/handover.md) | **Start here** — setup still outstanding, and how to verify it |
 | [`docs/`](docs) | Review, publishing, maintenance, and licensing guidance |
 | [`schemas/`](schemas) | Metadata validation rules |
 | [`scripts/`](scripts) | Validation, catalog generation, link checking, and packaging |

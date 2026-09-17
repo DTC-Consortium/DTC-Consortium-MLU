@@ -9,6 +9,7 @@ Guidance for the people who review, publish, and maintain contributions. Contrib
 | [`publishing.md`](publishing.md) | Assigning IDs, cutting a release, and what goes in a ZIP |
 | [`maintenance.md`](maintenance.md) | Keeping published material current, handling reports, withdrawals |
 | [`licensing.md`](licensing.md) | Rights clearance, mixed licences, and what can never be published |
+| [`handover.md`](handover.md) | Setup steps still outstanding, how to verify the repository, and the end-to-end walkthrough |
 
 ## The workflow, end to end
 
