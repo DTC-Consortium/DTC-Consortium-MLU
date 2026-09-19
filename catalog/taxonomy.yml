@@ -34,6 +34,7 @@ disciplines:
   - Education
   - English
   - History
+  - Political Science
   - Cross-disciplinary
   - Faculty Development
 
@@ -41,7 +42,12 @@ tools:
   - Amazon Bedrock
   - Amazon Nova Lite
   - Amazon SageMaker Studio
+  - Amazon PartyRock
+  - Amazon Quick
   - AWS
+  - ChatGPT
+  - Microsoft Copilot
+  - Kiro
   - Google Colab
   - Hugging Face
   - Ollama

@@ -1,0 +1,100 @@
+# Validated against ../../../schemas/mlu-contribution.schema.json
+id: mlu-000007
+title: Build, Break, and Question a PartyRock Phishing Detector
+summary: >-
+  Students build a phishing-email classifier in Amazon PartyRock, classify at least 15 emails
+  themselves before the AI sees them, then compare both against instructor-held ground truth.
+  The assignment then inverts: students spend a round trying to fool the detector they just
+  built, log every technique, and write up where a confident-sounding verdict should not be
+  trusted. No code, and the reflection is worth more than the build.
+category: course-elements
+subtype: assignment
+
+authors:
+  - name: Sara Mathew
+    institution: Oklahoma City Community College
+institutions:
+  - Oklahoma City Community College
+maintainer:
+  name: DTCC MLU Maintainers
+  contact: "@DTC-Consortium/mlu-course-elements"
+
+disciplines:
+  - Computer Science
+  - Cross-disciplinary
+topics:
+  - phishing detection
+  - adversarial testing
+  - prompt engineering
+  - human-in-the-loop
+  - AI confidence versus correctness
+  - cybersecurity literacy
+tools:
+  - Amazon PartyRock
+audience:
+  - Undergraduate students
+  - Faculty
+
+intended_use:
+  learning_outcomes:
+    - Build a functioning AI-powered classification tool without writing code.
+    - Compare human judgment against AI judgment on the same task, using a labelled dataset.
+    - Design adversarial test cases that probe the limits of an AI system.
+    - Judge whether a model's stated confidence tracks its actual correctness.
+    - Articulate, in writing, where AI helps, where it fails, and why human review still matters in security workflows.
+
+prerequisites:
+  knowledge:
+    - None for students. No programming background is assumed.
+    - >-
+      INSTRUCTOR: you must supply a ground-truth bank of at least 15 pre-labelled sample emails
+      before this can run. Roughly 40% clearly phishing, 30% clearly legitimate, 30% genuinely
+      ambiguous. Build it from vetted phishing-awareness archives or institutional security
+      training material, never from real captured personal mail. See the facilitation guide.
+  accounts:
+    - A free AWS Builder ID for PartyRock sign-in. No credit card required.
+    - A shared spreadsheet, such as Google Sheets or Excel Online, for the class results table.
+  expected_cost: >-
+    None. PartyRock is free. Budget instructor preparation time for the email bank and its
+    answer key, which is the real cost of running this assignment.
+
+version: 1.0.0
+published: "2026-09-19"
+last_reviewed: "2026-09-19"
+maturity: classroom-tested
+
+licenses:
+  content: CC-BY-4.0
+  data: []
+
+materials:
+  - path: materials/assignments/phishing-detector-assignment.md
+    description: >-
+      The student handout — build instructions, the results table, the Fool the AI log, and the
+      five reflection prompts.
+  - path: materials/assignments/phishing-detector-assignment.docx
+    description: >-
+      The author's original Word version, containing both the student handout and the instructor
+      guide in one file.
+  - path: materials/faculty-guide/instructor-facilitation-guide.md
+    description: >-
+      Prep checklist, step-by-step facilitation notes for all four phases, debrief discussion
+      questions, a pitfalls table, and the responsible-use guardrail.
+  - path: materials/rubrics/phishing-detector-rubric.md
+    description: The 100-point rubric, with notes on the two failure modes to price in when scoring.
+
+github:
+  path: mlu/course-elements/mlu-000007-partyrock-phishing-detector
+  download_url: null
+
+hub: null
+cohort: AWS-MLU Faculty Fellows 2026
+difficulty: intro
+duration: ~2–3 hours of student work; one 90-minute session, or two 50-minute sessions
+delivery_format: [in-person, hybrid]
+language: en
+parent_id: null
+related_ids: [mlu-000006]
+collection_ids: []
+inventory_reference: null
+website_url: null

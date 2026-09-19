@@ -16,8 +16,8 @@ download. Anyone can browse and download without signing in.
 <!-- BEGIN GENERATED: category-table -->
 | Category | What lives there | Published |
 |---|---|---|
-| **[Course Elements](mlu/course-elements)** | Courses, credentials, modules, lectures, assignments, assessments, instructional materials | _none yet_ |
-| **[ML/AI Applications](mlu/ml-ai-applications)** | Prompts, applications, codebases, datasets, tool flows, platforms | **2** |
+| **[Course Elements](mlu/course-elements)** | Courses, credentials, modules, lectures, assignments, assessments, instructional materials | **4** |
+| **[ML/AI Applications](mlu/ml-ai-applications)** | Prompts, applications, codebases, datasets, tool flows, platforms | **3** |
 | **[Professional and Student Development](mlu/professional-student-development)** | Bootcamps, workshops, training, presentations, related initiatives | **3** |
 <!-- END GENERATED: category-table -->
 

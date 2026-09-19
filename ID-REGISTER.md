@@ -31,8 +31,13 @@ ID, set `parent_id` to the package it came from.
 | `mlu-000003` | Class Participation Scoring — Transcript to Draft Score | ml-ai-applications | 2026-09-17 | Published |
 | `mlu-000004` | Paper Autograder — Rubric-Based Draft Grading | ml-ai-applications | 2026-09-17 | Published |
 | `mlu-000005` | The Assignment Lifecycle — Quick Assessment Demo Session | professional-student-development | 2026-09-17 | Published (pilot) |
+| `mlu-000006` | Build and Evaluate an AI Marketing Assistant in PartyRock | course-elements | 2026-09-19 | Published |
+| `mlu-000007` | Build, Break, and Question a PartyRock Phishing Detector | course-elements | 2026-09-19 | Published |
+| `mlu-000008` | Fundamentals of AI Literacy | course-elements | 2026-09-19 | Published |
+| `mlu-000009` | Project O.R.A.C.L.E. — A GenAI-Enhanced International Relations Lab | course-elements | 2026-09-19 | Published |
+| `mlu-000010` | Assignment Defender — AI-Proofing Assistant | ml-ai-applications | 2026-09-19 | Published |
 
-**Next available ID: `mlu-000006`.**
+**Next available ID: `mlu-000011`.**
 
 ### Status values
 

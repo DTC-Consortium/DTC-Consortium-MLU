@@ -6,12 +6,13 @@ Prompts, applications, codebases, datasets, tool flows, and platforms. Everythin
 a working tool — check each contribution's README for what it does and does not decide
 on its own.
 
-**2 contributions.**
+**3 contributions.**
 
 | Title | Summary | Institution | Tools | Audience | Version | Download |
 |---|---|---|---|---|---|---|
 | [**Class Participation Scoring — Transcript to Draft Score**](mlu-000003-participation-scoring) <br>`mlu-000003` | Point this notebook at a Zoom transcript of one class meeting and the material you covered that day. It identifies who spoke, judges what they talked about against your… | Delaware State University | Amazon Bedrock, Amazon Nova Lite, Amazon SageMaker Studio, LangChain… | Faculty, Adjunct faculty | 1.0.0 | _not yet released_ |
 | [**Paper Autograder — Rubric-Based Draft Grading**](mlu-000004-paper-autograder) <br>`mlu-000004` | Point this notebook at your course material, a grading rubric, and a folder of student papers. For each paper it scores every rubric criterion, backs each score with verbatim… | Delaware State University | Amazon Bedrock, Amazon Nova Lite, Amazon SageMaker Studio, Ollama… | Faculty, Adjunct faculty | 1.0.0 | _not yet released_ |
+| [**Assignment Defender — AI-Proofing Assistant**](mlu-000010-assignment-defender) <br>`mlu-000010` | A published Amazon Quick app that reads an assignment's goals, instructions, and rubric, then estimates how well generative AI could satisfy it on its own. Faculty set the… | Oklahoma City Community College | Amazon Quick | Faculty, Adjunct faculty, Instructional designers, Academic staff | 1.0.0 | _not yet released_ |
 
 Download links point at a version-specific release asset. `not yet released` means the
 materials are browsable here but no package has been published for them yet — see

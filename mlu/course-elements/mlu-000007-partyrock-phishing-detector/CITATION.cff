@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: If you use these materials, please cite them as below.
+type: dataset
+title: 'Build, Break, and Question a PartyRock Phishing Detector'
+version: 1.0.0
+date-released: 2026-09-19
+license: CC-BY-4.0
+repository-code: https://github.com/DTC-Consortium/DTC-Consortium-MLU
+url: https://github.com/DTC-Consortium/DTC-Consortium-MLU/tree/main/mlu/course-elements/mlu-000007-partyrock-phishing-detector
+abstract: >-
+  Students build a phishing-email classifier in Amazon PartyRock, classify at least 15
+  emails themselves before the AI sees them, then compare both against instructor-held
+  ground truth. The assignment then inverts: students spend a round trying to fool the
+  detector they just built, log every technique, and write up where a confident-sounding
+  verdict should not be trusted. No code, and the reflection is worth more than the build.
+authors:
+  - name: 'Sara Mathew'
+    affiliation: 'Oklahoma City Community College'
+keywords:
+  - 'phishing detection'
+  - 'adversarial testing'
+  - 'prompt engineering'
+  - 'human-in-the-loop'
+  - 'AI confidence versus correctness'
+  - 'cybersecurity literacy'
+identifiers:
+  - type: other
+    value: mlu-000007
+    description: MLU contribution ID

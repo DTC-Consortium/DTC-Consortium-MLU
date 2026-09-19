@@ -1,0 +1,116 @@
+# Validated against ../../../schemas/mlu-contribution.schema.json
+id: mlu-000009
+title: Project O.R.A.C.L.E. — A GenAI-Enhanced International Relations Lab
+summary: >-
+  A 1-credit lab module that gives International Relations students the hands-on research
+  laboratory their STEM peers already have. A fictional 2025 alien-contact scenario casts
+  students as "non-expert but educated analysts" and scaffolds them from finding where AI
+  fails in Lab 1 to building a PartyRock app that works around those limits in Lab 2. The
+  target it is built against is fluent-but-shallow AI output, and it closes with a one-on-one
+  oral defense where students justify their research design and their AI use in person.
+category: course-elements
+subtype: module
+
+authors:
+  - name: Nathan Kelly
+    institution: Oklahoma City Community College
+institutions:
+  - Oklahoma City Community College
+maintainer:
+  name: DTCC MLU Maintainers
+  contact: "@DTC-Consortium/mlu-course-elements"
+
+disciplines:
+  - Political Science
+  - Cross-disciplinary
+topics:
+  - research design
+  - AI literacy and ethics
+  - international relations
+  - prompt engineering
+  - academic integrity
+  - workforce readiness
+  - oral defense assessment
+tools:
+  - Amazon PartyRock
+audience:
+  - Undergraduate students
+  - Faculty
+
+intended_use:
+  learning_outcomes:
+    - Apply IR theories and approaches to a focused question concerning an extraterrestrial encounter.
+    - Develop and communicate a research design that reflects academic reasoning, data–method fit, and awareness of bias.
+    - Describe the basic functions of general LLMs and express their limitations for academic work.
+    - Use GenAI tools ethically to support idea generation, literature identification, and clarity, and document that use.
+    - Evaluate the strengths and limitations of GenAI's role in social-science research.
+    - Reflect on the utility of GenAI in their academic, professional, or personal futures.
+
+prerequisites:
+  knowledge:
+    - Concurrent or prior enrolment in an International Relations course. The module assumes exposure to IR theory, including Hedley Bull's three traditions.
+    - No programming background is required of students or instructor.
+    - >-
+      INSTRUCTOR: this is a scaffolding template, not a turnkey lab. The design notes carry
+      "Not specified" fields and two unwritten session outlines, and the PartyRock apps are
+      hosted objects that must be re-tested before delivery. Budget adaptation time.
+  accounts:
+    - Access to at least one major LLM (Claude, GPT, or similar) for initial prompting exercises.
+    - A free PartyRock account for building apps. Model access varies by region; us-east-1 or us-west-2 are known to work.
+    - Institutional access to the local academic-integrity policy, which the labs reference directly.
+  expected_cost: >-
+    None beyond standard tuition and fees. All required tools are used on free tiers.
+
+version: 1.0.0
+published: "2026-09-19"
+last_reviewed: "2026-09-19"
+maturity: classroom-tested
+
+licenses:
+  content: CC-BY-4.0
+  software: MIT
+  data: []
+
+materials:
+  - path: materials/assignments/lab-project.md
+    description: >-
+      The capstone lab project — a 1,200–1,600 word research design in five required
+      sections, two submission tracks (build-the-bot or write-it-yourself, each with its own
+      AI transparency requirements), the Cooperative Critique oral defense format, both
+      grading rubrics, and the five defense prompts.
+  - path: materials/lectures/lab-intensive-1.1-slides.pdf
+    description: "Lab Intensive 1, session 1 — Alien Invasion: GenAI intro and academic ethics."
+  - path: materials/lectures/lab-intensive-1.2-slides.pdf
+    description: "Lab Intensive 1, session 2 — LLM limitations, and why submissions sound \"like AI\"."
+  - path: materials/lectures/lab-practical-1-slides.pdf
+    description: Lab Practical 1 — GenAI as a subject-matter expert; prompt crafting and role definition.
+  - path: materials/references/pre-lecture-international-society.pdf
+    description: >-
+      Pre-lecture reading on International Society and Hedley Bull's three traditions, the
+      theoretical grounding for Lab Practical 1.
+  - path: materials/references/partyrock-apps.md
+    description: Links to the instructor-built PartyRock apps the labs use, with a caution about hosted-app drift.
+  - path: materials/references/oacc-workforce-readiness-non-stem-genai.pdf
+    description: >-
+      The author's conference presentation on the problem this module addresses — using
+      GenAI to build workforce readiness in non-STEM fields.
+  - path: materials/faculty-guide/course-design-notes.md
+    description: >-
+      The author's working design notes — the 16-week schedule, per-practical design grid,
+      and pedagogical rationale. Notes, not a finished facilitator guide; see its preamble.
+
+github:
+  path: mlu/course-elements/mlu-000009-project-oracle-ir-lab
+  download_url: null
+
+hub: null
+cohort: AWS-MLU Faculty Fellows 2026
+difficulty: intro
+duration: A 6-week lab intensive series within a 1-credit-hour laboratory course
+delivery_format: [in-person]
+language: en
+parent_id: null
+related_ids: [mlu-000010]
+collection_ids: []
+inventory_reference: null
+website_url: null

@@ -1,0 +1,130 @@
+# Validated against ../../../schemas/mlu-contribution.schema.json
+id: mlu-000010
+title: Assignment Defender — AI-Proofing Assistant
+summary: >-
+  A published Amazon Quick app that reads an assignment's goals, instructions, and rubric,
+  then estimates how well generative AI could satisfy it on its own. Faculty set the maximum
+  grade they think an AI-only submission should earn, and the app returns an AI Robustness
+  Score, a SWOT analysis, and three redesign options at increasing strength. The goal is not
+  to block AI but to find where it substitutes for the skill actually being assessed. No
+  account or coding needed to use it.
+category: ml-ai-applications
+subtype: application
+
+authors:
+  - name: Nathan Kelly
+    institution: Oklahoma City Community College
+institutions:
+  - Oklahoma City Community College
+maintainer:
+  name: DTCC MLU Maintainers
+  contact: "@DTC-Consortium/mlu-ml-ai-applications"
+
+disciplines:
+  - Faculty Development
+  - Political Science
+  - Cross-disciplinary
+topics:
+  - assessment design
+  - AI-resistant assignments
+  - rubric redesign
+  - SWOT analysis
+  - academic integrity
+  - no-code AI applications
+tools:
+  - Amazon Quick
+audience:
+  - Faculty
+  - Adjunct faculty
+  - Instructional designers
+  - Academic staff
+
+intended_use:
+  description: >-
+    A formative instructional-design and decision-support tool for faculty redesigning an
+    assessment. It takes assignment goals, learning objectives, instructions, and grading
+    criteria, plus a faculty-set ceiling for what an AI-only submission should be able to
+    earn, and returns an AI Robustness Score, a SWOT review, and three redesign options —
+    Minimum Robustness, Heightened Security, and Best Fit. It does not make an assignment
+    AI-proof and it does not detect AI use; it identifies where AI can substitute for the
+    skill being assessed so a human can decide what to change. Every recommendation is a
+    draft for faculty judgment, to be checked against course outcomes, accessibility needs,
+    disciplinary expectations, workload, and institutional policy before adoption.
+  learning_outcomes:
+    - Identify which parts of an existing assignment generative AI could satisfy without the student demonstrating the target skill.
+    - Set and defend a deliberate ceiling for what an AI-only submission should be able to earn.
+    - Rewrite rubric criteria so that credit depends on evidence AI cannot supply, such as named personal experience or exact figures from an attached dataset.
+    - Distinguish assessment redesign from AI detection, and explain why the first is durable and the second is not.
+
+prerequisites:
+  knowledge:
+    - An assignment you already teach, with its instructions, learning objectives, and grading criteria as text.
+    - No coding experience, and no Amazon Quick account, is required to use the published app.
+  accounts:
+    - >-
+      None to use the public app. An Amazon Quick account is needed only to duplicate or
+      build your own version.
+  expected_cost: >-
+    None to use the published app. Any cost of building your own copy depends on the Amazon
+    Quick plan your institution holds.
+
+version: 1.0.0
+published: "2026-09-19"
+last_reviewed: "2026-09-19"
+maturity: classroom-tested
+
+licenses:
+  content: CC-BY-4.0
+  data: []
+
+materials:
+  - path: materials/setup/using-the-app.md
+    description: >-
+      What the app does, how to run an assignment through it, what the three redesign levels
+      mean, and the limits to keep in view.
+  - path: materials/prompts/app-build-example.md
+    description: >-
+      A recorded run of two real assignments through the app, with the input instructions and
+      rubrics and the app's own output screenshots.
+  - path: materials/evaluation/everyday-bureaucracy-analysis.md
+    description: >-
+      Full redesign output for a reflective applied assignment, at a 60% AI-grade ceiling —
+      all three strength levels with per-criterion changes and rationale.
+  - path: materials/evaluation/exploratory-research-analysis.md
+    description: >-
+      Full redesign output for a source-based research assignment, at a 70% ceiling, showing
+      how recommendations shift when the evidence requirements differ.
+  - path: materials/media/
+    description: Screenshots of the app interface and of both example analyses.
+  - path: https://quick.aws.com/sn/accounts/905896282634/apps/98715fae-6c9f-41e2-add3-e883ca50d9a3/public/AI-Proofing-Assistant
+    description: The published AI-Proofing Assistant app.
+    external: true
+    access: Open link; no Amazon Quick account or coding experience required.
+  - path: https://youtu.be/Jn2eDmHpQd0
+    description: "Video walkthrough — AI-Proofing Your Assignments: AWS QuickDive."
+    external: true
+    access: Open link; no account required.
+  - path: https://youtu.be/nud-2QmP6ys
+    description: Video — getting started for free in Amazon Quick.
+    external: true
+    access: Open link; no account required.
+  - path: https://youtu.be/zohdQOIytfM
+    description: Video — building an AI-enhanced app without coding in Amazon Quick.
+    external: true
+    access: Open link; no account required.
+
+github:
+  path: mlu/ml-ai-applications/mlu-000010-assignment-defender
+  download_url: null
+
+hub: null
+cohort: AWS-MLU Faculty Fellows 2026
+difficulty: intro
+duration: ~15–30 minutes per assignment analysed
+delivery_format: [self-paced, online-asynchronous]
+language: en
+parent_id: null
+related_ids: [mlu-000009, mlu-000005]
+collection_ids: [assessment-tools]
+inventory_reference: null
+website_url: null

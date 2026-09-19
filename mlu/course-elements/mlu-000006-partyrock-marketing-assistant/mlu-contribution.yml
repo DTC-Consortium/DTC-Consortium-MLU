@@ -1,0 +1,92 @@
+# Validated against ../../../schemas/mlu-contribution.schema.json
+id: mlu-000006
+title: Build and Evaluate an AI Marketing Assistant in PartyRock
+summary: >-
+  A no-code assignment in which students build a working marketing-content app in Amazon
+  PartyRock, then run one identical scenario through three prompt strategies — bare, role
+  plus context, and fully structured — and score the three outputs against the same five
+  criteria. The app is the hook; the comparison table is the assignment. Built for a
+  mixed-major audience with no programming background.
+category: course-elements
+subtype: assignment
+
+authors:
+  - name: Sara Mathew
+    institution: Oklahoma City Community College
+institutions:
+  - Oklahoma City Community College
+maintainer:
+  name: DTCC MLU Maintainers
+  contact: "@DTC-Consortium/mlu-course-elements"
+
+disciplines:
+  - Business
+  - Computer Science
+  - Cross-disciplinary
+topics:
+  - prompt engineering
+  - no-code AI
+  - generative AI literacy
+  - marketing communication
+  - output evaluation
+tools:
+  - Amazon PartyRock
+audience:
+  - Undergraduate students
+  - Faculty
+
+intended_use:
+  learning_outcomes:
+    - Build a functioning generative-AI application without writing code.
+    - Reference app inputs inside a prompt so that outputs change with user input.
+    - Compare a bare prompt, a role-and-context prompt, and a structured prompt on one identical scenario.
+    - Score generative-AI output against relevance, specificity, tone, completeness, and usability rather than accepting it at face value.
+    - Explain which prompt elements — role, context, tone, constraints, output format — most changed the result, citing their own outputs.
+
+prerequisites:
+  knowledge:
+    - None. No programming background is assumed of students or instructor.
+    - Students should be able to describe a product or service in a few sentences.
+  accounts:
+    - A free PartyRock sign-in via an Apple, Google, or Amazon account. No AWS account or credit card is required.
+  expected_cost: >-
+    None. PartyRock is free to use and requires no credit card. Budget instructor time to
+    verify that partyrock.aws is reachable from the campus network before the session.
+
+version: 1.0.0
+published: "2026-09-19"
+last_reviewed: "2026-09-19"
+maturity: classroom-tested
+
+licenses:
+  content: CC-BY-4.0
+  data: []
+
+materials:
+  - path: materials/assignments/marketing-assistant-assignment.md
+    description: >-
+      The full assignment — build guide, the three comparison prompts, the scoring table,
+      submission requirements, troubleshooting, and a key-concepts glossary.
+  - path: materials/assignments/marketing-assistant-assignment.docx
+    description: The author's original Word version, for instructors who want to edit and redistribute it.
+  - path: materials/faculty-guide/teaching-notes.md
+    description: >-
+      Why the assignment exists, what changed in the course when it was adopted, the
+      responsible-use guardrail to say out loud, and how to transfer the pattern to another
+      discipline.
+
+github:
+  path: mlu/course-elements/mlu-000006-partyrock-marketing-assistant
+  download_url: null
+
+hub: null
+cohort: AWS-MLU Faculty Fellows 2026
+difficulty: intro
+duration: ~1–2 hours of student work
+delivery_format: [in-person, online-asynchronous, hybrid]
+language: en
+parent_id: null
+related_ids: [mlu-000007]
+collection_ids: []
+inventory_reference: null
+website_url: null

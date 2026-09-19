@@ -5,7 +5,15 @@
 Courses, credentials, modules, lectures, assignments, assessments, and instructional
 materials contributed by the DTCC faculty community.
 
-**No contributions have been published in this category yet.**
+**4 contributions.**
 
-See [`MLU-CONTRIBUTING.md`](../../MLU-CONTRIBUTING.md) to submit the first one, or
-[`templates/course-elements/`](../../templates/course-elements) for the starting layout.
+| Title | Summary | Institution | Tools | Audience | Version | Download |
+|---|---|---|---|---|---|---|
+| [**Build and Evaluate an AI Marketing Assistant in PartyRock**](mlu-000006-partyrock-marketing-assistant) <br>`mlu-000006` | A no-code assignment in which students build a working marketing-content app in Amazon PartyRock, then run one identical scenario through three prompt strategies — bare, role… | Oklahoma City Community College | Amazon PartyRock | Undergraduate students, Faculty | 1.0.0 | _not yet released_ |
+| [**Build, Break, and Question a PartyRock Phishing Detector**](mlu-000007-partyrock-phishing-detector) <br>`mlu-000007` | Students build a phishing-email classifier in Amazon PartyRock, classify at least 15 emails themselves before the AI sees them, then compare both against instructor-held ground… | Oklahoma City Community College | Amazon PartyRock | Undergraduate students, Faculty | 1.0.0 | _not yet released_ |
+| [**Fundamentals of AI Literacy**](mlu-000008-fundamentals-of-ai-literacy) <br>`mlu-000008` | A self-paced, non-credit online course that introduces AI to people who will never build one — new students, faculty, and staff. Three video modules with quizzes carry the… | Talladega College | Amazon PartyRock, ChatGPT, Microsoft Copilot | Undergraduate students, Faculty, Academic staff | 1.0.0 | _not yet released_ |
+| [**Project O.R.A.C.L.E. — A GenAI-Enhanced International Relations Lab**](mlu-000009-project-oracle-ir-lab) <br>`mlu-000009` | A 1-credit lab module that gives International Relations students the hands-on research laboratory their STEM peers already have. A fictional 2025 alien-contact scenario casts… | Oklahoma City Community College | Amazon PartyRock | Undergraduate students, Faculty | 1.0.0 | _not yet released_ |
+
+Download links point at a version-specific release asset. `not yet released` means the
+materials are browsable here but no package has been published for them yet — see
+[Downloading a contribution](../../README.md#downloading-a-contribution).

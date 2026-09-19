@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: If you use these materials, please cite them as below.
+type: dataset
+title: 'Fundamentals of AI Literacy'
+version: 1.0.0
+date-released: 2026-09-19
+license: CC-BY-4.0
+repository-code: https://github.com/DTC-Consortium/DTC-Consortium-MLU
+url: https://github.com/DTC-Consortium/DTC-Consortium-MLU/tree/main/mlu/course-elements/mlu-000008-fundamentals-of-ai-literacy
+abstract: >-
+  A self-paced, non-credit online course that introduces AI to people who will never build
+  one — new students, faculty, and staff. Three video modules with quizzes carry the
+  vocabulary, from machine learning through agentic AI, and a final project makes it
+  concrete: students write one structured prompt about careers in their own major, run it
+  unchanged through PartyRock, ChatGPT, and Copilot, and defend which answer was best.
+  Completion earns a digital badge.
+authors:
+  - name: 'Lisa Taylor'
+    affiliation: 'Talladega College'
+keywords:
+  - 'AI literacy'
+  - 'prompt engineering'
+  - 'responsible AI'
+  - 'career exploration'
+  - 'model comparison'
+  - 'onboarding and orientation'
+identifiers:
+  - type: other
+    value: mlu-000008
+    description: MLU contribution ID
