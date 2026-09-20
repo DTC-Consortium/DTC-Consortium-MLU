@@ -1,0 +1,100 @@
+name: Build the Faculty Handbook
+
+# Builds the printable handbook — every published contribution, in full, as one branded PDF.
+#
+# Manual only. This is a whole-repository artifact rather than a per-contribution one, so it
+# does not belong in the publish workflow, and it is deliberately not part of the pull-request
+# check: a PDF is not byte-reproducible, so a `--check` on one would fail at random.
+#
+# The build needs Chrome, which ubuntu-latest already provides.
+
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 'Also publish it as a dated release (otherwise it is a downloadable build artifact only)'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-handbook
+  cancel-in-progress: true
+
+jobs:
+  handbook:
+    name: Render and package
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install -r scripts/requirements.txt
+
+      - name: Confirm Chrome is available
+        run: |
+          set -euo pipefail
+          if command -v google-chrome-stable >/dev/null 2>&1; then
+            google-chrome-stable --version
+          elif command -v google-chrome >/dev/null 2>&1; then
+            google-chrome --version
+          else
+            echo "::error::No Chrome on the runner. The handbook renders real CSS and needs it."
+            exit 1
+          fi
+
+      # A handbook built from contributions that do not validate would ship their errors in
+      # print, where nobody can correct them.
+      - name: Validate everything first
+        run: python3 scripts/validate_contributions.py
+
+      - name: Build the handbook
+        run: python3 scripts/build_handbook.py --out dist
+
+      - name: Report what was built
+        id: meta
+        run: |
+          set -euo pipefail
+          pdf=$(ls dist/dtcc-mlu-handbook-*.pdf | head -1)
+          echo "pdf=$pdf" >> "$GITHUB_OUTPUT"
+          echo "tag=handbook-$(basename "$pdf" .pdf | sed 's/dtcc-mlu-handbook-//')" >> "$GITHUB_OUTPUT"
+          echo "::notice::Built $pdf ($(du -h "$pdf" | cut -f1))"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dtcc-mlu-handbook
+          path: dist/dtcc-mlu-handbook-*.pdf
+          retention-days: 90
+
+      - name: Publish it as a release
+        if: ${{ inputs.release }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          tag="${{ steps.meta.outputs.tag }}"
+          pdf="${{ steps.meta.outputs.pdf }}"
+          if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$tag" "$pdf" --repo "$GITHUB_REPOSITORY" --clobber
+          else
+            {
+              echo "## DTCC-MLU Faculty Handbook"
+              echo
+              echo "Every published contribution, in full, as one printable PDF — for faculty"
+              echo "who would rather not work through a repository."
+              echo
+              echo "**Licences differ per contribution and often per file.** The licensing"
+              echo "section at the back of the handbook records the terms for each one."
+            } > notes.md
+            gh release create "$tag" "$pdf" \
+              --repo "$GITHUB_REPOSITORY" \
+              --title "Faculty Handbook ${tag#handbook-}" \
+              --notes-file notes.md
+          fi

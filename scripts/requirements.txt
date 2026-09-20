@@ -1,2 +1,11 @@
+# Validation, catalog, and packaging — the core scripts need only these two.
 PyYAML>=6.0
 jsonschema>=4.21
+
+# build_handbook.py only. It also needs Google Chrome on the machine, which is why the
+# handbook is a release artifact rather than part of the required pull-request check.
+markdown>=3.5
+Jinja2>=3.1
+pypdf>=5.0
+reportlab>=4.0
+Pillow>=10.0
