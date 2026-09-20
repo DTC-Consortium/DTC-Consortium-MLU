@@ -1,0 +1,448 @@
+/* DTCC-MLU Faculty Handbook — print stylesheet.
+ *
+ * Brand tokens are taken from dtcconsortium.org (Tailwind/shadcn HSL custom properties in
+ * /assets/index-*.css) and converted to hex. The site is dark-themed; a 280-page document to be
+ * read and printed cannot be. The translation is a dark cover and dark part-title pages, so the
+ * document reads as DTCC on sight, over a light body.
+ *
+ * The site uses no webfonts — body is Helvetica/Arial, code is the ui-monospace stack — so
+ * matching the brand means using those same system stacks. Nothing to embed or license.
+ */
+
+:root {
+  --gold: #EBB000;         /* --gold        45 100% 46% */
+  --blue: #3367C1;         /* --blue/primary 218 58% 48% */
+  --orange: #C83F04;       /* --orange/destructive 18 96% 40% */
+  --charcoal: #181616;     /* --charcoal/background 0 3% 9% */
+  --dark-gray: #393941;    /* --dark-gray/card 240 7% 24% */
+  --light-gray: #9C9C9C;   /* --light-gray/muted 0 0% 61% */
+
+  --rule: #D8D8DC;
+  --wash: #F5F5F7;
+  --radius: 0.5rem;
+
+  --body: Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+/* ---------------------------------------------------------------- page setup */
+
+@page {
+  size: Letter portrait;
+  /* Bottom margin leaves room for the stamped running furniture, which is applied after
+     rendering — Chrome does not support CSS margin boxes. */
+  margin: 19mm 18mm 22mm 18mm;
+}
+
+/* The cover and part-title pages are full-bleed charcoal, so they need the page margin
+   gone; their own padding provides the text inset. */
+@page bleed {
+  size: Letter portrait;
+  margin: 0;
+}
+
+@page landscape {
+  size: Letter landscape;
+  margin: 18mm 16mm 20mm 16mm;
+}
+
+.landscape { page: landscape; }
+
+html { font-size: 10.5pt; }
+
+body {
+  font-family: var(--body);
+  color: var(--charcoal);
+  background: #fff;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ---------------------------------------------------------------- cover */
+
+.cover {
+  page: bleed;
+  background: var(--charcoal);
+  color: #fff;
+  height: 279.4mm;
+  padding: 30mm 26mm;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  page-break-after: always;
+}
+
+.cover-mark { width: 30mm; }
+.cover h1 {
+  font-size: 34pt;
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 6mm;
+  color: #fff;
+  border: 0;
+  padding: 0;
+}
+.cover .tagline { font-size: 13pt; color: var(--gold); margin: 0 0 10mm; font-weight: 700; }
+.cover .blurb { font-size: 11pt; color: #D4D4D8; max-width: 120mm; }
+.cover .rule { height: 3mm; background: var(--gold); width: 45mm; margin: 0 0 9mm; }
+.cover .meta { font-size: 9.5pt; color: var(--light-gray); }
+.cover .meta strong { color: #fff; }
+
+/* ---------------------------------------------------------------- part title pages */
+
+.part-title {
+  page: bleed;
+  position: relative;
+  background: var(--charcoal);
+  color: #fff;
+  height: 279.4mm;
+  padding: 30mm 26mm;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  page-break-before: always;
+  page-break-after: always;
+}
+.part-title .kicker {
+  font-size: 10pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 4mm;
+  font-weight: 700;
+}
+.part-title h1 {
+  font-size: 26pt;
+  line-height: 1.18;
+  margin: 0 0 6mm;
+  color: #fff;
+  border: 0;
+  padding: 0;
+}
+.part-title .id {
+  font-family: var(--mono);
+  font-size: 11pt;
+  color: var(--gold);
+  margin: 0 0 8mm;
+}
+.part-title .summary { font-size: 11pt; color: #D4D4D8; max-width: 125mm; }
+.part-title .rule { height: 2mm; background: var(--gold); width: 38mm; margin: 0 0 8mm; }
+
+/* ---------------------------------------------------------------- headings */
+
+h1, h2, h3, h4, h5, h6 { font-weight: 700; page-break-after: avoid; }
+
+h1 {
+  font-size: 19pt;
+  line-height: 1.2;
+  margin: 0 0 5mm;
+  padding-bottom: 2.5mm;
+  border-bottom: 2.5px solid var(--gold);
+}
+
+h2 {
+  font-size: 14.5pt;
+  line-height: 1.25;
+  margin: 9mm 0 3mm;
+  color: var(--charcoal);
+}
+
+h3 { font-size: 12pt; margin: 6mm 0 2mm; color: var(--dark-gray); }
+h4 { font-size: 10.5pt; margin: 5mm 0 1.5mm; color: var(--dark-gray); }
+h5, h6 { font-size: 10pt; margin: 4mm 0 1.5mm; color: var(--light-gray); }
+
+/* A section that opens a new document within a part. */
+.doc-section { page-break-before: always; position: relative; }
+
+/* Section locators. The build plants one at the top of each section, reads back which page it
+   landed on, and uses that for the contents page and the PDF outline. Absolutely positioned so
+   it occupies no space — the final render drops them, and pagination must not move when it
+   does. Sized so a PDF text extractor will actually see it, coloured to match its background
+   so a reader never will. */
+.secmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 6pt;
+  line-height: 1;
+  white-space: nowrap;
+  word-break: keep-all;
+  pointer-events: none;
+}
+.doc-section > h1:first-child { margin-top: 0; }
+
+/* The repository path a section came from, so a reader can find the source file. */
+.source-path {
+  font-family: var(--mono);
+  font-size: 7.5pt;
+  color: var(--light-gray);
+  letter-spacing: 0.02em;
+  margin: 0 0 2mm;
+}
+
+p { margin: 0 0 3mm; orphans: 3; widows: 3; }
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* External URLs are spelled out so they can be typed from paper. */
+a.spelled::after {
+  content: " (" attr(href) ")";
+  font-family: var(--mono);
+  font-size: 8pt;
+  color: var(--light-gray);
+  word-break: break-all;
+}
+
+strong { font-weight: 700; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 6mm 0; }
+
+/* ---------------------------------------------------------------- lists */
+
+ul, ol { margin: 0 0 3mm; padding-left: 6mm; }
+li { margin: 0 0 1.2mm; }
+li > ul, li > ol { margin-top: 1.2mm; }
+
+/* Task lists. The two PREFLIGHT_CHECKLIST files are 57 items each and are meant to be ticked
+   on paper, so the box has to be a real box, not a literal "[ ]". */
+ul.tasklist { list-style: none; padding-left: 0; }
+ul.tasklist li {
+  position: relative;
+  padding-left: 7mm;
+  margin-bottom: 1.8mm;
+}
+ul.tasklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.9mm;
+  width: 3.6mm;
+  height: 3.6mm;
+  border: 1.2px solid var(--dark-gray);
+  border-radius: 0.7mm;
+}
+ul.tasklist li.done::after {
+  content: "✓";
+  position: absolute;
+  left: 0.55mm;
+  top: 0.1mm;
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+/* ---------------------------------------------------------------- tables */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 0 0 5mm;
+  font-size: 9pt;
+  page-break-inside: avoid;
+}
+
+thead { display: table-header-group; }
+tr { page-break-inside: avoid; }
+
+th {
+  background: var(--dark-gray);
+  color: #fff;
+  text-align: left;
+  font-weight: 700;
+  padding: 2mm 2.4mm;
+  border: 0.8px solid var(--dark-gray);
+  font-size: 8.8pt;
+}
+
+td {
+  padding: 2mm 2.4mm;
+  border: 0.8px solid var(--rule);
+  vertical-align: top;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+tbody tr:nth-child(even) td { background: var(--wash); }
+
+/* Progressively tighter treatments for the wide tables. BRIDGE_AND_LAB_DECK_SPEC.md alone has
+   128 rows, 46 of them over 250 characters. */
+table.wide { font-size: 8pt; }
+table.wide th, table.wide td { padding: 1.4mm 1.8mm; }
+table.xwide { font-size: 7.2pt; }
+table.xwide th, table.xwide td { padding: 1.1mm 1.4mm; }
+
+/* A table too wide for portrait gets its own landscape page. */
+.table-landscape { page: landscape; page-break-before: always; page-break-after: always; }
+
+/* ---------------------------------------------------------------- callouts */
+
+blockquote {
+  margin: 0 0 4mm;
+  padding: 3mm 4mm;
+  border-left: 3px solid var(--gold);
+  background: var(--wash);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  page-break-inside: avoid;
+}
+blockquote > :last-child { margin-bottom: 0; }
+
+/* A callout whose first strong text signals a warning. */
+blockquote.warn { border-left-color: var(--orange); }
+blockquote.warn strong { color: var(--orange); }
+
+/* ---------------------------------------------------------------- code */
+
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--wash);
+  padding: 0.3mm 1mm;
+  border-radius: 0.8mm;
+}
+
+pre {
+  font-family: var(--mono);
+  font-size: 8.2pt;
+  line-height: 1.42;
+  background: var(--wash);
+  border: 0.8px solid var(--rule);
+  border-left: 3px solid var(--dark-gray);
+  border-radius: var(--radius);
+  padding: 3mm 3.5mm;
+  margin: 0 0 4mm;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  page-break-inside: avoid;
+}
+pre code { background: none; padding: 0; font-size: inherit; }
+
+/* Notebook code cells carry a gold edge so they read as runnable, not quoted. */
+pre.nb-code { border-left-color: var(--gold); }
+.nb-label {
+  font-family: var(--mono);
+  font-size: 7.5pt;
+  color: var(--light-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 1mm;
+}
+
+/* ---------------------------------------------------------------- images */
+
+/* Screenshots read better with a frame; the brand mark must not have one. */
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0.8px solid var(--rule);
+  border-radius: var(--radius);
+  page-break-inside: avoid;
+  margin: 0 0 3mm;
+}
+
+.cover-mark, .part-mark {
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+}
+
+/* ---------------------------------------------------------------- front matter */
+
+.fm { page-break-before: always; }
+
+.fm h1 { font-size: 19pt; }
+
+.toc { font-size: 10pt; }
+.toc ol { list-style: none; padding-left: 0; margin: 0; }
+.toc .toc-part {
+  display: flex;
+  align-items: baseline;
+  margin: 3.5mm 0 1mm;
+  font-weight: 700;
+  font-size: 11pt;
+}
+.toc .toc-sub {
+  display: flex;
+  align-items: baseline;
+  margin: 0.8mm 0 0.8mm 8mm;
+  font-size: 9.5pt;
+  color: var(--dark-gray);
+}
+.toc .leader {
+  flex: 1;
+  border-bottom: 0.8px dotted var(--light-gray);
+  margin: 0 2mm;
+  transform: translateY(-1mm);
+}
+.toc .pg { font-family: var(--mono); font-size: 9pt; color: var(--dark-gray); }
+.toc .toc-cat {
+  font-size: 9pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin: 7mm 0 1mm;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1.5mm;
+}
+
+/* ---------------------------------------------------------------- at-a-glance */
+
+table.glance { font-size: 9.5pt; }
+table.glance th {
+  width: 38mm;
+  background: var(--wash);
+  color: var(--charcoal);
+  border: 0.8px solid var(--rule);
+}
+table.glance tbody tr:nth-child(even) td { background: #fff; }
+
+.meta-pills { margin: 0 0 5mm; }
+.pill {
+  display: inline-block;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 1mm 2.4mm;
+  margin: 0 1.5mm 1.5mm 0;
+  border-radius: 10mm;
+  background: var(--wash);
+  border: 0.8px solid var(--rule);
+  color: var(--dark-gray);
+}
+.pill.gold { background: var(--gold); border-color: var(--gold); color: var(--charcoal); }
+.pill.blue { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+/* ---------------------------------------------------------------- appendix dividers */
+
+.appendix-divider {
+  position: relative;
+  page-break-before: always;
+  page-break-after: always;
+  height: 100vh;
+  padding: 40mm 20mm;
+  box-sizing: border-box;
+  border-top: 6mm solid var(--gold);
+}
+.appendix-divider .kicker {
+  font-size: 9.5pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin: 0 0 3mm;
+}
+.appendix-divider h2 { font-size: 20pt; margin: 0 0 4mm; }
+.appendix-divider .note { color: var(--dark-gray); max-width: 120mm; }
+
+/* ---------------------------------------------------------------- utilities */
+
+.avoid-break { page-break-inside: avoid; }
+.new-page { page-break-before: always; }
+.muted { color: var(--light-gray); }
+.small { font-size: 9pt; }

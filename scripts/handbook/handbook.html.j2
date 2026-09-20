@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ title }}</title>
+<style>{{ css }}</style>
+</head>
+<body>
+
+{# ------------------------------------------------------------------ cover #}
+<section class="cover">
+  <div>
+    <img class="cover-mark" src="{{ mark }}" alt="">
+  </div>
+  <div>
+    <div class="rule"></div>
+    <div class="tagline">Distributed Teaching Collaboratives Consortium</div>
+    <h1>{{ title }}</h1>
+    <p class="blurb">{{ blurb }}</p>
+  </div>
+  <div class="meta">
+    <strong>{{ count }} contributions</strong> &nbsp;·&nbsp; {{ institutions|length }} institutions
+    &nbsp;·&nbsp; {{ cohort }}<br>
+    Generated {{ generated }} &nbsp;·&nbsp; {{ repo_url }}
+  </div>
+</section>
+
+{# ------------------------------------------------------------------ front matter #}
+<section class="fm">
+  <h1>About this handbook</h1>
+
+  <p>This handbook collects every teaching contribution published in the DTCC-MLU repository, in
+  full, so that it can be read and taught from without going online. It is generated directly from
+  that repository, so what you are reading is the same material the repository holds &mdash; not a
+  summary of it.</p>
+
+  <p>Each part covers one contribution: what it is, who it is for, what a participant walks away
+  with, and then the complete teaching materials &mdash; assignments, rubrics, facilitator guides,
+  walkthroughs and handouts. Where a contribution ships slide decks or readings as their own
+  documents, those are reproduced as appendices at the end of that part.</p>
+
+  <h2>What cannot be delivered on paper</h2>
+
+  <p>Some material in these contributions is only usable in its original form, and this handbook is
+  honest about the boundary rather than letting you discover it halfway through a session:</p>
+
+  <ul>
+    <li><strong>Jupyter notebooks</strong> are printed here so you can read the instructional
+      narrative and see the code, but they have to be <em>run</em> from the repository. Four
+      contributions are built around one.</li>
+    <li><strong>Hosted applications</strong> &mdash; the PartyRock and Amazon Quick apps &mdash; are
+      live objects on someone else's servers. They can only be linked to, and their owners can
+      change or withdraw them.</li>
+    <li><strong>Video modules</strong> are hosted externally and are linked by URL.</li>
+    <li><strong>Sample data files</strong> that a notebook loads &mdash; source documents, rosters,
+      transcripts &mdash; are referenced rather than reprinted, since they are inputs to a program
+      rather than something to read.</li>
+  </ul>
+
+  <p>Every such URL in this handbook is written out in full, so it can be typed from a printed
+  page.</p>
+
+  <h2>Getting the digital materials</h2>
+
+  <p>Everything here, plus the notebooks, sample data and source files, is at:</p>
+
+  <p style="font-family: var(--mono); font-size: 11pt;">{{ repo_url }}</p>
+
+  <p>You do not need an account to browse or download. Each contribution directory contains a
+  <code>README.md</code> that opens it, a <code>materials/</code> folder holding the deliverables,
+  and a <code>mlu-contribution.yml</code> carrying its structured metadata. If a contribution has a
+  published release, its download link appears in that contribution's overview page here.</p>
+
+  <p>To request materials, report a problem, or submit your own contribution, open an issue in that
+  repository, or contact the maintainers listed on each contribution's overview page.</p>
+
+  <h2>Reuse</h2>
+
+  <p>Contributions are licensed individually &mdash; there is no single licence covering this
+  handbook. Documentation is generally <code>CC-BY-4.0</code> and code <code>MIT</code>, but bundled
+  data keeps its own per-file terms and a few items are linked rather than licensed for
+  redistribution. The licensing section at the back records the terms for every contribution, and
+  any exception is stated in that contribution's own pages. Check before you redistribute.</p>
+</section>
+
+{% if sequences %}
+<section class="fm">
+  <h1>Suggested sequences</h1>
+  <p>Some of these contributions are designed to be taught in a particular order. These groupings
+  are drawn from the curated collections in the repository.</p>
+  {% for seq in sequences %}
+  <h2>{{ seq.title }}</h2>
+  <p>{{ seq.summary }}</p>
+  <table>
+    <thead><tr><th style="width:12mm">#</th><th style="width:60mm">Contribution</th><th>Why it sits here</th></tr></thead>
+    <tbody>
+      {% for m in seq.members %}
+      <tr>
+        <td>{{ m.order }}</td>
+        <td><a href="#{{ m.id }}">{{ m.title }}</a><br><span class="muted small" style="font-family:var(--mono)">{{ m.id }}</span></td>
+        <td>{{ m.note }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endfor %}
+</section>
+{% endif %}
+
+{# ------------------------------------------------------------------ contents #}
+<section class="fm toc">
+  <h1>Contents</h1>
+  {{ toc_html }}
+</section>
+
+{# ------------------------------------------------------------------ the parts #}
+{{ parts_html }}
+
+{# ------------------------------------------------------------------ back matter #}
+<section class="fm">
+  <h1>Licensing and credits</h1>
+
+  <p>Every contribution in this handbook is licensed by its own authors on its own terms. Nothing
+  here grants rights beyond what each contributor granted. Where bundled data carries a separate
+  licence, or where material is linked rather than redistributed, that is recorded below and in the
+  contribution's own pages.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:24mm">ID</th>
+        <th>Contribution and authors</th>
+        <th style="width:26mm">Documentation</th>
+        <th style="width:20mm">Code</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for d in docs %}
+      <tr>
+        <td style="font-family:var(--mono);font-size:8pt">{{ d.id }}</td>
+        <td><strong>{{ d.title }}</strong><br><span class="small muted">{{ d.byline }}</span></td>
+        <td>{{ d.content_license }}</td>
+        <td>{{ d.software_license or "—" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% if data_credits %}
+  <h2>Bundled data and sources</h2>
+  <p>Sample data shipped with these contributions, and where it came from. Anything not listed here
+  is original material by the contribution's authors.</p>
+  <table class="wide">
+    <thead><tr><th style="width:22mm">ID</th><th style="width:52mm">File</th><th style="width:24mm">Licence</th><th>Source</th></tr></thead>
+    <tbody>
+      {% for c in data_credits %}
+      <tr>
+        <td style="font-family:var(--mono);font-size:7.5pt">{{ c.id }}</td>
+        <td style="font-family:var(--mono);font-size:7.5pt">{{ c.path }}</td>
+        <td>{{ c.license }}</td>
+        <td>{{ c.source }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  <h2>About DTCC</h2>
+  <p>The Distributed Teaching Collaboratives Consortium is a national, faculty-led network
+  co-creating open-source curricula and student pathways in AI and robotics. These contributions
+  were developed through the AWS Machine Learning University Faculty Fellows programme.</p>
+  <p style="font-family: var(--mono); font-size: 10pt;">https://dtcconsortium.org</p>
+
+  <p class="small muted" style="margin-top:8mm">This handbook was generated from the DTCC-MLU
+  repository on {{ generated }} by <code>scripts/build_handbook.py</code>. To regenerate it, or to
+  check whether a newer edition exists, see {{ repo_url }}.</p>
+</section>
+
+</body>
+</html>

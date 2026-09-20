@@ -15,10 +15,16 @@ First publication in the DTCC-MLU repository.
   walkthrough for all three tools, with screenshots.
 - `materials/lectures/README.md` — index of the three externally hosted video modules, and an
   explicit statement of what this contribution's licence does and does not cover.
+- `materials/rubrics/final-project-rubric.md` — a 50-point rubric for the Module 4 project.
+  **Not the author's work**; see Known gaps.
 
 ### Known gaps
-- **The Module 4 grading rubric is missing.** It is described in the author's submission and lives
-  in her Canvas portal, but the file failed to upload with the original submission.
+- **The author's Module 4 rubric is missing, and the rubric shipped here is a consortium
+  substitute.** Hers lives in Talladega's Canvas portal and the file failed to upload with the
+  original submission. The substitute keeps her 50-point total, her five parts, and the syllabus
+  outcomes; the point split across parts and all scoring guidance are the consortium's, and the
+  project template now points at it instead of at a Canvas rubric no adopter can reach. Replace it
+  if the author's original is released.
 - **A fourth video link** from the original submission has an unconfirmed role in the course
   sequence and is recorded in the lectures index rather than listed as a module.
 
