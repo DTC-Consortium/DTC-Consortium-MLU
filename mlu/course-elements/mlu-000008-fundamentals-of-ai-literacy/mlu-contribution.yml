@@ -88,6 +88,11 @@ materials:
       tools and saving each labelled output.
   - path: materials/assignments/getting-started-with-partyrock-chatgpt-and-copilot.docx
     description: The author's original Word version of the walkthrough.
+  - path: materials/rubrics/final-project-rubric.md
+    description: >-
+      A 50-point rubric for the Module 4 project, mapped to its five parts. Assembled by the
+      consortium, not by the author — her original rubric is internal to Talladega's Canvas
+      and was not released.
   - path: materials/lectures/README.md
     description: >-
       Index of the three externally hosted video modules, with a note on what is and is not

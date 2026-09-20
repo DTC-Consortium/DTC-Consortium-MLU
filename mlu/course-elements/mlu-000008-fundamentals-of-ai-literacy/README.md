@@ -53,6 +53,7 @@ By the end, a participant can:
 | [`materials/lectures/README.md`](materials/lectures/README.md) | Index of the three externally hosted video modules, and what the licence does and does not cover |
 | [`materials/assignments/final-project-template.md`](materials/assignments/final-project-template.md) | Module 4, the five-part final project (`.docx` alongside for students to fill in) |
 | [`materials/assignments/getting-started-with-partyrock-chatgpt-and-copilot.md`](materials/assignments/getting-started-with-partyrock-chatgpt-and-copilot.md) | Illustrated walkthrough for all three tools (`.docx` alongside) |
+| [`materials/rubrics/final-project-rubric.md`](materials/rubrics/final-project-rubric.md) | 50-point rubric for the Module 4 project — consortium-built, not the author's (see Known gaps) |
 
 ### How the course is weighted
 
@@ -80,9 +81,13 @@ By the end, a participant can:
 
 Recorded honestly rather than papered over:
 
-- **The Module 4 grading rubric is not included.** The author's submission describes it and notes it
-  lives in the Canvas portal, but the file failed to upload with the original submission. The
-  project itself states its 50-point value; the band descriptors are missing.
+- **The author's Module 4 rubric is not included, and the one here is a substitute.** Her rubric
+  lives inside Talladega's Canvas instance and the file failed to upload with the original
+  submission. Because the project is ungradeable without one,
+  [`materials/rubrics/final-project-rubric.md`](materials/rubrics/final-project-rubric.md) was
+  assembled by the consortium from her own template and syllabus — the 50-point total, the five
+  parts, and the syllabus outcomes are hers; the point split and the band descriptors are not.
+  Treat it as a working default and replace it if her original is released.
 - **The video modules are linked, not bundled**, and are not covered by this contribution's licence
   — see below.
 - **A fourth video link** appeared in the original submission as the course entry point. Its role in

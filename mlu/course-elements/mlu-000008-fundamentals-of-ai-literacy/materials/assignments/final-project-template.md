@@ -13,8 +13,8 @@ exploration, and workplace productivity.
 
 This project has five parts, to be completed in the sections below. After saving your completed
 assignment, submit the document by uploading it into Canvas before the stipulated deadline. The
-completed assignment is worth **50 points**; a rubric is available in your Canvas portal for
-Module 4.
+completed assignment is worth **50 points**, graded against the
+[Module 4 rubric](../rubrics/final-project-rubric.md).
 
 Step-by-step instructions for accessing all three tools are in
 [Getting Started with PartyRock, ChatGPT, and Copilot](getting-started-with-partyrock-chatgpt-and-copilot.md).
