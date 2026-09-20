@@ -21,6 +21,7 @@ from __future__ import annotations
 import csv
 import io
 import json
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -233,6 +234,20 @@ def build_csv(docs: list[dict]) -> str:
     return buf.getvalue()
 
 
+BUILD_DATE_RE = re.compile(r'^(\s*"generated":\s*)"\d{4}-\d{2}-\d{2}"', re.M)
+
+
+def same_but_for_build_date(a: str, b: str) -> bool:
+    """Compare two generated files, ignoring the catalog's `generated` date stamp.
+
+    That stamp records when the file was built, not what is in it. Comparing it
+    verbatim made `--check` depend on the wall clock: a catalog generated in the US
+    evening carries the local date, CI runs in UTC and has already rolled over, and
+    the check fails on a file nobody touched.
+    """
+    return BUILD_DATE_RE.sub(r'\1""', a) == BUILD_DATE_RE.sub(r'\1""', b)
+
+
 def main() -> int:
     check = "--check" in sys.argv
     docs = load()
@@ -249,10 +264,13 @@ def main() -> int:
 
     stale = []
     for path, text in targets.items():
+        current = path.read_text(encoding="utf-8") if path.exists() else None
         if check:
-            if not path.exists() or path.read_text(encoding="utf-8") != text:
+            if current is None or not same_but_for_build_date(current, text):
                 stale.append(str(path.relative_to(ROOT)))
         else:
+            if current is not None and same_but_for_build_date(current, text):
+                continue  # only the build date moved; leave the file alone
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(text, encoding="utf-8")
             print(f"wrote {path.relative_to(ROOT)}")
