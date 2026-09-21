@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-20",
+  "generated": "2026-09-21",
   "repository": "https://github.com/DTC-Consortium/DTC-Consortium-MLU",
   "schema": "schemas/mlu-contribution.schema.json",
   "count": 10,
@@ -569,7 +569,7 @@
     {
       "id": "mlu-000005",
       "title": "The Assignment Lifecycle — Quick Assessment Demo Session",
-      "summary": "A 90-minute facilitated session that walks a room through one assignment's full lifecycle — write the rubric, stress-test it, grade against it, and triage submissions before the deadline. Built around a single fluent, confident, and wrong student paper that earns a B+ under a vague rubric and an F under a rubric that names what correct means. Ships a deck, a talk track, a participant handout, and a five-student sample pack.",
+      "summary": "A 90-minute facilitated session that walks a room through one assignment's full lifecycle — write the rubric, stress-test it, grade against it, and triage submissions before the deadline. Built around a single fluent, confident, and wrong student paper that earns a high grade under a vague rubric and an F under a rubric that names what correct means. The room builds three of the four tools itself, from prompts, in about ninety seconds each. Ships the prompts, a deck, a talk track, one follow-along document, and a sample pack.",
       "category": "professional-student-development",
       "subtype": "workshop",
       "authors": [
@@ -597,6 +597,8 @@
         "fluency versus correctness"
       ],
       "tools": [
+        "Amazon Quick",
+        "Kiro",
         "PowerPoint",
         "Python"
       ],
@@ -615,18 +617,20 @@
       },
       "prerequisites": {
         "knowledge": [
-          "Participants bring one assignment prompt and its learning objectives, as text. No student work.",
-          "FACILITATOR: the four apps this session demonstrates are not included and must be built first. See materials/facilitator-guide/APPS_YOU_MUST_BUILD.md."
+          "None for participants. Everything they grade, paste and build is provided in one follow-along document; they do not bring their own assignment.",
+          "FACILITATOR: build the two facilitator-led tools before delivery, from materials/prompts/facilitator/. The room builds the other three live, from prompts.",
+          "FACILITATOR: assemble the shared folder attendees scan into. See materials/prompts/DRIVE-FOLDER.md."
         ],
         "accounts": [
-          "Amazon Quick account for the facilitator and every attendee, for the three hands-on tools",
-          "Kiro access for the facilitator, for the grading segment the room watches"
+          "Amazon Quick account for the facilitator and every attendee. Free to set up and use.",
+          "Kiro access for the facilitator, for the grading segment the room watches",
+          "A file-sharing folder attendees can open without signing in"
         ],
-        "expected_cost": "None for the materials themselves. Per-seat cost depends on the Quick and Kiro plans the hosting institution uses. Budget facilitator time to build the four apps before delivery."
+        "expected_cost": "None for the materials themselves, and none for Amazon Quick, which is free to set up and use. Budget facilitator time to build the two demo tools and to rehearse the three the room builds, so you know how long each takes on an unfamiliar account."
       },
-      "version": "0.1.0",
+      "version": "0.2.0",
       "published": "2026-09-17",
-      "last_reviewed": "2026-09-17",
+      "last_reviewed": "2026-09-21",
       "maturity": "pilot",
       "licenses": {
         "content": "CC-BY-4.0",
@@ -651,20 +655,44 @@
       },
       "materials": [
         {
-          "path": "materials/slides/assessment-lifecycle-deck.pdf",
+          "path": "materials/facilitator-guide/00-READ-ME-FIRST.md",
+          "description": "Start here. What to read in what order, the three constraints that shape the session, and what goes wrong on the day."
+        },
+        {
+          "path": "materials/prompts/",
+          "description": "The five prompts. Three the room builds its own tools from; two the facilitator prepares in advance. Each carries the outputs it must produce on the sample pack."
+        },
+        {
+          "path": "materials/prompts/MASTER-FOLLOW-ALONG.md",
+          "description": "The single document attendees follow for the whole session. Every step is self-contained: the paper, the rubric, the assignment and all three prompts are inside it."
+        },
+        {
+          "path": "materials/prompts/DRIVE-FOLDER.md",
+          "description": "What goes in the shared folder attendees scan into, how to lay it out, and what must not."
+        },
+        {
+          "path": "materials/assessment-lifecycle-deck.pdf",
           "description": "The session deck, 90 minutes."
         },
         {
-          "path": "materials/slides/assessment-lifecycle-deck.pptx",
+          "path": "materials/assessment-lifecycle-deck.pptx",
           "description": "Editable source of the deck."
         },
         {
-          "path": "materials/slides/build_deck.py",
+          "path": "materials/build_deck.py",
           "description": "Script that regenerates the deck from source."
         },
         {
-          "path": "materials/facilitator-guide/APPS_YOU_MUST_BUILD.md",
-          "description": "Build spec for the four apps the session demonstrates, which are NOT included in this contribution. Read before scheduling a delivery."
+          "path": "materials/verify_deck.py",
+          "description": "Proves a rebuilt deck only ever REMOVES copy from the approved slides. Gates the PDF export."
+        },
+        {
+          "path": "materials/DECK-APPROVAL.md",
+          "description": "What may and may not change on the approved slides, and why a checksum was the wrong check."
+        },
+        {
+          "path": "materials/dist/",
+          "description": "Built PDFs — the follow-along guide, the facilitator guide, and the take-home pack."
         },
         {
           "path": "materials/facilitator-guide/TALK_TRACK.md",

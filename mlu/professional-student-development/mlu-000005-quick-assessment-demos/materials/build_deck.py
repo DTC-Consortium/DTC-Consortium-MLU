@@ -26,11 +26,14 @@ from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
 from pptx.oxml.ns import qn
 from pptx.util import Inches, Pt
 
+from session_config import DRIVE_SHORTLINK, DRIVE_URL
+
 HERE = Path(__file__).resolve().parent
 DEFAULT_TEMPLATE = (Path.home() / "dev/2026/mlu/aws-mlu-eep-agentic-ai"
                     / "Administrator Workshop - Building with Agentic AI (No Code)"
                     / "AgenticAI-Essentials-NoCode.pptx")
 OUT = HERE / "assessment-lifecycle-deck.pptx"
+QR_PNG = HERE / "assets" / "drive-qr.png"
 
 # Colours sampled from the template's slides and theme.
 INK = RGBColor(0x23, 0x2F, 0x3E)     # body text
@@ -108,6 +111,41 @@ def add_slide_number(slide):
         if ph.placeholder_format.type == PP_PLACEHOLDER.SLIDE_NUMBER:
             _insert(slide, copy.deepcopy(ph._element))
             return
+
+
+def qr_png() -> Path:
+    """Render the shared-folder QR to assets/, regenerating it whenever the URL changes.
+
+    Error correction M, not H. H sounds safer but packs in far more modules, and at the size
+    this sits on a slide the modules are already near the limit of what a phone resolves across
+    a lecture hall. Fewer, bigger modules scan from further away, which is the failure that
+    actually happens. M still tolerates a projector washing out or a fold across a printed card.
+
+    A 4-module quiet zone is what keeps it scannable on the dark cover and divider slides: the
+    white margin is the border, so no backing shape is needed.
+    """
+    import qrcode
+    QR_PNG.parent.mkdir(exist_ok=True)
+    stamp = QR_PNG.with_suffix(".url")
+    if QR_PNG.exists() and stamp.exists() and stamp.read_text().strip() == DRIVE_URL:
+        return QR_PNG
+    qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_M, box_size=16, border=4)
+    qr.add_data(DRIVE_URL)
+    qr.make(fit=True)
+    qr.make_image(fill_color="black", back_color="white").save(QR_PNG)
+    stamp.write_text(DRIVE_URL + "\n")
+    return QR_PNG
+
+
+def add_qr(slide, x=1.12, y=6.55, size=0.85):
+    """Stamp the shared-folder code on a slide.
+
+    Deliberately silent — no caption, no label, no "scan me". The 28 slides this lands on are
+    legal-approved and the standing permission is that copy may be removed from them, never
+    added. A graphic adds no words, so the approved text stays provably intact; verify_deck.py
+    still passes. Slide 0 carries all the explanation, and the facilitator says it out loud.
+    """
+    slide.shapes.add_picture(str(qr_png()), Inches(x), Inches(y), Inches(size), Inches(size))
 
 
 def drop_placeholder(slide, idx):
@@ -367,6 +405,45 @@ def build(template):
         fill_placeholder(s, 2, [subtitle], italic=True)
         return s
 
+    # 0 ─ The shared folder. Added after legal approval, and numbered 0 on purpose: the deck is
+    # cross-referenced by slide number all through the talk track, the handout and the take-home
+    # pack ("slide 13", "slide 21", "slide 27"). Inserting a slide 1 would silently shift all 28
+    # and break every one of those references. firstSlideNum below makes the cover slide 1 again.
+    s = content("Everything you need is in this folder")
+    add_qr(s, x=1.35, y=1.85, size=3.05)
+    caption = [{"text": "Scan it now. You'll need it three times today.", "align": CENTER}]
+    # A typable link matters more than it looks: the back row, a phone with no camera access,
+    # and anyone joining remotely all need one. It appears only once DRIVE_SHORTLINK is a real
+    # redirect — an unfilled placeholder projected on a wall is worse than no line at all.
+    if "FILL IN" not in DRIVE_SHORTLINK:
+        caption.append({"text": DRIVE_SHORTLINK, "align": CENTER, "italic": False,
+                        "bold": True, "color": TEAL, "space_before": 6})
+    textbox(s, 0.75, 5.05, 4.25, 0.85, caption, size=17, italic=True, color=MUTED)
+    card(s, 5.75, 1.6, 6.85, 4.15, "What's inside", [
+        "**Three build files** — you build each tool yourself, from these",
+        "**The sample pack** — one assignment, two rubrics, five students",
+        "**The course reading** — what “correct” is judged against",
+        "**This deck**, and the take-home pack",
+        {"text": "Nothing is pre-installed. Nothing is pre-built. That is the point — "
+                 "you leave with tools you know how to make again.",
+         "size": 16, "color": MUTED, "italic": True, "space_before": 14, "bullet": False},
+    ], size=19, head_size=23, bullet=True, anchor=MIDDLE)
+    # The sign-up link the Know Before You Go sent everyone, in full, with its campaign
+    # parameter intact. Most people will tap it from the START HERE doc in the folder rather
+    # than type it, but it has to be on screen for the ones who never opened that email.
+    navy(s, 1.6, 5.98, 10.15, 0.95,
+         [{"text": "Not set up on Amazon Quick yet? It's free — and a volunteer will "
+                   "help you.", "align": CENTER},
+          {"text": "**quick.aws.com/sn?utm_campaign=mlu2026**", "align": CENTER,
+           "space_before": 4}],
+         size=17, bold=False)
+    notes(s, "Put this up before you say anything and leave it up while people settle. Tell them "
+             "to scan it now — everything today comes out of this folder, and nobody is signed "
+             "into anything yet. The same code is in the bottom-left corner of every slide from "
+             "here on, so latecomers can pick it up at any point. Read the short link aloud for "
+             "anyone who can't scan. This slide is numbered 0: the deck was approved at 28 "
+             "slides and every cross-reference still points at the right one.")
+
     # 1 ─ Cover
     s = prs.slides.add_slide(layouts["Title Slide"])
     fill_placeholder(s, 1, ["The Assignment Lifecycle:", "AI from Rubric to Feedback"])
@@ -382,15 +459,21 @@ def build(template):
 
     # 2 ─ Sign in + the hook
     s = content("Get signed in — and start grading")
+    # Two ways in, and attendees have had both: an invitation email, and the quick.aws.com/sn
+    # link in the Know Before You Go telling them to set Quick up themselves. The approved step
+    # covers the email; slide 0 carries the self-signup link for anyone who never opened it.
     steps(s, 0.6, 1.6, 7.4, [
         "**Open** your Amazon Quick invitation email and follow the sign-in link",
         "**Sign in**, and set a password if it asks",
-        "**Find Apps** in the left menu. Today's tools live there.",
         "**Stuck?** Raise your hand. A volunteer will come to you.",
     ])
+    # Nothing is printed and nothing is on the tables any more: the paper and the rubric are
+    # both in the follow-along document, which is already open on every laptop. "On your table"
+    # and "on the handout" would send the room looking for paper that does not exist. Deleted,
+    # not reworded — the sentences still stand without them.
     card(s, 8.45, 1.6, 4.45, 3.95, "While you wait", [
-        "Grade the paper on your table.",
-        "Use **only** the rubric on the handout.",
+        "Grade the paper.",
+        "Use **only** the rubric.",
         "Three minutes. Write down a score and a letter.",
         "You don't need to know computer science.",
     ], bullet=True)
@@ -418,14 +501,13 @@ def build(template):
 
     # 4 ─ The vote
     s = content("What grade did you give Marcus?")
-    textbox(s, 0.6, 1.4, 12.1, 0.5,
-            ["The paper on your table, graded with only the rubric on the handout."],
-            size=20, color=MUTED, align=CENTER)
-    for i, letter in enumerate("ABCDF"):
-        card(s, 0.57 + i * 2.5, 2.15, 2.2, 2.5, None,
+    # Four letters, not five: the approved deck has no D card. The talk track polls A/B/C/F
+    # only — see DECK-APPROVAL.md. Do not add a D here without clearing it first.
+    for i, letter in enumerate("ABCF"):
+        card(s, 1.82 + i * 2.5, 1.95, 2.2, 2.5, None,
              [{"text": letter, "size": 88, "bold": True, "align": CENTER}], anchor=MIDDLE)
     textbox(s, 1.0, 5.05, 11.3, 0.8,
-            ["Hands up for your letter. Then hold that number — we'll come back to it."],
+            ["Hands up. Then hold that number — we'll come back to it."],
             size=22, italic=True, color=MUTED, align=CENTER)
     notes(s, "A poll, not a quiz. Count hands for each letter and say the result out loud; a "
              "volunteer writes the tally down — you need it on slide 11. Most rooms land on B. "
@@ -481,7 +563,7 @@ def build(template):
     # 7 ─ The students
     s = content("Meet the five students")
     students = [("Aisha Rahman", "Strong. Correct analysis, a real scenario, honest trade-offs."),
-                ("Marcus Lee", "**The paper you graded.** Fluent and confident."),
+                ("Marcus Lee", "Fluent, confident."),
                 ("Priya Chandra", "A reflection on the class, **not an analysis**."),
                 ("Leila Haddad", "An **unfinished draft** with two [TODO]s left in."),
                 ("Diego Alvarez", "**Submitted nothing.**")]
@@ -509,7 +591,7 @@ def build(template):
     ], size=20)
     textbox(s, 6.6, 1.6, 6.3, 4.8, [
         {"text": "What's wrong with it", "size": 24, "bold": True, "space_after": 14},
-        {"text": "60 of 100 points go to what you can see **without expertise**", "bullet": True},
+        {"text": "Half the points go to what you can see **without expertise**", "bullet": True},
         {"text": "*Understanding* is never defined", "bullet": True},
         {"text": "Nothing checks whether a claim is **true**", "bullet": True},
         {"text": "It isn't tied to the **learning objectives**", "bullet": True},
@@ -566,22 +648,21 @@ def build(template):
 
     # 13 ─ Hands-on: build a rubric
     s = content("Your turn: a rubric for your assignment")
-    steps(s, 0.6, 1.6, 7.4, [
-        "**Open** the Rubric Builder app (link on your table card)",
-        "**Paste** your assignment prompt and learning objectives",
-        "**Generate**, then read every criterion",
-        "**Edit** anything you wouldn't actually grade on",
-    ])
-    card(s, 8.45, 1.6, 4.45, 3.95, "Check it", [
+    # The step-by-step used to live here, and pointed at a pre-published app. Attendees now build
+    # the app from PROMPT-1 in the shared folder, so the steps are on the prompt card instead —
+    # this slide is the marker and the clock. What stays on screen is the part they must judge.
+    card(s, 3.17, 1.95, 7.0, 3.15, "Check it", [
         "Does every criterion map to an **objective**?",
         "Could a colleague tell a **2 from a 3**?",
         "Does anything check that claims are **correct**?",
-        {"text": "Assignments and rubrics only — never student work.", "size": 15,
-         "color": MUTED, "italic": True, "space_before": 10},
-    ], bullet=True)
+        {"text": "Assignments and rubrics only — never student work.", "size": 17,
+         "color": MUTED, "italic": True, "space_before": 14},
+    ], size=21, head_size=25, bullet=True, anchor=MIDDLE)
     pill(s, "HANDS-ON · 12 MIN")
-    notes(s, "Twelve minutes. Volunteers float. Anyone without an assignment handy can use the "
-             "sample assignment. Save the rubric — you'll use it again in AI-Proofing and Triage.")
+    notes(s, "Twelve minutes. Volunteers float. The build steps are on the prompt card in the "
+             "shared folder — read them out once while the room scans the QR code, then let "
+             "people work. Anyone without an assignment handy can use the sample assignment. "
+             "Save the rubric — you'll use it again in AI-Proofing and Triage.")
 
     # 14 ─ Divider: AI-Proofing
     s = divider("The AI-Proofing Assistant", "Harden the assignment before it goes out")
@@ -589,21 +670,18 @@ def build(template):
 
     # 15 ─ AI-Proofing
     s = content("Could a chatbot do this assignment?")
-    steps(s, 0.6, 1.6, 7.4, [
-        "**Predict:** which requirements could a chatbot meet in 30 seconds?",
-        "**Paste** your assignment and your new rubric",
-        "**Read the flags:** what a chatbot could do without your course",
-        "**Choose** the revisions you'll actually make",
-    ])
-    card(s, 8.45, 1.6, 4.45, 3.95, "Check your prediction", [
+    # The steps carried the original author's note that they had to be rewritten to match the
+    # finished app. Deleting them settles that: the build steps are on PROMPT-2's card, which
+    # can be revised freely. The prediction and the debrief stay on screen.
+    card(s, 3.17, 2.05, 7.0, 2.95, "Check your prediction", [
         "Which requirement did it flag that you didn't?",
         "Which suggested change would you actually make?",
         "Which one would change what students **learn**, not just what they submit?",
-    ], bullet=True)
+    ], size=21, head_size=25, bullet=True, anchor=MIDDLE)
     pill(s, "HANDS-ON · 10 MIN")
-    notes(s, "Prediction first, then the tool. The best revisions tie the work to your course, "
-             "your class, or the student's own process. BUILD: align these steps with the final "
-             "AI-Proofing app.")
+    notes(s, "Prediction first — have them write it down before anyone opens anything. Then the "
+             "build steps from PROMPT-2's card. The best revisions tie the work to your course, "
+             "your class, or the student's own process.")
 
     # 16 ─ Divider: Grading Assistant
     s = divider("The Grading Assistant", "Grade against the rubric, built spec‑first in Kiro")
@@ -736,15 +814,16 @@ def build(template):
 
     # 25 ─ Hands-on: Triage for your rubric
     s = content("Your turn: Triage for your rubric")
-    steps(s, 0.9, 1.55, 11.5, [
-        "**Open** the Triage app",
-        "**Paste** the rubric you built earlier",
-        "**Upload** a draft — write a quick fake one, or use Leila's",
-        "**Check** that every status quotes a passage from the draft",
-    ], row_h=0.88, gap=0.26, size=20)
+    # Three of the four steps were navigation to a pre-published app; they are on PROMPT-3's card
+    # now. The fourth is the test of whether the tool is behaving, so it stays on screen.
+    card(s, 1.42, 2.55, 10.5, 1.7,
+         paras=[{"text": "**Check** that every status quotes a passage from the draft",
+                 "align": CENTER}],
+         size=26, anchor=MIDDLE, pad=0.4)
     pill(s, "HANDS-ON · 8 MIN")
-    notes(s, "Adapt Triage to the rubric you built in the first hands-on. A three-sentence fake "
-             "draft is enough to see Present, Partial, and Missing.")
+    notes(s, "Adapt Triage to the rubric you built in the first hands-on, using the steps on "
+             "PROMPT-3's card. A three-sentence fake draft is enough to see Present, Partial, "
+             "and Missing. A status without a quote is a guess — that is the thing to catch.")
 
     # 26 ─ Takeaways
     s = content("What you leave with")
@@ -770,6 +849,16 @@ def build(template):
     # 28 ─ Close
     s = prs.slides.add_slide(final)
     notes(s, "Thank you. Questions.")
+
+    # The folder code on every slide but slide 0, which already carries it at full size. People
+    # arrive late, look up mid-session, and need the materials at the moment they need them —
+    # not only in the two minutes the first slide was on screen.
+    for sld in list(prs.slides)[1:]:
+        add_qr(sld)
+
+    # Number from 0, so the cover is slide 1 and the 28 approved slides keep the numbers that
+    # the talk track, the handout and the take-home pack all refer to.
+    prs.part._element.set("firstSlideNum", "0")
 
     prs.save(str(OUT))
     return len(prs.slides)

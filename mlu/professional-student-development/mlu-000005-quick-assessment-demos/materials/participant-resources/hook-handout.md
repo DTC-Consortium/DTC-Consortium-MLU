@@ -19,7 +19,7 @@ Grade it the way the rubric tells you to.
 | **Writing Mechanics** | 20 | **18–20** — Few or no errors in grammar, spelling, or punctuation. | **15–17** — Some minor errors. | **12–14** — Frequent errors. | **0–11** — Errors interfere with meaning. |
 | **Length & Formatting** | 10 | **9–10** — Meets the length requirement (1–2 pages); formatted correctly. | **7–8** — Slightly off. | **5–6** — Noticeably off. | **0–4** — Far off. |
 
-A 90–100 · B 80–89 · C 70–79 · D 60–69 · F below 60
+A 93–100 · A- 90–92 · B+ 87–89 · B 83–86 · B- 80–82 · C+ 77–79 · C 73–76 · C- 70–72 · D 60–69 · F below 60
 
 ---
 
@@ -46,3 +46,14 @@ pretty similar in most cases.
 My conclusion is that linked lists are better because they can grow and you don't have to know the
 size ahead of time. Arrays are good too but linked lists win in most situations because of the
 pointers.
+
+---
+
+**After the session — don't reuse this rubric.** It is the "before" example the session is built
+around, not a model to copy. Slide 9 of the deck explains what's wrong with it, and slides 11–12
+show what it costs.
+
+If you want a rubric you can actually use, build one. Scan the code in the corner of any slide,
+open **1 — Build the Rubric Builder**, and follow it — about fifteen minutes, no coding. The
+**Start here** section of your take-home pack has the same instructions if you have mislaid the
+folder.

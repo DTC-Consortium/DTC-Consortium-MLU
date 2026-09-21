@@ -1,0 +1,65 @@
+{
+  "format": "mlu-rubric/1",
+  "title": "Short Paper Rubric",
+  "assignment": "assignment.md",
+  "_note": "The 'before' rubric — the one on the handout, deliberately weak. It is here so the Stress Test can load both sides of the comparison. Three things are missing ON PURPOSE and must not be 'fixed': there is no correctness criterion, so nothing asks whether a claim is true; no criterion carries an 'objective', so the rubric is not tied to the learning objectives; and no criterion carries a 'present_when' line, which is why Triage cannot read this rubric at all. 60 of the 100 points sit on organization, mechanics and length — things a reader can judge without knowing the subject.",
+  "max_tier": 4,
+  "grade_bands": [
+    [93, "A"], [90, "A-"], [87, "B+"], [83, "B"], [80, "B-"],
+    [77, "C+"], [73, "C"], [70, "C-"], [60, "D"], [0, "F"]
+  ],
+  "criteria": [
+    {
+      "id": "content",
+      "name": "Content",
+      "weight": 40,
+      "description": "Discussion of the topic and understanding of data structures.",
+      "levels": {
+        "4": "36–40 — Thorough, insightful discussion of the topic showing strong understanding of data structures.",
+        "3": "30–35 — Solid discussion showing good understanding.",
+        "2": "24–29 — Some discussion; understanding is limited.",
+        "1": "0–23 — Little discussion of the topic.",
+        "0": "No discussion of the topic, or off-prompt."
+      }
+    },
+    {
+      "id": "organization",
+      "name": "Organization",
+      "weight": 30,
+      "description": "Structure and flow of the paper.",
+      "levels": {
+        "4": "27–30 — Clear introduction, body, and conclusion; flows well.",
+        "3": "22–26 — Organized, with minor lapses.",
+        "2": "18–21 — Some organization.",
+        "1": "0–17 — Disorganized.",
+        "0": "No discernible structure."
+      }
+    },
+    {
+      "id": "mechanics",
+      "name": "Writing Mechanics",
+      "weight": 20,
+      "description": "Grammar, spelling, and punctuation.",
+      "levels": {
+        "4": "18–20 — Few or no errors in grammar, spelling, or punctuation.",
+        "3": "15–17 — Some minor errors.",
+        "2": "12–14 — Frequent errors.",
+        "1": "0–11 — Errors interfere with meaning.",
+        "0": "Unreadable."
+      }
+    },
+    {
+      "id": "length",
+      "name": "Length & Formatting",
+      "weight": 10,
+      "description": "Meets the stated length and formatting requirements.",
+      "levels": {
+        "4": "9–10 — Meets the length requirement (1–2 pages); formatted correctly.",
+        "3": "7–8 — Slightly off.",
+        "2": "5–6 — Noticeably off.",
+        "1": "0–4 — Far off.",
+        "0": "Nothing submitted."
+      }
+    }
+  ]
+}

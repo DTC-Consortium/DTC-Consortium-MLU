@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# Kiro writes .kiro/ specs and generated code into the workspace; the seeded data is tracked,
+# the build output is not.
+kiro-grader/.kiro/
+kiro-grader/**/__pycache__/

@@ -22,7 +22,7 @@ two rubrics, five students.
 |---|---|---|
 | **Aisha Rahman** | Strong: hash table vs. array for membership tests; correct analysis, a scenario, trade-offs | The control. High on every rubric. |
 | **Marcus Lee** | **Fluent, confident, and wrong.** Claims array append is "always O(1)", linked-list access is "about O(1)", and middle insertion into an array is "fast". | Demo A's centerpiece: the weak rubric rewards him; the golden rubric doesn't. Also the honest limit of Triage — his running times are *present*. |
-| **Priya Chandra** | A reflection on the class, not an analysis | Demo B's centerpiece: Triage surfaces Missing ×3 before the deadline; Grade mode shows the F it would have been. |
+| **Priya Chandra** | A reflection on the class, not an analysis | Demo B's centerpiece: Triage surfaces Missing ×4 before the deadline; Grade mode shows the F it would have been. |
 | **Leila Haddad** | A **draft** — right thesis, right idea, unfinished: no big-O, no alternative, two `[TODO]` markers | Shows what **Partial** looks like in Triage. |
 | **Diego Alvarez** | On the roster, no paper | The Grading Assistant flags him **missing** rather than silently skipping him. |
 
@@ -41,10 +41,14 @@ The golden rubric's correctness criterion is only useful because the reading set
 Hand-scored against each rubric's descriptors to set expectations for the rehearsal. Replace with
 recorded results once the apps have run; model output will vary run to run.
 
+Each prompt in [`../../prompts/`](../../prompts/README.md) ends with the subset of this table its
+build has to reproduce. Those are the checks to run before rehearsing — particularly Marcus's
+**B+ → F** gap and his **Present** running-time status in Triage, which two slides depend on.
+
 | Student | Weak rubric | Golden rubric (tiers: thesis / running-time / evidence / trade-offs / clarity) | Triage (same order) |
 |---|---|---|---|
 | Aisha | ≈ A | 4 / 3 / 4 / 4 / 4 → **≈91% A-** | Present ×5 |
-| Marcus | **≈ B+ (~88)** — organized, clean, right length, "discusses the topic" | 2 / 1 / 1 / 1 / 3 → **≈38% F** | Present / **Present** / Missing / Partial / Present |
+| Marcus | **≈ B+ (~88)** — organized, clean, right length, "discusses the topic" | 2 / 1 / 1 / 1 / 3 → **≈38% F** | Partial / **Present** / Missing / Missing / Present |
 | Priya | ≈ C- (~72) | 1 / 0 / 0 / 0 / 2 → **≈13% F** | Missing / Missing / Missing / Missing / Partial |
 | Leila | — (a draft; not graded in the demo) | 3 / 2 / 2 / 0 / 2 → ≈50% F if submitted as-is | Present / Partial / Partial / Missing / Partial |
 | Diego | — | **missing** | — |

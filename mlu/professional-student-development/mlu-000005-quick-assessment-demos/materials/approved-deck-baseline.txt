@@ -1,0 +1,174 @@
+# Approved slide text — the legal baseline for The Assignment Lifecycle
+#
+# Extracted from assessment-lifecycle-deck.pdf at md5 9fcad6b71fe23cd4c994a2527d76d277,
+# the artifact legal signed off. verify_deck.py diffs every rebuild against this file and
+# fails on any string that is not present here.
+#
+# THIS FILE IS THE APPROVAL RECORD. Never regenerate it from a rebuilt deck — that would
+# rebase the check onto unapproved copy and silently bless it. One slide per record,
+# separated by a form feed. Whitespace is not significant.
+
+The Assignment Lifecycle:AI from Rubric to FeedbackFour no-code tools, one assignmentSession 2 · Amazon Quick + KiroTariq Hook · Delaware State University
+
+Get signed in —and start grading
+2
+Openyour Amazon Quick invitation email and follow the sign-in link
+Sign in, and set a password if it asks
+Find Appsin the left menu. Today's tools live there.
+Stuck?Raise your hand. A volunteer will come to you.
+While you wait•Grade the paper on your table.•Use onlythe rubric on the handout.•Three minutes. Write down a score and a letter.•You don't need to know computer science.
+0:00 –0:12
+
+Today ’s session•Sign in, and grade a paper•The Rubric Builder —hands-on•The AI-Proofing Assistant —hands-on•The Grading Assistant, built in Kiro•Pre-Assessment Triage —hands-on•Wrap-up: what you leave with
+3
+
+What grade did you give Marcus?
+4
+A
+B
+C
+FHands up. Then hold that number —we'll come back to it.
+
+One assignment, four tools
+5
+Rubric BuilderBuild the rubricAmazon Quick
+AI-Proofing AssistantHarden the assignmentAmazon Quick
+Grading AssistantGrade against the rubricKiro
+Pre-Assessment TriageStudents self-check firstAmazon Quick
+The rubric the first tool builds is the rubric the other three use.
+
+The assignment we'll follow
+6
+Choose the Right Structure—Intro to Data StructuresPick an operation a real program does over and over. Argue which data structure fits it best.•State a thesis: the operation and the structure•Give running times, and say which kind of guarantee each is•Ground it in one concrete scenario•Name where your choice is the worse one•Cite the course reading
+Learning objectivesLO1Choose a structure and justify itLO2State running-time guarantees correctlyLO3Support claims with evidenceLO4Communicate clearly
+Not a CS person? You don't need to be. Watch what the tools do with it.
+
+Meet the five students
+7
+Aisha RahmanStrong. Correct analysis, a real scenario, honest trade-offs.
+Marcus LeeFluent, confident —and wrongabout running times.
+Priya ChandraA reflection on the class, not an analysis.
+Leila HaddadAn unfinished draftwith two [TODO]s left in.
+Diego AlvarezSubmitted nothing.
+All five are synthetic. No real student work is used anywhere in this session.
+
+The Rubric BuilderFrom assignment prompt to grading-ready rubric
+
+A tool is only as good as its rubric
+9
+The rubric you graded withContent —40Organization —30Writing mechanics —20Length & formatting —10Excellent content: “Thorough, insightful discussion of the topic. ”
+What's wrong with it•Half the points go to what you can see without expertise•Understandingis never defined•Nothing checks whether a claim is true•It isn't tied to the learning objectives
+
+What the Rubric Builder does
+10
+Paste inthe assignment prompt, the learning objectives, and the course reading
+It draftsweighted criteria, each tied to an objective, with 0–4 level descriptors
+It addsa present whenline to every criterion —what Triage checks for later
+You reviewand edit. It exports in the one format the other three tools read.
+
+Stress test: one paper, two rubrics
+11
+Original rubric
+B+≈ 88 / 100Rewards organization and clean prose
+Generated rubric
+F≈ 38%Running-time claims contradict the reading
+Marcus Lee's paper. Hand-scored preview —the live run happens on screen.
+
+What the new rubric caught
+12
+Marcus wroteThe course reading says
+“Adding to the end of an array is always O(1)”O(1) amortized—the array is copied when it fills (§2.1)
+“Getting an element is also fast, about O(1)” (linked list) O(1 + min{i, n − i}) —following pointers isthe cost (Table 1.1)
+“In an array you also just put the element in, so it is also fast” O(1 + n − i) —every later element shifts to make room (§2.1)
+The rubric carries the expertise, so the grader doesn't have to.
+
+Your turn: a rubric for your assignment
+13
+Openthe Rubric Builder app (link on your table card)
+Pasteyour assignment prompt and learning objectives
+Generate, then read every criterion
+Editanything you wouldn't actually grade on
+Check it•Does every criterion map to an objective?•Could a colleague tell a 2 from a 3?•Does anything check that claims are correct?•Assignments and rubrics only —never student work.
+HANDS-ON · 12 MIN
+
+The AI-Proofing AssistantHarden the assignment before it goes out
+
+Could a chatbot do this assignment?
+15
+Predict:which requirements could a chatbot meet in 30 seconds?
+Pasteyour assignment and your new rubricRead the flags:what a chatbot could do without your course
+Choosethe revisions you'll actually make
+Check your prediction•Which requirement did it flag that you didn't?•Which suggested change would you actually make?•Which one would change what students learn, not just what they submit?
+HANDS-ON · 10 MIN
+
+The Grading AssistantGrade against the rubric, built spec-first in Kiro
+
+Review the spec before the code
+17
+Requirements—what it must do
+Design—how it will do it
+Tasks—the build checklist
+Code—only after you approve all three
+Spot the flaw①WHEN a roster student has no paper, THE system SHALL flag them missingand SHALL NOT score them.②WHEN a paper is submitted, THE system SHALL grade it fairly.Which one can't you test?
+
+Three design decisions
+18
+The math is in codeThe model picks a 0–4 tier for each criterion.The weighted grade is calculated, never generated.
+Correct means per your readingClaims are checked against the course material you load —not the model's general knowledge.
+Everyone is accounted forThe roster is checked. Diego shows up as missinginstead of silently disappearing.
+The model judges. The code counts. The instructor decides.
+
+Five students, one rubric
+19
+StudentWhat it is Draft gradeAisha RahmanStrong, correct91% · A-Marcus LeeFluent, confident, wrong38% · FPriya ChandraA reflection, not an analysis13% · FLeila HaddadUnfinished draft50% · FDiego AlvarezNo paper Missing—flagged, not scoredDraft grades, hand-scored preview. The instructor reviews every one before anything is recorded.
+
+Pre-Assessment TriageA rubric check before students submit
+
+One line turns grading into triage
+21
+“Add a Triage Mode for students. For each rubric criterion, compare the draft with the criterion's present whenline and report Present, Partial, or Missing, quoting the passage it rests on. Never show a score, tier, or grade. Never rewrite the student's text or suggest wording. ”
+•It reads each criterion's present whenline —never the weights or levels•So it has nothing to calculate a score from•Same app, same rubric —a second mode
+
+Priya's draft, a week early
+22
+Thesis & Choice of StructureMISSING
+Running-Time AnalysisMISSING
+Evidence & ScenarioMISSING
+Trade-offs & LimitsMISSING
+Clarity & StructurePARTIAL
+If she'd submitted it
+F≈ 13% in Grade modeTriage shows her days before the deadlineinstead.
+
+The limits are the design
+23
+•Checks completenessonly•Never gives a score, tier, or grade•Never rewritesor suggests text•The student revises. The instructor grades.
+The honest limitTriage will pass Marcus's running-time section.His claims are present—just wrong.Present is not the same as correct.
+
+Break it
+24
+“Fix my introduction. ”
+“What grade would I get?”
+“Write my thesis for me. ”
+“Just give me one sentence to add.”
+Every one should be refused.If one gets through, tell us —that's a finding, not a failure.
+HANDS-ON · 7 MIN
+
+Your turn: Triage for your rubric
+25
+Openthe Triage app
+Pastethe rubric you built earlier
+Uploada draft —write a quick fake one, or use Leila's
+Checkthat every status quotes a passage from the draft
+HANDS-ON · 8 MIN
+
+What you leave with
+26
+A rubricfor one of your own assignments
+A hardened assignmentrevised where a chatbot could do the work
+Triage, set upfor your rubric, ready for students
+The take-home kitbuild prompts, the rubric format, the guardrail checklist
+
+Ground rules•Draft, not verdict.These tools prepare; you decide.•Student work is a protected record.Synthetic data here; approved systems at home.•Not an integrity tool.Nothing here detects plagiarism or AI writing.•You grade.Always.
+27
+
+Thank you!
